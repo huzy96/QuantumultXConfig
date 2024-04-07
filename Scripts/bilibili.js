@@ -85,58 +85,62 @@ if (body) {
             try {
                 let u = new Set([177, 178, 179, 181, 102, 104, 106, 486, 488, 489]);
                 let h = JSON.parse(body);
-                if (h.data?.tab) {
-                    var f = [];
-                    f.push({
-                        id: 39,
-                        name: "直播",
-                        uri: "bilibili://live/home",
-                        tab_id: "直播tab",
-                        pos: 1
-                    }, {
-                        id: 40,
-                        name: "推荐",
-                        uri: "bilibili://pegasus/promo",
-                        tab_id: "推荐tab",
-                        pos: 2,
-                        default_selected: 1
+                // if (h.data?.tab) {
+                //     var f = [];
+                //     f.push({
+                //         id: 39,
+                //         name: "直播",
+                //         uri: "bilibili://live/home",
+                //         tab_id: "直播tab",
+                //         pos: 1
+                //     }, {
+                //         id: 40,
+                //         name: "推荐",
+                //         uri: "bilibili://pegasus/promo",
+                //         tab_id: "推荐tab",
+                //         pos: 2,
+                //         default_selected: 1
+                //     });
+                //     - 1 == JSON.stringify(h.data.tab).indexOf("pgc/home") ? f.push({
+                //         id: 774,
+                //         name: "番剧",
+                //         uri: "bilibili://following/home_activity_tab/6544",
+                //         tab_id: "bangumi",
+                //         pos: 3
+                //     }) : f.push({
+                //         id: 545,
+                //         name: "番剧",
+                //         uri: "bilibili://pgc/home",
+                //         tab_id: "bangumi",
+                //         pos: 3
+                //     });
+                //     f.push({
+                //         id: 41,
+                //         name: "热门",
+                //         uri: "bilibili://pegasus/hottopic",
+                //         tab_id: "hottopic",
+                //         pos: 4
+                //     }, {
+                //         id: 151,
+                //         name: "影视",
+                //         uri: "bilibili://pgc/cinema-tab",
+                //         tab_id: "film",
+                //         pos: 5
+                //     });
+                //     h.data.tab = f
+                // }
+                if (h.data.top) {
+                    let m = h.data.top.filter(function checkItem(t) {
+                        if (t.name && t.name === "消息") {
+                            t.pos = 1;
+                            return true;
+                        } else {
+                            return false;
+                        }
                     });
-                    - 1 == JSON.stringify(h.data.tab).indexOf("pgc/home") ? f.push({
-                        id: 774,
-                        name: "番剧",
-                        uri: "bilibili://following/home_activity_tab/6544",
-                        tab_id: "bangumi",
-                        pos: 3
-                    }) : f.push({
-                        id: 545,
-                        name: "番剧",
-                        uri: "bilibili://pgc/home",
-                        tab_id: "bangumi",
-                        pos: 3
-                    });
-                    f.push({
-                        id: 41,
-                        name: "热门",
-                        uri: "bilibili://pegasus/hottopic",
-                        tab_id: "hottopic",
-                        pos: 4
-                    }, {
-                        id: 151,
-                        name: "影视",
-                        uri: "bilibili://pgc/cinema-tab",
-                        tab_id: "film",
-                        pos: 5
-                    });
-                    h.data.tab = f
+                    h.data.top = m;
                 }
-                if (h.data.top && (h.data.top = [{
-                    id: 481,
-                    icon: "http://i0.hdslb.com/bfs/archive/d43047538e72c9ed8fd8e4e34415fbe3a4f632cb.png",
-                    name: "消息",
-                    uri: "bilibili://link/im_home",
-                    tab_id: "消息Top",
-                    pos: 1
-                }]), h.data.bottom) {
+                if (h.data.bottom) {
                     let m = h.data.bottom.filter(t => u.has(t.id));
                     h.data.bottom = m;
                 }

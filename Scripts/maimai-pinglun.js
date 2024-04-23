@@ -12,10 +12,10 @@ if (obj.hasOwnProperty('lst')) {
 }
 
 if (obj.hasOwnProperty('comments')) {
-    if (obj.hasOwnProperty('lst')) {
-        for (let i = 0; i < obj['lst'].length; i++) {
-            if (obj['lst'][i].hasOwnProperty('newAdStyle')) {
-                obj['lst'].splice(i, 1);
+    if (obj['comments'].hasOwnProperty('lst')) {
+        for (let i = 0; i < obj['comments']['lst'].length; i++) {
+            if (obj['comments']['lst'][i].hasOwnProperty('newAdStyle')) {
+                obj['comments']['lst'].splice(i, 1);
                 i--;
             }
         }

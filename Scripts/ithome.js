@@ -23,14 +23,18 @@ for (let i = 0; i < obj['data']['list'].length; i++) {
         continue
     }
     if (obj['data']['list'][i]['feedContent'].hasOwnProperty('smallTags')) {
+        let isDone = false
         for (let j = 0; j < obj['data']['list'][i]['feedContent']['smallTags'].length; j++) {
             if (obj['data']['list'][i]['feedContent']['smallTags'][j].hasOwnProperty('text') && obj['data']['list'][i]['feedContent']['smallTags'][j]['text'] === '广告') {
                 obj['data']['list'].splice(i, 1)
                 i--
+                isDone = true
                 break
             }
         }
-        continue
+        if (isDone === true) {
+            continue
+        }
     }
     if (obj['data']['list'][i]['feedContent'].hasOwnProperty('content') && obj['data']['list'][i]['feedContent']['content'].includes('【广告】')) {
         obj['data']['list'].splice(i, 1);

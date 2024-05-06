@@ -2,7 +2,7 @@
 > 应用名称：墨鱼自用B站去广告脚本
 > 脚本作者：@ddgksf2013
 > 微信账号：墨鱼手记
-> 更新时间：2023-11-24
+> 更新时间：2024-05-06
 > 通知频道：https://t.me/ddgksf2021
 > 贡献投稿：https://t.me/ddgksf2013_bot
 > 问题反馈：ddgksf2013@163.com
@@ -12,7 +12,7 @@
 
 
 
-const version = 'V2.0.118';
+const version = 'V2.0.119';
 
 let body = $response.body;
 if (body) {
@@ -85,50 +85,6 @@ if (body) {
             try {
                 let u = new Set([177, 178, 179, 181, 102, 104, 106, 486, 488, 489]);
                 let h = JSON.parse(body);
-                // if (h.data?.tab) {
-                //     var f = [];
-                //     f.push({
-                //         id: 39,
-                //         name: "直播",
-                //         uri: "bilibili://live/home",
-                //         tab_id: "直播tab",
-                //         pos: 1
-                //     }, {
-                //         id: 40,
-                //         name: "推荐",
-                //         uri: "bilibili://pegasus/promo",
-                //         tab_id: "推荐tab",
-                //         pos: 2,
-                //         default_selected: 1
-                //     });
-                //     - 1 == JSON.stringify(h.data.tab).indexOf("pgc/home") ? f.push({
-                //         id: 774,
-                //         name: "番剧",
-                //         uri: "bilibili://following/home_activity_tab/6544",
-                //         tab_id: "bangumi",
-                //         pos: 3
-                //     }) : f.push({
-                //         id: 545,
-                //         name: "番剧",
-                //         uri: "bilibili://pgc/home",
-                //         tab_id: "bangumi",
-                //         pos: 3
-                //     });
-                //     f.push({
-                //         id: 41,
-                //         name: "热门",
-                //         uri: "bilibili://pegasus/hottopic",
-                //         tab_id: "hottopic",
-                //         pos: 4
-                //     }, {
-                //         id: 151,
-                //         name: "影视",
-                //         uri: "bilibili://pgc/cinema-tab",
-                //         tab_id: "film",
-                //         pos: 5
-                //     });
-                //     h.data.tab = f
-                // }
                 if (h.data.top) {
                     let m = h.data.top.filter(function checkItem(t) {
                         if (t.name && t.name === "消息") {
@@ -152,7 +108,7 @@ if (body) {
         case /^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test($request.url):
             try {
                 let v = JSON.parse(body),
-                    $ = new Set([396, 397, 398, 399, 407, 410, 402, 404, 425, 426, 427, 428, 430, 432, 433, 434, 494, 495, 496, 497, 500, 501, 2830]);
+                    $ = new Set([396, 397, 398, 399, 407, 410, 402, 404, 425, 426, 427, 428, 430, 432, 433, 434, 494, 495, 496, 497, 500, 501, 2830, 3072]);
                 v.data.sections_v2.forEach((t, i) => {
                     let a = t.items.filter(t => $.has(t.id));
                     v.data.sections_v2[i].items = a;

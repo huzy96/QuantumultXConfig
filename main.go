@@ -14,7 +14,7 @@ func main() {
 }
 
 func generateAdBlockConf() {
-	resp, err := http.Get("https://proxy.v2gh.com/https://raw.githubusercontent.com/Cats-Team/AdRules/main/qx.conf")
+	resp, err := http.Get("https://raw.githubusercontent.com/Cats-Team/AdRules/main/qx.conf")
 	if err != nil {
 		panic(err)
 	}

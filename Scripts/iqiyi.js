@@ -9,7 +9,6 @@ if (obj.hasOwnProperty('cards')) {
                 if (obj['cards'][i]['statistics']['ad_type'] === 'focus') {
                     obj['cards'].splice(i, 1);
                     i--;
-                    continue
                 }
             }
         }

@@ -10,7 +10,6 @@ for (let i = 0; i < obj['data']['list'].length; i++) {
                     if (obj['data']['list'][i]['feedContent']['focusNewsData'][j]['isAd'] === true) {
                         obj['data']['list'][i]['feedContent']['focusNewsData'].splice(j, 1);
                         j--
-                        continue
                     }
                 }
             }

@@ -78,12 +78,10 @@ else if (-1 != $request.url.indexOf("ws/shield/frogserver/aocs")) {
     })
 } else if (-1 != $request.url.indexOf("search/nearbyrec_smart")) {
     let i = ["coupon", "scene", "activity", "commodity_rec", "operation_activity"];
-    obj.data && (i.forEach(a => {
-        delete obj.data[a]
-    });
-     obj.data.modules && (obj.data.modules = obj.data.modules.filter(a => !i.includes(a))));
-      $done({
+    obj.data && (i.forEach(a => { delete obj.data[a] }), obj.data.modules && (obj.data.modules = obj.data.modules.filter(a => !i.includes(a))));
+    $done({
         body: JSON.stringify(obj)
     })
-} else
+} else {
     $done({});
+}

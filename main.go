@@ -58,7 +58,7 @@ func generateAdBlockConf() {
 
 	for _, hostSortKey := range hostSortKeyList {
 		// outString += fmt.Sprintf("%v,%v,%v\n", resultMap[hostSortKey].kind, resultMap[hostSortKey].host, resultMap[hostSortKey].operation)
-		outString += resultMap[hostSortKey].kind + "," + resultMap[hostSortKey].host + "," + resultMap[hostSortKey].operation + "\n"
+		outString += resultMap[hostSortKey].kind + ", " + resultMap[hostSortKey].host + ", " + resultMap[hostSortKey].operation + "\n"
 	}
 
 	err = os.WriteFile("./Profiles/filter/adBlock.conf", []byte(outString), 0644)

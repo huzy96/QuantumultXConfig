@@ -61,7 +61,7 @@ func generateAdBlockConf() {
 		outString += resultMap[hostSortKey].kind + "," + resultMap[hostSortKey].host + "," + resultMap[hostSortKey].operation + "\n"
 	}
 
-	err = os.WriteFile("./conf/adBlock.conf", []byte(outString), 0644)
+	err = os.WriteFile("./Profiles/filter/adBlock.conf", []byte(outString), 0644)
 	if err != nil {
 		panic(err)
 	}

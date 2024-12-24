@@ -1,3 +1,5 @@
 .idea/
 **/.DS_Store
 .vscode/
+./Profiles/FILTER_LAN
+./Profiles/FILTER_REGION

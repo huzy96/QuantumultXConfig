@@ -14,5 +14,13 @@
 const version = 'V1.0.8';
 
 
-let ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
-/(MovieApp|AMap|Cainiao|%E9%A3%9E%E7%8C%AA%E6%97%85%E8%A1%8C|Hema4iPhone|Moon|DMPortal)/.test(ua) ? $done({body: "ddgksf2013"}) : $done({});
+// 提取正则表达式到常量
+const USER_AGENT_REGEX = /(MovieApp|AMap|Cainiao|%E9%A3%9E%E7%8C%AA%E6%97%85%E8%A1%8C|Hema4iPhone|Moon|DMPortal)/;
+
+// 使用解构赋值获取User-Agent
+const { headers } = $request;
+const ua = headers["User-Agent"] || headers["user-agent"];
+
+// 简化条件判断
+const response = USER_AGENT_REGEX.test(ua) ? { body: "ddgksf2013" } : {};
+$done(response);

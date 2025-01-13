@@ -1,26 +1,18 @@
 let body = $response.body;
-console.log(body)
+console.log(body);
 let obj = JSON.parse(body);
 
-if (obj.hasOwnProperty('lst')) {
-    for (let i = 0; i < obj['lst'].length; i++) {
-        if (obj['lst'][i].hasOwnProperty('newAdStyle')) {
-            obj['lst'].splice(i, 1);
-            i--;
+function removeAds(array) {
+    if (!array) return;
+    for (let i = array.length - 1; i >= 0; i--) {
+        if (array[i]?.newAdStyle) {
+            array.splice(i, 1);
         }
     }
 }
 
-if (obj.hasOwnProperty('comments')) {
-    if (obj['comments'].hasOwnProperty('lst')) {
-        for (let i = 0; i < obj['comments']['lst'].length; i++) {
-            if (obj['comments']['lst'][i].hasOwnProperty('newAdStyle')) {
-                obj['comments']['lst'].splice(i, 1);
-                i--;
-            }
-        }
-    }
-}
+removeAds(obj.lst);
+removeAds(obj.comments?.lst);
 
 body = JSON.stringify(obj);
 console.log(body);

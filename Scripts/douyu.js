@@ -2,26 +2,25 @@ let body = $response.body;
 console.log(body);
 let obj = JSON.parse(body);
 
-if (obj.hasOwnProperty('data')) {
-    if (obj['data'].hasOwnProperty('rec_card')) {
-        for (let i = 0; i < obj['data']['rec_card'].length; i++) {
-            if (obj['data']['rec_card'][i].hasOwnProperty('card_banner')) {
-                for (let j = 0; j < obj['data']['rec_card'][i]['card_banner'].length; j++) {
-                    if (obj['data']['rec_card'][i]['card_banner'][j].hasOwnProperty('ad')) {
-                        obj['data']['rec_card'][i]['card_banner'].splice(j, 1);
-                        j--
-                    }
-                }
-            }
+function removeAdsFromArray(array, key) {
+    return array.filter(item => !item[key]);
+}
+
+function removeAdsFromRecCard(recCard) {
+    return recCard.map(card => {
+        if (card.card_banner) {
+            card.card_banner = removeAdsFromArray(card.card_banner, 'ad');
         }
+        return card;
+    });
+}
+
+if (obj.data) {
+    if (obj.data.rec_card) {
+        obj.data.rec_card = removeAdsFromRecCard(obj.data.rec_card);
     }
-    if (obj['data'].hasOwnProperty('rec_cont')) {
-        for (let i = 0; i < obj['data']['rec_cont'].length; i++) {
-            if (obj['data']['rec_cont'][i].hasOwnProperty('ad')) {
-                obj['data']['rec_cont'].splice(i, 1);
-                i--;
-            }
-        }
+    if (obj.data.rec_cont) {
+        obj.data.rec_cont = removeAdsFromArray(obj.data.rec_cont, 'ad');
     }
 }
 

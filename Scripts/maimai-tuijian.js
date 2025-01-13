@@ -1,14 +1,15 @@
 let body = $response.body;
-console.log(body);
+console.log('Original Body:', body);
 let obj = JSON.parse(body);
 
-for (let i = 0; i < obj['feeds'].length; i++) {
-    if (obj['feeds'][i].hasOwnProperty('newAdStyle')) {
-        obj['feeds'].splice(i, 1);
-        i--;
+if (obj.feeds) {
+    for (let i = obj.feeds.length - 1; i >= 0; i--) {
+        if (obj.feeds[i]?.newAdStyle) {
+            obj.feeds.splice(i, 1);
+        }
     }
 }
 
 body = JSON.stringify(obj);
-console.log(body);
+console.log('Modified Body:', body);
 $done(body);

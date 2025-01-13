@@ -1,16 +1,16 @@
 let body = $response.body;
-console.log(body)
+console.log('Original Body:', body);
+
 let obj = JSON.parse(body);
 
-if (obj.hasOwnProperty('data')) {
-    for (let i = 0; i < obj['data'].length; i++) {
-        if (obj['data'][i].hasOwnProperty('newAdStyle')) {
-            obj['data'].splice(i, 1);
-            i--;
-        }
-    }
+function removeAds(array) {
+    if (!array) return [];
+    return array.filter(item => !item?.newAdStyle);
 }
 
+obj.lst = removeAds(obj.lst);
+obj.comments?.lst && (obj.comments.lst = removeAds(obj.comments.lst));
+
 body = JSON.stringify(obj);
-console.log(body);
+console.log('Modified Body:', body);
 $done(body);

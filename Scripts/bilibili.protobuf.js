@@ -1,4 +1,4 @@
-// Build: 2025/3/20 08:05:58
+// Build: 2025/3/25 22:39:08
 (() => {
     console.time = function (r) {
         (this._times = this._times || {}), (this._times[r] = Date.now());
@@ -9,7 +9,7 @@
             console.log(`${r}: ${e}ms`), delete this._times[r];
         } else console.log(`Timer with label ${r} does not exist.`);
     };
-    function fr(r) {
+    function Mi(r) {
         "use strict";
         function e() { }
         function t() { }
@@ -22,271 +22,271 @@
             a = o ? ArrayBuffer : l,
             u =
                 a.isView ||
-                function (N) {
-                    return N && "length" in N;
+                function (k) {
+                    return k && "length" in k;
                 },
-            w = n.call(a.prototype);
+            d = n.call(a.prototype);
         a = t.prototype;
         var g = r.TextEncoder,
-            y = new (o ? Uint16Array : l)(32);
-        (e.prototype.decode = function (N) {
-            if (!u(N)) {
-                var A = n.call(N);
-                if (A !== w && A !== s && A !== f)
+            w = new (o ? Uint16Array : l)(32);
+        (e.prototype.decode = function (k) {
+            if (!u(k)) {
+                var O = n.call(k);
+                if (O !== d && O !== s && O !== f)
                     throw TypeError(
                         "Failed to execute 'decode' on 'TextDecoder': The provided value is not of type '(ArrayBuffer or ArrayBufferView)'"
                     );
-                N = o ? new l(N) : N || [];
+                k = o ? new l(k) : k || [];
             }
             for (
-                var x = (A = ""),
+                var T = (O = ""),
                 v = 0,
-                U = N.length | 0,
-                W = (U - 32) | 0,
-                O,
-                E,
-                L = 0,
-                z = 0,
-                D,
-                S = 0,
-                C = -1;
-                v < U;
+                x = k.length | 0,
+                V = (x - 32) | 0,
+                R,
+                U,
+                D = 0,
+                K = 0,
+                C,
+                A = 0,
+                W = -1;
+                v < x;
 
             ) {
                 for (
-                    O = v <= W ? 32 : (U - v) | 0;
-                    S < O;
-                    v = (v + 1) | 0, S = (S + 1) | 0
+                    R = v <= V ? 32 : (x - v) | 0;
+                    A < R;
+                    v = (v + 1) | 0, A = (A + 1) | 0
                 ) {
-                    switch (((E = N[v] & 255), E >> 4)) {
+                    switch (((U = k[v] & 255), U >> 4)) {
                         case 15:
-                            if (((D = N[(v = (v + 1) | 0)] & 255), D >> 6 !== 2 || 247 < E)) {
+                            if (((C = k[(v = (v + 1) | 0)] & 255), C >> 6 !== 2 || 247 < U)) {
                                 v = (v - 1) | 0;
                                 break;
                             }
-                            (L = ((E & 7) << 6) | (D & 63)), (z = 5), (E = 256);
+                            (D = ((U & 7) << 6) | (C & 63)), (K = 5), (U = 256);
                         case 14:
-                            (D = N[(v = (v + 1) | 0)] & 255),
-                                (L <<= 6),
-                                (L |= ((E & 15) << 6) | (D & 63)),
-                                (z = D >> 6 === 2 ? (z + 4) | 0 : 24),
-                                (E = (E + 256) & 768);
+                            (C = k[(v = (v + 1) | 0)] & 255),
+                                (D <<= 6),
+                                (D |= ((U & 15) << 6) | (C & 63)),
+                                (K = C >> 6 === 2 ? (K + 4) | 0 : 24),
+                                (U = (U + 256) & 768);
                         case 13:
                         case 12:
-                            (D = N[(v = (v + 1) | 0)] & 255),
-                                (L <<= 6),
-                                (L |= ((E & 31) << 6) | (D & 63)),
-                                (z = (z + 7) | 0),
-                                v < U && D >> 6 === 2 && L >> z && 1114112 > L
-                                    ? ((E = L),
-                                        (L = (L - 65536) | 0),
-                                        0 <= L &&
-                                        ((C = ((L >> 10) + 55296) | 0),
-                                            (E = ((L & 1023) + 56320) | 0),
-                                            31 > S
-                                                ? ((y[S] = C), (S = (S + 1) | 0), (C = -1))
-                                                : ((D = C), (C = E), (E = D))))
-                                    : ((E >>= 8), (v = (v - E - 1) | 0), (E = 65533)),
-                                (L = z = 0),
-                                (O = v <= W ? 32 : (U - v) | 0);
+                            (C = k[(v = (v + 1) | 0)] & 255),
+                                (D <<= 6),
+                                (D |= ((U & 31) << 6) | (C & 63)),
+                                (K = (K + 7) | 0),
+                                v < x && C >> 6 === 2 && D >> K && 1114112 > D
+                                    ? ((U = D),
+                                        (D = (D - 65536) | 0),
+                                        0 <= D &&
+                                        ((W = ((D >> 10) + 55296) | 0),
+                                            (U = ((D & 1023) + 56320) | 0),
+                                            31 > A
+                                                ? ((w[A] = W), (A = (A + 1) | 0), (W = -1))
+                                                : ((C = W), (W = U), (U = C))))
+                                    : ((U >>= 8), (v = (v - U - 1) | 0), (U = 65533)),
+                                (D = K = 0),
+                                (R = v <= V ? 32 : (x - v) | 0);
                         default:
-                            y[S] = E;
+                            w[A] = U;
                             continue;
                         case 11:
                         case 10:
                         case 9:
                         case 8:
                     }
-                    y[S] = 65533;
+                    w[A] = 65533;
                 }
                 if (
-                    ((x += i(
-                        y[0],
-                        y[1],
-                        y[2],
-                        y[3],
-                        y[4],
-                        y[5],
-                        y[6],
-                        y[7],
-                        y[8],
-                        y[9],
-                        y[10],
-                        y[11],
-                        y[12],
-                        y[13],
-                        y[14],
-                        y[15],
-                        y[16],
-                        y[17],
-                        y[18],
-                        y[19],
-                        y[20],
-                        y[21],
-                        y[22],
-                        y[23],
-                        y[24],
-                        y[25],
-                        y[26],
-                        y[27],
-                        y[28],
-                        y[29],
-                        y[30],
-                        y[31]
+                    ((T += i(
+                        w[0],
+                        w[1],
+                        w[2],
+                        w[3],
+                        w[4],
+                        w[5],
+                        w[6],
+                        w[7],
+                        w[8],
+                        w[9],
+                        w[10],
+                        w[11],
+                        w[12],
+                        w[13],
+                        w[14],
+                        w[15],
+                        w[16],
+                        w[17],
+                        w[18],
+                        w[19],
+                        w[20],
+                        w[21],
+                        w[22],
+                        w[23],
+                        w[24],
+                        w[25],
+                        w[26],
+                        w[27],
+                        w[28],
+                        w[29],
+                        w[30],
+                        w[31]
                     )),
-                        32 > S && (x = x.slice(0, (S - 32) | 0)),
-                        v < U)
+                        32 > A && (T = T.slice(0, (A - 32) | 0)),
+                        v < x)
                 ) {
-                    if (((y[0] = C), (S = ~C >>> 31), (C = -1), x.length < A.length))
+                    if (((w[0] = W), (A = ~W >>> 31), (W = -1), T.length < O.length))
                         continue;
-                } else C !== -1 && (x += i(C));
-                (A += x), (x = "");
+                } else W !== -1 && (T += i(W));
+                (O += T), (T = "");
             }
-            return A;
+            return O;
         }),
-            (a.encode = function (N) {
-                N = N === void 0 ? "" : "" + N;
-                var A = N.length | 0,
-                    x = new l(((A << 1) + 8) | 0),
+            (a.encode = function (k) {
+                k = k === void 0 ? "" : "" + k;
+                var O = k.length | 0,
+                    T = new l(((O << 1) + 8) | 0),
                     v,
-                    U = 0,
-                    W = !o;
-                for (v = 0; v < A; v = (v + 1) | 0, U = (U + 1) | 0) {
-                    var O = N.charCodeAt(v) | 0;
-                    if (127 >= O) x[U] = O;
+                    x = 0,
+                    V = !o;
+                for (v = 0; v < O; v = (v + 1) | 0, x = (x + 1) | 0) {
+                    var R = k.charCodeAt(v) | 0;
+                    if (127 >= R) T[x] = R;
                     else {
-                        if (2047 >= O) x[U] = 192 | (O >> 6);
+                        if (2047 >= R) T[x] = 192 | (R >> 6);
                         else {
                             e: {
-                                if (55296 <= O)
-                                    if (56319 >= O) {
-                                        var E = N.charCodeAt((v = (v + 1) | 0)) | 0;
-                                        if (56320 <= E && 57343 >= E) {
-                                            if (((O = ((O << 10) + E - 56613888) | 0), 65535 < O)) {
-                                                (x[U] = 240 | (O >> 18)),
-                                                    (x[(U = (U + 1) | 0)] = 128 | ((O >> 12) & 63)),
-                                                    (x[(U = (U + 1) | 0)] = 128 | ((O >> 6) & 63)),
-                                                    (x[(U = (U + 1) | 0)] = 128 | (O & 63));
+                                if (55296 <= R)
+                                    if (56319 >= R) {
+                                        var U = k.charCodeAt((v = (v + 1) | 0)) | 0;
+                                        if (56320 <= U && 57343 >= U) {
+                                            if (((R = ((R << 10) + U - 56613888) | 0), 65535 < R)) {
+                                                (T[x] = 240 | (R >> 18)),
+                                                    (T[(x = (x + 1) | 0)] = 128 | ((R >> 12) & 63)),
+                                                    (T[(x = (x + 1) | 0)] = 128 | ((R >> 6) & 63)),
+                                                    (T[(x = (x + 1) | 0)] = 128 | (R & 63));
                                                 continue;
                                             }
                                             break e;
                                         }
-                                        O = 65533;
-                                    } else 57343 >= O && (O = 65533);
-                                !W &&
-                                    v << 1 < U &&
-                                    v << 1 < ((U - 7) | 0) &&
-                                    ((W = !0), (E = new l(3 * A)), E.set(x), (x = E));
+                                        R = 65533;
+                                    } else 57343 >= R && (R = 65533);
+                                !V &&
+                                    v << 1 < x &&
+                                    v << 1 < ((x - 7) | 0) &&
+                                    ((V = !0), (U = new l(3 * O)), U.set(T), (T = U));
                             }
-                            (x[U] = 224 | (O >> 12)),
-                                (x[(U = (U + 1) | 0)] = 128 | ((O >> 6) & 63));
+                            (T[x] = 224 | (R >> 12)),
+                                (T[(x = (x + 1) | 0)] = 128 | ((R >> 6) & 63));
                         }
-                        x[(U = (U + 1) | 0)] = 128 | (O & 63);
+                        T[(x = (x + 1) | 0)] = 128 | (R & 63);
                     }
                 }
-                return o ? x.subarray(0, U) : x.slice(0, U);
+                return o ? T.subarray(0, x) : T.slice(0, x);
             }),
             (r.TextDecoder = e),
             (r.TextEncoder = t);
     }
-    var b = fr(globalThis);
-    var _ = Uint8Array,
-        oe = Uint16Array,
-        ur = Int32Array,
-        ci = new _([
+    var b = Mi(globalThis);
+    var M = Uint8Array,
+        ie = Uint16Array,
+        ji = Int32Array,
+        Wn = new M([
             0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5,
             5, 5, 5, 0, 0, 0, 0,
         ]),
-        hi = new _([
+        $n = new M([
             0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10,
             11, 11, 12, 12, 13, 13, 0, 0,
         ]),
-        cr = new _([
+        zi = new M([
             16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15,
         ]),
-        pi = function (r, e) {
-            for (var t = new oe(31), i = 0; i < 31; ++i) t[i] = e += 1 << r[i - 1];
-            for (var n = new ur(t[30]), i = 1; i < 30; ++i)
+        Mn = function (r, e) {
+            for (var t = new ie(31), i = 0; i < 31; ++i) t[i] = e += 1 << r[i - 1];
+            for (var n = new ji(t[30]), i = 1; i < 30; ++i)
                 for (var s = t[i]; s < t[i + 1]; ++s) n[s] = ((s - t[i]) << 5) | i;
             return { b: t, r: n };
         },
-        di = pi(ci, 2),
-        mi = di.b,
-        hr = di.r;
-    (mi[28] = 258), (hr[258] = 28);
-    var wi = pi(hi, 0),
-        pr = wi.b,
-        Gr = wi.r,
-        $e = new oe(32768);
-    for (T = 0; T < 32768; ++T)
-        (J = ((T & 43690) >> 1) | ((T & 21845) << 1)),
-            (J = ((J & 52428) >> 2) | ((J & 13107) << 2)),
-            (J = ((J & 61680) >> 4) | ((J & 3855) << 4)),
-            ($e[T] = (((J & 65280) >> 8) | ((J & 255) << 8)) >> 1);
-    var J,
-        T,
-        ce = function (r, e, t) {
-            for (var i = r.length, n = 0, s = new oe(e); n < i; ++n)
+        jn = Mn(Wn, 2),
+        zn = jn.b,
+        _i = jn.r;
+    (zn[28] = 258), (_i[258] = 28);
+    var _n = Mn($n, 0),
+        Ki = _n.b,
+        Tr = _n.r,
+        Me = new ie(32768);
+    for (B = 0; B < 32768; ++B)
+        (G = ((B & 43690) >> 1) | ((B & 21845) << 1)),
+            (G = ((G & 52428) >> 2) | ((G & 13107) << 2)),
+            (G = ((G & 61680) >> 4) | ((G & 3855) << 4)),
+            (Me[B] = (((G & 65280) >> 8) | ((G & 255) << 8)) >> 1);
+    var G,
+        B,
+        ue = function (r, e, t) {
+            for (var i = r.length, n = 0, s = new ie(e); n < i; ++n)
                 r[n] && ++s[r[n] - 1];
-            var f = new oe(e);
+            var f = new ie(e);
             for (n = 1; n < e; ++n) f[n] = (f[n - 1] + s[n - 1]) << 1;
             var o;
             if (t) {
-                o = new oe(1 << e);
+                o = new ie(1 << e);
                 var l = 15 - e;
                 for (n = 0; n < i; ++n)
                     if (r[n])
                         for (
                             var a = (n << 4) | r[n],
                             u = e - r[n],
-                            w = f[r[n] - 1]++ << u,
-                            g = w | ((1 << u) - 1);
-                            w <= g;
-                            ++w
+                            d = f[r[n] - 1]++ << u,
+                            g = d | ((1 << u) - 1);
+                            d <= g;
+                            ++d
                         )
-                            o[$e[w] >> l] = a;
+                            o[Me[d] >> l] = a;
             } else
-                for (o = new oe(i), n = 0; n < i; ++n)
-                    r[n] && (o[n] = $e[f[r[n] - 1]++] >> (15 - r[n]));
+                for (o = new ie(i), n = 0; n < i; ++n)
+                    r[n] && (o[n] = Me[f[r[n] - 1]++] >> (15 - r[n]));
             return o;
         },
-        he = new _(288);
-    for (T = 0; T < 144; ++T) he[T] = 8;
-    var T;
-    for (T = 144; T < 256; ++T) he[T] = 9;
-    var T;
-    for (T = 256; T < 280; ++T) he[T] = 7;
-    var T;
-    for (T = 280; T < 288; ++T) he[T] = 8;
-    var T,
-        yi = new _(32);
-    for (T = 0; T < 32; ++T) yi[T] = 5;
-    var T;
-    var dr = ce(he, 9, 1);
-    var mr = ce(yi, 5, 1),
-        De = function (r) {
+        ce = new M(288);
+    for (B = 0; B < 144; ++B) ce[B] = 8;
+    var B;
+    for (B = 144; B < 256; ++B) ce[B] = 9;
+    var B;
+    for (B = 256; B < 280; ++B) ce[B] = 7;
+    var B;
+    for (B = 280; B < 288; ++B) ce[B] = 8;
+    var B,
+        Kn = new M(32);
+    for (B = 0; B < 32; ++B) Kn[B] = 5;
+    var B;
+    var Gi = ue(ce, 9, 1);
+    var qi = ue(Kn, 5, 1),
+        We = function (r) {
             for (var e = r[0], t = 1; t < r.length; ++t) r[t] > e && (e = r[t]);
             return e;
         },
-        M = function (r, e, t) {
+        z = function (r, e, t) {
             var i = (e / 8) | 0;
             return ((r[i] | (r[i + 1] << 8)) >> (e & 7)) & t;
         },
-        Ce = function (r, e) {
+        $e = function (r, e) {
             var t = (e / 8) | 0;
             return (r[t] | (r[t + 1] << 8) | (r[t + 2] << 16)) >> (e & 7);
         },
-        wr = function (r) {
+        Ji = function (r) {
             return ((r + 7) / 8) | 0;
         },
-        yr = function (r, e, t) {
+        Xi = function (r, e, t) {
             return (
                 (e == null || e < 0) && (e = 0),
                 (t == null || t > r.length) && (t = r.length),
-                new _(r.subarray(e, t))
+                new M(r.subarray(e, t))
             );
         };
-    var gr = [
+    var Zi = [
         "unexpected EOF",
         "invalid block type",
         "invalid length/literal",
@@ -302,183 +302,183 @@
         "stream finishing",
         "invalid zip data",
     ],
-        G = function (r, e, t) {
-            var i = new Error(e || gr[r]);
+        _ = function (r, e, t) {
+            var i = new Error(e || Zi[r]);
             if (
                 ((i.code = r),
-                    Error.captureStackTrace && Error.captureStackTrace(i, G),
+                    Error.captureStackTrace && Error.captureStackTrace(i, _),
                     !t)
             )
                 throw i;
             return i;
         },
-        br = function (r, e, t, i) {
+        Yi = function (r, e, t, i) {
             var n = r.length,
                 s = i ? i.length : 0;
-            if (!n || (e.f && !e.l)) return t || new _(0);
+            if (!n || (e.f && !e.l)) return t || new M(0);
             var f = !t,
                 o = f || e.i != 2,
                 l = e.i;
-            f && (t = new _(n * 3));
-            var a = function (li) {
-                var fi = t.length;
-                if (li > fi) {
-                    var ui = new _(Math.max(fi * 2, li));
-                    ui.set(t), (t = ui);
+            f && (t = new M(n * 3));
+            var a = function (Sn) {
+                var Pn = t.length;
+                if (Sn > Pn) {
+                    var Cn = new M(Math.max(Pn * 2, Sn));
+                    Cn.set(t), (t = Cn);
                 }
             },
                 u = e.f || 0,
-                w = e.p || 0,
+                d = e.p || 0,
                 g = e.b || 0,
-                y = e.l,
-                N = e.d,
-                A = e.m,
-                x = e.n,
+                w = e.l,
+                k = e.d,
+                O = e.m,
+                T = e.n,
                 v = n * 8;
             do {
-                if (!y) {
-                    u = M(r, w, 1);
-                    var U = M(r, w + 1, 3);
-                    if (((w += 3), U))
-                        if (U == 1) (y = dr), (N = mr), (A = 9), (x = 5);
-                        else if (U == 2) {
-                            var L = M(r, w, 31) + 257,
-                                z = M(r, w + 10, 15) + 4,
-                                D = L + M(r, w + 5, 31) + 1;
-                            w += 14;
-                            for (var S = new _(D), C = new _(19), j = 0; j < z; ++j)
-                                C[cr[j]] = M(r, w + j * 3, 7);
-                            w += z * 3;
+                if (!w) {
+                    u = z(r, d, 1);
+                    var x = z(r, d + 1, 3);
+                    if (((d += 3), x))
+                        if (x == 1) (w = Gi), (k = qi), (O = 9), (T = 5);
+                        else if (x == 2) {
+                            var D = z(r, d, 31) + 257,
+                                K = z(r, d + 10, 15) + 4,
+                                C = D + z(r, d + 5, 31) + 1;
+                            d += 14;
+                            for (var A = new M(C), W = new M(19), j = 0; j < K; ++j)
+                                W[zi[j]] = z(r, d + j * 3, 7);
+                            d += K * 3;
                             for (
-                                var ni = De(C), rr = (1 << ni) - 1, sr = ce(C, ni, 1), j = 0;
-                                j < D;
+                                var Fn = We(W), Si = (1 << Fn) - 1, Pi = ue(W, Fn, 1), j = 0;
+                                j < C;
 
                             ) {
-                                var ii = sr[M(r, w, rr)];
-                                w += ii & 15;
-                                var W = ii >> 4;
-                                if (W < 16) S[j++] = W;
+                                var On = Pi[z(r, d, Si)];
+                                d += On & 15;
+                                var V = On >> 4;
+                                if (V < 16) A[j++] = V;
                                 else {
-                                    var re = 0,
-                                        be = 0;
+                                    var te = 0,
+                                        we = 0;
                                     for (
-                                        W == 16
-                                            ? ((be = 3 + M(r, w, 3)), (w += 2), (re = S[j - 1]))
-                                            : W == 17
-                                                ? ((be = 3 + M(r, w, 7)), (w += 3))
-                                                : W == 18 && ((be = 11 + M(r, w, 127)), (w += 7));
-                                        be--;
+                                        V == 16
+                                            ? ((we = 3 + z(r, d, 3)), (d += 2), (te = A[j - 1]))
+                                            : V == 17
+                                                ? ((we = 3 + z(r, d, 7)), (d += 3))
+                                                : V == 18 && ((we = 11 + z(r, d, 127)), (d += 7));
+                                        we--;
 
                                     )
-                                        S[j++] = re;
+                                        A[j++] = te;
                                 }
                             }
-                            var ri = S.subarray(0, L),
-                                X = S.subarray(L);
-                            (A = De(ri)), (x = De(X)), (y = ce(ri, A, 1)), (N = ce(X, x, 1));
-                        } else G(1);
+                            var Dn = A.subarray(0, D),
+                                Z = A.subarray(D);
+                            (O = We(Dn)), (T = We(Z)), (w = ue(Dn, O, 1)), (k = ue(Z, T, 1));
+                        } else _(1);
                     else {
-                        var W = wr(w) + 4,
-                            O = r[W - 4] | (r[W - 3] << 8),
-                            E = W + O;
-                        if (E > n) {
-                            l && G(0);
+                        var V = Ji(d) + 4,
+                            R = r[V - 4] | (r[V - 3] << 8),
+                            U = V + R;
+                        if (U > n) {
+                            l && _(0);
                             break;
                         }
-                        o && a(g + O),
-                            t.set(r.subarray(W, E), g),
-                            (e.b = g += O),
-                            (e.p = w = E * 8),
+                        o && a(g + R),
+                            t.set(r.subarray(V, U), g),
+                            (e.b = g += R),
+                            (e.p = d = U * 8),
                             (e.f = u);
                         continue;
                     }
-                    if (w > v) {
-                        l && G(0);
+                    if (d > v) {
+                        l && _(0);
                         break;
                     }
                 }
                 o && a(g + 131072);
-                for (var or = (1 << A) - 1, ar = (1 << x) - 1, Ve = w; ; Ve = w) {
-                    var re = y[Ce(r, w) & or],
-                        se = re >> 4;
-                    if (((w += re & 15), w > v)) {
-                        l && G(0);
+                for (var Ci = (1 << O) - 1, Wi = (1 << T) - 1, Se = d; ; Se = d) {
+                    var te = w[$e(r, d) & Ci],
+                        ne = te >> 4;
+                    if (((d += te & 15), d > v)) {
+                        l && _(0);
                         break;
                     }
-                    if ((re || G(2), se < 256)) t[g++] = se;
-                    else if (se == 256) {
-                        (Ve = w), (y = null);
+                    if ((te || _(2), ne < 256)) t[g++] = ne;
+                    else if (ne == 256) {
+                        (Se = d), (w = null);
                         break;
                     } else {
-                        var si = se - 254;
-                        if (se > 264) {
-                            var j = se - 257,
-                                ue = ci[j];
-                            (si = M(r, w, (1 << ue) - 1) + mi[j]), (w += ue);
+                        var An = ne - 254;
+                        if (ne > 264) {
+                            var j = ne - 257,
+                                fe = Wn[j];
+                            (An = z(r, d, (1 << fe) - 1) + zn[j]), (d += fe);
                         }
-                        var We = N[Ce(r, w) & ar],
-                            Pe = We >> 4;
-                        We || G(3), (w += We & 15);
-                        var X = pr[Pe];
-                        if (Pe > 3) {
-                            var ue = hi[Pe];
-                            (X += Ce(r, w) & ((1 << ue) - 1)), (w += ue);
+                        var Pe = k[$e(r, d) & Wi],
+                            Ce = Pe >> 4;
+                        Pe || _(3), (d += Pe & 15);
+                        var Z = Ki[Ce];
+                        if (Ce > 3) {
+                            var fe = $n[Ce];
+                            (Z += $e(r, d) & ((1 << fe) - 1)), (d += fe);
                         }
-                        if (w > v) {
-                            l && G(0);
+                        if (d > v) {
+                            l && _(0);
                             break;
                         }
                         o && a(g + 131072);
-                        var oi = g + si;
-                        if (g < X) {
-                            var ai = s - X,
-                                lr = Math.min(X, oi);
-                            for (ai + g < 0 && G(3); g < lr; ++g) t[g] = i[ai + g];
+                        var Ln = g + An;
+                        if (g < Z) {
+                            var Vn = s - Z,
+                                $i = Math.min(Z, Ln);
+                            for (Vn + g < 0 && _(3); g < $i; ++g) t[g] = i[Vn + g];
                         }
-                        for (; g < oi; ++g) t[g] = t[g - X];
+                        for (; g < Ln; ++g) t[g] = t[g - Z];
                     }
                 }
-                (e.l = y),
-                    (e.p = Ve),
+                (e.l = w),
+                    (e.p = Se),
                     (e.b = g),
                     (e.f = u),
-                    y && ((u = 1), (e.m = A), (e.d = N), (e.n = x));
+                    w && ((u = 1), (e.m = O), (e.d = k), (e.n = T));
             } while (!u);
-            return g != t.length && f ? yr(t, 0, g) : t.subarray(0, g);
+            return g != t.length && f ? Xi(t, 0, g) : t.subarray(0, g);
         };
-    var kr = new _(0);
-    var vr = function (r) {
-        (r[0] != 31 || r[1] != 139 || r[2] != 8) && G(6, "invalid gzip data");
+    var Hi = new M(0);
+    var Qi = function (r) {
+        (r[0] != 31 || r[1] != 139 || r[2] != 8) && _(6, "invalid gzip data");
         var e = r[3],
             t = 10;
         e & 4 && (t += (r[10] | (r[11] << 8)) + 2);
         for (var i = ((e >> 3) & 1) + ((e >> 4) & 1); i > 0; i -= !r[t++]);
         return t + (e & 2);
     },
-        Nr = function (r) {
+        er = function (r) {
             var e = r.length;
             return (
                 (r[e - 4] | (r[e - 3] << 8) | (r[e - 2] << 16) | (r[e - 1] << 24)) >>> 0
             );
         };
-    function gi(r, e) {
-        var t = vr(r);
+    function Gn(r, e) {
+        var t = Qi(r);
         return (
-            t + 8 > r.length && G(6, "invalid gzip data"),
-            br(
+            t + 8 > r.length && _(6, "invalid gzip data"),
+            Yi(
                 r.subarray(t, -8),
                 { i: 2 },
-                (e && e.out) || new _(Nr(r)),
+                (e && e.out) || new M(er(r)),
                 e && e.dictionary
             )
         );
     }
-    var Br = typeof TextDecoder < "u" && new TextDecoder(),
-        xr = 0;
+    var tr = typeof TextDecoder < "u" && new TextDecoder(),
+        nr = 0;
     try {
-        Br.decode(kr, { stream: !0 }), (xr = 1);
+        tr.decode(Hi, { stream: !0 }), (nr = 1);
     } catch { }
-    var pe = class {
+    var he = class {
         constructor(r, e, t) {
             (this._times = new Map()),
                 (this.name = r ?? ""),
@@ -490,8 +490,8 @@
         static getInstance(r, e) {
             let t = typeof $task < "u" ? "QuanX" : "Surge";
             return (
-                pe.instances[t] || (pe.instances[t] = pe.classNames[t](r, t, e)),
-                pe.instances[t]
+                he.instances[t] || (he.instances[t] = he.classNames[t](r, t, e)),
+                he.instances[t]
             );
         }
         createProxy(r) {
@@ -531,19 +531,19 @@
             $done();
         }
     },
-        H = pe;
+        H = he;
     (H.instances = {}),
         (H.classNames = {
-            QuanX: (r, e, t) => new ki(r, e, t),
-            Surge: (r, e, t) => new bi(r, e, t),
+            QuanX: (r, e, t) => new Jn(r, e, t),
+            Surge: (r, e, t) => new qn(r, e, t),
         });
-    var _e = class extends H {
+    var je = class extends H {
         getFn(r, e, t) {
-            let i = _e.clientAdapter[e] || e;
+            let i = je.clientAdapter[e] || e;
             return super.getFn(r, i, t);
         }
         setFn(r, e, t, i) {
-            let n = _e.clientAdapter[e] || e;
+            let n = je.clientAdapter[e] || e;
             return super.setFn(r, n, t, i);
         }
         init() {
@@ -570,10 +570,10 @@
                     l = o instanceof Uint8Array;
                 $httpClient[i.toLowerCase()](
                     { ...f, body: o, "binary-mode": l },
-                    (a, u, w) => {
+                    (a, u, d) => {
                         a && t(a);
                         let g = l ? "bodyBytes" : "body";
-                        e({ status: u.status, headers: u.headers, [g]: w });
+                        e({ status: u.status, headers: u.headers, [g]: d });
                     }
                 );
             });
@@ -591,9 +591,9 @@
                 $done(i);
         }
     },
-        bi = _e;
-    bi.clientAdapter = { bodyBytes: "body" };
-    var Z = class extends H {
+        qn = je;
+    qn.clientAdapter = { bodyBytes: "body" };
+    var Y = class extends H {
         static transferBodyBytes(r, e) {
             return r instanceof ArrayBuffer
                 ? e === "Uint8Array"
@@ -612,17 +612,17 @@
             }
         }
         getFn(r, e, t) {
-            let i = Z.clientAdapter[e] || e,
+            let i = Y.clientAdapter[e] || e,
                 n = super.getFn(r, i, t);
             return (
-                e === "bodyBytes" && (n = Z.transferBodyBytes(n, "Uint8Array")), n
+                e === "bodyBytes" && (n = Y.transferBodyBytes(n, "Uint8Array")), n
             );
         }
         setFn(r, e, t, i) {
-            let n = Z.clientAdapter[e] || e,
+            let n = Y.clientAdapter[e] || e,
                 s = t;
             return (
-                e === "bodyBytes" && (s = Z.transferBodyBytes(s, "Uint8Array")),
+                e === "bodyBytes" && (s = Y.transferBodyBytes(s, "Uint8Array")),
                 super.setFn(r, n, s, i)
             );
         }
@@ -642,7 +642,7 @@
                     i === "id"
                         ? (t.sessionIndex = n)
                         : i === "bodyBytes"
-                            ? (t.bodyBytes = Z.transferBodyBytes(n, "ArrayBuffer"))
+                            ? (t.bodyBytes = Y.transferBodyBytes(n, "ArrayBuffer"))
                             : (t[i] = n);
                 r.bodyBytes && delete t.body,
                     $task.fetch(t).then((i) => {
@@ -651,7 +651,7 @@
                             s === "sessionIndex"
                                 ? (n.id = f)
                                 : s === "bodyBytes"
-                                    ? (n.bodyBytes = Z.transferBodyBytes(f, "Uint8Array"))
+                                    ? (n.bodyBytes = Y.transferBodyBytes(f, "Uint8Array"))
                                     : s === "statusCode"
                                         ? (n.status = f)
                                         : (n[s] = f);
@@ -666,28 +666,28 @@
                 i === "status"
                     ? (t.status = `HTTP/1.1 ${n}`)
                     : i === "bodyBytes"
-                        ? (t.bodyBytes = Z.transferBodyBytes(n, "ArrayBuffer"))
+                        ? (t.bodyBytes = Y.transferBodyBytes(n, "ArrayBuffer"))
                         : (t[i] = n);
             $done(t);
         }
     },
-        ki = Z;
-    ki.clientAdapter = { id: "sessionIndex", status: "statusCode" };
-    var Ur = H.getInstance("Bilibili Helper", { debug: !1 });
-    function Tr(r) {
-        let e = Ir(r.length),
+        Jn = Y;
+    Jn.clientAdapter = { id: "sessionIndex", status: "statusCode" };
+    var ir = H.getInstance("Bilibili Helper", { debug: !1 });
+    function rr(r) {
+        let e = sr(r.length),
             t = new Uint8Array(5 + r.length);
         return (t[0] = 0), t.set(e, 1), t.set(r, 5), t;
     }
-    function Ir(r) {
+    function sr(r) {
         let e = new ArrayBuffer(4);
         return new DataView(e).setUint32(0, r, !1), new Uint8Array(e);
     }
-    function V(r, e) {
+    function L(r, e) {
         let t = r.toBinary(e);
-        Ur.done({ bodyBytes: Tr(t) });
+        ir.done({ bodyBytes: rr(t) });
     }
-    function te(r) {
+    function ge(r) {
         let e = typeof r;
         if (e == "object") {
             if (Array.isArray(r)) return "array";
@@ -695,18 +695,18 @@
         }
         return e;
     }
-    function ae(r) {
+    function Xn(r) {
         return r !== null && typeof r == "object" && !Array.isArray(r);
     }
     var q =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split(
             ""
         ),
-        ke = [];
-    for (let r = 0; r < q.length; r++) ke[q[r].charCodeAt(0)] = r;
-    ke["-".charCodeAt(0)] = q.indexOf("+");
-    ke["_".charCodeAt(0)] = q.indexOf("/");
-    function vi(r) {
+        be = [];
+    for (let r = 0; r < q.length; r++) be[q[r].charCodeAt(0)] = r;
+    be[45] = q.indexOf("+");
+    be[95] = q.indexOf("/");
+    function Zn(r) {
         let e = (r.length * 3) / 4;
         r[r.length - 2] == "=" ? (e -= 2) : r[r.length - 1] == "=" && (e -= 1);
         let t = new Uint8Array(e),
@@ -715,7 +715,7 @@
             s,
             f = 0;
         for (let o = 0; o < r.length; o++) {
-            if (((s = ke[r.charCodeAt(o)]), s === void 0))
+            if (((s = be[r.charCodeAt(o)]), s === void 0))
                 switch (r[o]) {
                     case "=":
                         n = 0;
@@ -746,7 +746,7 @@
         if (n == 1) throw Error("invalid base64 string.");
         return t.subarray(0, i);
     }
-    function Ni(r) {
+    function Yn(r) {
         let e = "",
             t = 0,
             i,
@@ -765,7 +765,7 @@
             }
         return t && ((e += q[n]), (e += "="), t == 1 && (e += "=")), e;
     }
-    var h;
+    var p;
     (function (r) {
         (r.symbol = Symbol.for("protobuf-ts/unknown")),
             (r.onRead = (t, i, n, s, f) => {
@@ -788,7 +788,7 @@
             }),
             (r.last = (t, i) => r.list(t, i).slice(-1)[0]);
         let e = (t) => t && Array.isArray(t[r.symbol]);
-    })(h || (h = {}));
+    })(p || (p = {}));
     var c;
     (function (r) {
         (r[(r.Varint = 0)] = "Varint"),
@@ -798,25 +798,25 @@
             (r[(r.EndGroup = 4)] = "EndGroup"),
             (r[(r.Bit32 = 5)] = "Bit32");
     })(c || (c = {}));
-    function Bi() {
+    function Hn() {
         let r = 0,
             e = 0;
         for (let i = 0; i < 28; i += 7) {
             let n = this.buf[this.pos++];
-            if (((r |= (n & 127) << i), !(n & 128)))
+            if (((r |= (n & 127) << i), (n & 128) == 0))
                 return this.assertBounds(), [r, e];
         }
         let t = this.buf[this.pos++];
-        if (((r |= (t & 15) << 28), (e = (t & 112) >> 4), !(t & 128)))
+        if (((r |= (t & 15) << 28), (e = (t & 112) >> 4), (t & 128) == 0))
             return this.assertBounds(), [r, e];
         for (let i = 3; i <= 31; i += 7) {
             let n = this.buf[this.pos++];
-            if (((e |= (n & 127) << i), !(n & 128)))
+            if (((e |= (n & 127) << i), (n & 128) == 0))
                 return this.assertBounds(), [r, e];
         }
         throw new Error("invalid varint");
     }
-    function Ne(r, e, t) {
+    function ke(r, e, t) {
         for (let s = 0; s < 28; s = s + 7) {
             let f = r >>> s,
                 o = !(!(f >>> 7) && e == 0),
@@ -824,7 +824,7 @@
             if ((t.push(l), !o)) return;
         }
         let i = ((r >>> 28) & 15) | ((e & 7) << 4),
-            n = !!(e >> 3);
+            n = e >> 3 != 0;
         if ((t.push((n ? i | 128 : i) & 255), !!n)) {
             for (let s = 3; s < 31; s = s + 7) {
                 let f = e >>> s,
@@ -836,7 +836,7 @@
         }
     }
     var ve = 65536 * 65536;
-    function je(r) {
+    function ze(r) {
         let e = r[0] == "-";
         e && (r = r.slice(1));
         let t = 1e6,
@@ -850,7 +850,7 @@
         }
         return s(-24, -18), s(-18, -12), s(-12, -6), s(-6), [e, i, n];
     }
-    function Be(r, e) {
+    function Ne(r, e) {
         if (e >>> 0 <= 2097151) return "" + (ve * e + (r >>> 0));
         let t = r & 16777215,
             i = (((r >>> 24) | (e << 8)) >>> 0) & 16777215,
@@ -861,13 +861,13 @@
             l = 1e7;
         s >= l && ((f += Math.floor(s / l)), (s %= l)),
             f >= l && ((o += Math.floor(f / l)), (f %= l));
-        function a(u, w) {
+        function a(u, d) {
             let g = u ? String(u) : "";
-            return w ? "0000000".slice(g.length) + g : g;
+            return d ? "0000000".slice(g.length) + g : g;
         }
         return a(o, 0) + a(f, o) + a(s, 1);
     }
-    function Me(r, e) {
+    function _e(r, e) {
         if (r >= 0) {
             for (; r > 127;) e.push((r & 127) | 128), (r = r >>> 7);
             e.push(r);
@@ -876,25 +876,25 @@
             e.push(1);
         }
     }
-    function xi() {
+    function Qn() {
         let r = this.buf[this.pos++],
             e = r & 127;
-        if (!(r & 128)) return this.assertBounds(), e;
-        if (((r = this.buf[this.pos++]), (e |= (r & 127) << 7), !(r & 128)))
+        if ((r & 128) == 0) return this.assertBounds(), e;
+        if (((r = this.buf[this.pos++]), (e |= (r & 127) << 7), (r & 128) == 0))
             return this.assertBounds(), e;
-        if (((r = this.buf[this.pos++]), (e |= (r & 127) << 14), !(r & 128)))
+        if (((r = this.buf[this.pos++]), (e |= (r & 127) << 14), (r & 128) == 0))
             return this.assertBounds(), e;
-        if (((r = this.buf[this.pos++]), (e |= (r & 127) << 21), !(r & 128)))
+        if (((r = this.buf[this.pos++]), (e |= (r & 127) << 21), (r & 128) == 0))
             return this.assertBounds(), e;
         (r = this.buf[this.pos++]), (e |= (r & 15) << 28);
-        for (let t = 5; r & 128 && t < 10; t++) r = this.buf[this.pos++];
-        if (r & 128) throw new Error("invalid varint");
+        for (let t = 5; (r & 128) !== 0 && t < 10; t++) r = this.buf[this.pos++];
+        if ((r & 128) != 0) throw new Error("invalid varint");
         return this.assertBounds(), e >>> 0;
     }
-    var R;
-    function Er() {
+    var I;
+    function or() {
         let r = new DataView(new ArrayBuffer(8));
-        R =
+        I =
             globalThis.BigInt !== void 0 &&
                 typeof r.getBigInt64 == "function" &&
                 typeof r.getBigUint64 == "function" &&
@@ -910,17 +910,17 @@
                 }
                 : void 0;
     }
-    Er();
-    function Ui(r) {
+    or();
+    function ei(r) {
         if (!r)
             throw new Error(
                 "BigInt unavailable, see https://github.com/timostamm/protobuf-ts/blob/v1.0.8/MANUAL.md#bigint-support"
             );
     }
-    var Ti = /^-?[0-9]+$/,
-        Ue = 4294967296,
-        xe = 2147483648,
-        Te = class {
+    var ti = /^-?[0-9]+$/,
+        xe = 4294967296,
+        Te = 2147483648,
+        Be = class {
             constructor(e, t) {
                 (this.lo = e | 0), (this.hi = t | 0);
             }
@@ -928,138 +928,138 @@
                 return this.lo == 0 && this.hi == 0;
             }
             toNumber() {
-                let e = this.hi * Ue + (this.lo >>> 0);
+                let e = this.hi * xe + (this.lo >>> 0);
                 if (!Number.isSafeInteger(e))
                     throw new Error("cannot convert to safe number");
                 return e;
             }
         },
-        F = class extends Te {
+        F = class r extends Be {
             static from(e) {
-                if (R)
+                if (I)
                     switch (typeof e) {
                         case "string":
                             if (e == "0") return this.ZERO;
                             if (e == "") throw new Error("string is no integer");
-                            e = R.C(e);
+                            e = I.C(e);
                         case "number":
                             if (e === 0) return this.ZERO;
-                            e = R.C(e);
+                            e = I.C(e);
                         case "bigint":
                             if (!e) return this.ZERO;
-                            if (e < R.UMIN) throw new Error("signed value for ulong");
-                            if (e > R.UMAX) throw new Error("ulong too large");
+                            if (e < I.UMIN) throw new Error("signed value for ulong");
+                            if (e > I.UMAX) throw new Error("ulong too large");
                             return (
-                                R.V.setBigUint64(0, e, !0),
-                                new F(R.V.getInt32(0, !0), R.V.getInt32(4, !0))
+                                I.V.setBigUint64(0, e, !0),
+                                new r(I.V.getInt32(0, !0), I.V.getInt32(4, !0))
                             );
                     }
                 else
                     switch (typeof e) {
                         case "string":
                             if (e == "0") return this.ZERO;
-                            if (((e = e.trim()), !Ti.test(e)))
+                            if (((e = e.trim()), !ti.test(e)))
                                 throw new Error("string is no integer");
-                            let [t, i, n] = je(e);
+                            let [t, i, n] = ze(e);
                             if (t) throw new Error("signed value for ulong");
-                            return new F(i, n);
+                            return new r(i, n);
                         case "number":
                             if (e == 0) return this.ZERO;
                             if (!Number.isSafeInteger(e))
                                 throw new Error("number is no integer");
                             if (e < 0) throw new Error("signed value for ulong");
-                            return new F(e, e / Ue);
+                            return new r(e, e / xe);
                     }
                 throw new Error("unknown value " + typeof e);
             }
             toString() {
-                return R ? this.toBigInt().toString() : Be(this.lo, this.hi);
+                return I ? this.toBigInt().toString() : Ne(this.lo, this.hi);
             }
             toBigInt() {
                 return (
-                    Ui(R),
-                    R.V.setInt32(0, this.lo, !0),
-                    R.V.setInt32(4, this.hi, !0),
-                    R.V.getBigUint64(0, !0)
+                    ei(I),
+                    I.V.setInt32(0, this.lo, !0),
+                    I.V.setInt32(4, this.hi, !0),
+                    I.V.getBigUint64(0, !0)
                 );
             }
         };
     F.ZERO = new F(0, 0);
-    var I = class extends Te {
+    var E = class r extends Be {
         static from(e) {
-            if (R)
+            if (I)
                 switch (typeof e) {
                     case "string":
                         if (e == "0") return this.ZERO;
                         if (e == "") throw new Error("string is no integer");
-                        e = R.C(e);
+                        e = I.C(e);
                     case "number":
                         if (e === 0) return this.ZERO;
-                        e = R.C(e);
+                        e = I.C(e);
                     case "bigint":
                         if (!e) return this.ZERO;
-                        if (e < R.MIN) throw new Error("signed long too small");
-                        if (e > R.MAX) throw new Error("signed long too large");
+                        if (e < I.MIN) throw new Error("signed long too small");
+                        if (e > I.MAX) throw new Error("signed long too large");
                         return (
-                            R.V.setBigInt64(0, e, !0),
-                            new I(R.V.getInt32(0, !0), R.V.getInt32(4, !0))
+                            I.V.setBigInt64(0, e, !0),
+                            new r(I.V.getInt32(0, !0), I.V.getInt32(4, !0))
                         );
                 }
             else
                 switch (typeof e) {
                     case "string":
                         if (e == "0") return this.ZERO;
-                        if (((e = e.trim()), !Ti.test(e)))
+                        if (((e = e.trim()), !ti.test(e)))
                             throw new Error("string is no integer");
-                        let [t, i, n] = je(e);
+                        let [t, i, n] = ze(e);
                         if (t) {
-                            if (n > xe || (n == xe && i != 0))
+                            if (n > Te || (n == Te && i != 0))
                                 throw new Error("signed long too small");
-                        } else if (n >= xe) throw new Error("signed long too large");
-                        let s = new I(i, n);
+                        } else if (n >= Te) throw new Error("signed long too large");
+                        let s = new r(i, n);
                         return t ? s.negate() : s;
                     case "number":
                         if (e == 0) return this.ZERO;
                         if (!Number.isSafeInteger(e))
                             throw new Error("number is no integer");
-                        return e > 0 ? new I(e, e / Ue) : new I(-e, -e / Ue).negate();
+                        return e > 0 ? new r(e, e / xe) : new r(-e, -e / xe).negate();
                 }
             throw new Error("unknown value " + typeof e);
         }
         isNegative() {
-            return (this.hi & xe) !== 0;
+            return (this.hi & Te) !== 0;
         }
         negate() {
             let e = ~this.hi,
                 t = this.lo;
-            return t ? (t = ~t + 1) : (e += 1), new I(t, e);
+            return t ? (t = ~t + 1) : (e += 1), new r(t, e);
         }
         toString() {
-            if (R) return this.toBigInt().toString();
+            if (I) return this.toBigInt().toString();
             if (this.isNegative()) {
                 let e = this.negate();
-                return "-" + Be(e.lo, e.hi);
+                return "-" + Ne(e.lo, e.hi);
             }
-            return Be(this.lo, this.hi);
+            return Ne(this.lo, this.hi);
         }
         toBigInt() {
             return (
-                Ui(R),
-                R.V.setInt32(0, this.lo, !0),
-                R.V.setInt32(4, this.hi, !0),
-                R.V.getBigInt64(0, !0)
+                ei(I),
+                I.V.setInt32(0, this.lo, !0),
+                I.V.setInt32(4, this.hi, !0),
+                I.V.getBigInt64(0, !0)
             );
         }
     };
-    I.ZERO = new I(0, 0);
-    var Ii = { readUnknownField: !0, readerFactory: (r) => new Ge(r) };
-    function Ei(r) {
-        return r ? Object.assign(Object.assign({}, Ii), r) : Ii;
+    E.ZERO = new E(0, 0);
+    var ni = { readUnknownField: !0, readerFactory: (r) => new Ke(r) };
+    function ii(r) {
+        return r ? Object.assign(Object.assign({}, ni), r) : ni;
     }
-    var Ge = class {
+    var Ke = class {
         constructor(e, t) {
-            (this.varint64 = Bi),
-                (this.uint32 = xi),
+            (this.varint64 = Hn),
+                (this.uint32 = Qn),
                 (this.buf = e),
                 (this.len = e.length),
                 (this.pos = 0),
@@ -1110,7 +1110,7 @@
             return (e >>> 1) ^ -(e & 1);
         }
         int64() {
-            return new I(...this.varint64());
+            return new E(...this.varint64());
         }
         uint64() {
             return new F(...this.varint64());
@@ -1121,7 +1121,7 @@
             return (
                 (e = ((e >>> 1) | ((t & 1) << 31)) ^ i),
                 (t = (t >>> 1) ^ i),
-                new I(e, t)
+                new E(e, t)
             );
         }
         bool() {
@@ -1138,7 +1138,7 @@
             return new F(this.sfixed32(), this.sfixed32());
         }
         sfixed64() {
-            return new I(this.sfixed32(), this.sfixed32());
+            return new E(this.sfixed32(), this.sfixed32());
         }
         float() {
             return this.view.getFloat32((this.pos += 4) - 4, !0);
@@ -1155,34 +1155,34 @@
             return this.textDecoder.decode(this.bytes());
         }
     };
-    function B(r, e) {
+    function N(r, e) {
         if (!r) throw new Error(e);
     }
-    var Or = 34028234663852886e22,
-        Rr = -34028234663852886e22,
-        Fr = 4294967295,
-        Ar = 2147483647,
-        Lr = -2147483648;
+    var ar = 34028234663852886e22,
+        lr = -34028234663852886e22,
+        fr = 4294967295,
+        ur = 2147483647,
+        cr = -2147483648;
     function Q(r) {
         if (typeof r != "number") throw new Error("invalid int 32: " + typeof r);
-        if (!Number.isInteger(r) || r > Ar || r < Lr)
+        if (!Number.isInteger(r) || r > ur || r < cr)
             throw new Error("invalid int 32: " + r);
     }
-    function ne(r) {
+    function ee(r) {
         if (typeof r != "number") throw new Error("invalid uint 32: " + typeof r);
-        if (!Number.isInteger(r) || r > Fr || r < 0)
+        if (!Number.isInteger(r) || r > fr || r < 0)
             throw new Error("invalid uint 32: " + r);
     }
-    function le(r) {
+    function re(r) {
         if (typeof r != "number") throw new Error("invalid float 32: " + typeof r);
-        if (Number.isFinite(r) && (r > Or || r < Rr))
+        if (Number.isFinite(r) && (r > ar || r < lr))
             throw new Error("invalid float 32: " + r);
     }
-    var Oi = { writeUnknownFields: !0, writerFactory: () => new ze() };
-    function Ri(r) {
-        return r ? Object.assign(Object.assign({}, Oi), r) : Oi;
+    var ri = { writeUnknownFields: !0, writerFactory: () => new Ge() };
+    function si(r) {
+        return r ? Object.assign(Object.assign({}, ri), r) : ri;
     }
-    var ze = class {
+    var Ge = class {
         constructor(e) {
             (this.stack = []),
                 (this.textEncoder = e ?? new TextEncoder()),
@@ -1230,11 +1230,11 @@
             );
         }
         uint32(e) {
-            for (ne(e); e > 127;) this.buf.push((e & 127) | 128), (e = e >>> 7);
+            for (ee(e); e > 127;) this.buf.push((e & 127) | 128), (e = e >>> 7);
             return this.buf.push(e), this;
         }
         int32(e) {
-            return Q(e), Me(e, this.buf), this;
+            return Q(e), _e(e, this.buf), this;
         }
         bool(e) {
             return this.buf.push(e ? 1 : 0), this;
@@ -1247,7 +1247,7 @@
             return this.uint32(t.byteLength), this.raw(t);
         }
         float(e) {
-            le(e);
+            re(e);
             let t = new Uint8Array(4);
             return new DataView(t.buffer).setFloat32(0, e, !0), this.raw(t);
         }
@@ -1256,7 +1256,7 @@
             return new DataView(t.buffer).setFloat64(0, e, !0), this.raw(t);
         }
         fixed32(e) {
-            ne(e);
+            ee(e);
             let t = new Uint8Array(4);
             return new DataView(t.buffer).setUint32(0, e, !0), this.raw(t);
         }
@@ -1266,12 +1266,12 @@
             return new DataView(t.buffer).setInt32(0, e, !0), this.raw(t);
         }
         sint32(e) {
-            return Q(e), (e = ((e << 1) ^ (e >> 31)) >>> 0), Me(e, this.buf), this;
+            return Q(e), (e = ((e << 1) ^ (e >> 31)) >>> 0), _e(e, this.buf), this;
         }
         sfixed64(e) {
             let t = new Uint8Array(8),
                 i = new DataView(t.buffer),
-                n = I.from(e);
+                n = E.from(e);
             return i.setInt32(0, n.lo, !0), i.setInt32(4, n.hi, !0), this.raw(t);
         }
         fixed64(e) {
@@ -1281,36 +1281,36 @@
             return i.setInt32(0, n.lo, !0), i.setInt32(4, n.hi, !0), this.raw(t);
         }
         int64(e) {
-            let t = I.from(e);
-            return Ne(t.lo, t.hi, this.buf), this;
+            let t = E.from(e);
+            return ke(t.lo, t.hi, this.buf), this;
         }
         sint64(e) {
-            let t = I.from(e),
+            let t = E.from(e),
                 i = t.hi >> 31,
                 n = (t.lo << 1) ^ i,
                 s = ((t.hi << 1) | (t.lo >>> 31)) ^ i;
-            return Ne(n, s, this.buf), this;
+            return ke(n, s, this.buf), this;
         }
         uint64(e) {
             let t = F.from(e);
-            return Ne(t.lo, t.hi, this.buf), this;
+            return ke(t.lo, t.hi, this.buf), this;
         }
     };
-    var Fi = {
+    var oi = {
         emitDefaultValues: !1,
         enumAsInteger: !1,
         useProtoFieldName: !1,
         prettySpaces: 0,
     },
-        Ai = { ignoreUnknownFields: !1 };
-    function Ke(r) {
-        return r ? Object.assign(Object.assign({}, Ai), r) : Ai;
+        ai = { ignoreUnknownFields: !1 };
+    function li(r) {
+        return r ? Object.assign(Object.assign({}, ai), r) : ai;
     }
-    function de(r) {
-        return r ? Object.assign(Object.assign({}, Fi), r) : Fi;
+    function fi(r) {
+        return r ? Object.assign(Object.assign({}, oi), r) : oi;
     }
-    var Ie = Symbol.for("protobuf-ts/message-type");
-    function Je(r) {
+    var Ue = Symbol.for("protobuf-ts/message-type");
+    function qe(r) {
         let e = !1,
             t = [];
         for (let i = 0; i < r.length; i++) {
@@ -1327,7 +1327,7 @@
         }
         return t.join("");
     }
-    var p;
+    var h;
     (function (r) {
         (r[(r.DOUBLE = 1)] = "DOUBLE"),
             (r[(r.FLOAT = 2)] = "FLOAT"),
@@ -1344,26 +1344,26 @@
             (r[(r.SFIXED64 = 16)] = "SFIXED64"),
             (r[(r.SINT32 = 17)] = "SINT32"),
             (r[(r.SINT64 = 18)] = "SINT64");
-    })(p || (p = {}));
-    var P;
+    })(h || (h = {}));
+    var S;
     (function (r) {
         (r[(r.BIGINT = 0)] = "BIGINT"),
             (r[(r.STRING = 1)] = "STRING"),
             (r[(r.NUMBER = 2)] = "NUMBER");
-    })(P || (P = {}));
-    var me;
+    })(S || (S = {}));
+    var pe;
     (function (r) {
         (r[(r.NO = 0)] = "NO"),
             (r[(r.PACKED = 1)] = "PACKED"),
             (r[(r.UNPACKED = 2)] = "UNPACKED");
-    })(me || (me = {}));
-    function Li(r) {
+    })(pe || (pe = {}));
+    function ui(r) {
         var e, t, i, n;
         return (
             (r.localName =
-                (e = r.localName) !== null && e !== void 0 ? e : Je(r.name)),
-            (r.jsonName = (t = r.jsonName) !== null && t !== void 0 ? t : Je(r.name)),
-            (r.repeat = (i = r.repeat) !== null && i !== void 0 ? i : me.NO),
+                (e = r.localName) !== null && e !== void 0 ? e : qe(r.name)),
+            (r.jsonName = (t = r.jsonName) !== null && t !== void 0 ? t : qe(r.name)),
+            (r.repeat = (i = r.repeat) !== null && i !== void 0 ? i : pe.NO),
             (r.opt =
                 (n = r.opt) !== null && n !== void 0
                     ? n
@@ -1373,7 +1373,7 @@
             r
         );
     }
-    function Si(r) {
+    function ci(r) {
         if (typeof r != "object" || r === null || !r.hasOwnProperty("oneofKind"))
             return !1;
         switch (typeof r.oneofKind) {
@@ -1385,7 +1385,7 @@
                 return !1;
         }
     }
-    var Ee = class {
+    var Re = class {
         constructor(e) {
             var t;
             this.fields = (t = e.fields) !== null && t !== void 0 ? t : [];
@@ -1429,7 +1429,7 @@
             if (t < 1) return !0;
             for (let f of s.oneofs) {
                 let o = e[f];
-                if (!Si(o)) return !1;
+                if (!ci(o)) return !1;
                 if (o.oneofKind === void 0) continue;
                 let l = this.fields.find((a) => a.localName === o.oneofKind);
                 if (!l || !this.field(o[o.oneofKind], l, i, t)) return !1;
@@ -1452,8 +1452,8 @@
                     return e === void 0
                         ? t.opt
                         : s
-                            ? this.scalars(e, p.INT32, n)
-                            : this.scalar(e, p.INT32);
+                            ? this.scalars(e, h.INT32, n)
+                            : this.scalar(e, h.INT32);
                 case "message":
                     return e === void 0
                         ? !0
@@ -1468,7 +1468,7 @@
                         case "scalar":
                             return this.scalars(Object.values(e), t.V.T, n, t.V.L);
                         case "enum":
-                            return this.scalars(Object.values(e), p.INT32, n);
+                            return this.scalars(Object.values(e), h.INT32, n);
                         case "message":
                             return this.messages(Object.values(e), t.V.T(), i, n);
                     }
@@ -1493,27 +1493,27 @@
         scalar(e, t, i) {
             let n = typeof e;
             switch (t) {
-                case p.UINT64:
-                case p.FIXED64:
-                case p.INT64:
-                case p.SFIXED64:
-                case p.SINT64:
+                case h.UINT64:
+                case h.FIXED64:
+                case h.INT64:
+                case h.SFIXED64:
+                case h.SINT64:
                     switch (i) {
-                        case P.BIGINT:
+                        case S.BIGINT:
                             return n == "bigint";
-                        case P.NUMBER:
+                        case S.NUMBER:
                             return n == "number" && !isNaN(e);
                         default:
                             return n == "string";
                     }
-                case p.BOOL:
+                case h.BOOL:
                     return n == "boolean";
-                case p.STRING:
+                case h.STRING:
                     return n == "string";
-                case p.BYTES:
+                case h.BYTES:
                     return e instanceof Uint8Array;
-                case p.DOUBLE:
-                case p.FLOAT:
+                case h.DOUBLE:
+                case h.FLOAT:
                     return n == "number" && !isNaN(e);
                 default:
                     return n == "number" && Number.isInteger(e);
@@ -1531,17 +1531,17 @@
         mapKeys(e, t, i) {
             let n = Object.keys(e);
             switch (t) {
-                case p.INT32:
-                case p.FIXED32:
-                case p.SFIXED32:
-                case p.SINT32:
-                case p.UINT32:
+                case h.INT32:
+                case h.FIXED32:
+                case h.SFIXED32:
+                case h.SINT32:
+                case h.UINT32:
                     return this.scalars(
                         n.slice(0, i).map((s) => parseInt(s)),
                         t,
                         i
                     );
-                case p.BOOL:
+                case h.BOOL:
                     return this.scalars(
                         n
                             .slice(0, i)
@@ -1550,21 +1550,21 @@
                         i
                     );
                 default:
-                    return this.scalars(n, t, i, P.STRING);
+                    return this.scalars(n, t, i, S.STRING);
             }
         }
     };
     function $(r, e) {
         switch (e) {
-            case P.BIGINT:
+            case S.BIGINT:
                 return r.toBigInt();
-            case P.NUMBER:
+            case S.NUMBER:
                 return r.toNumber();
             default:
                 return r.toString();
         }
     }
-    var Oe = class {
+    var Ie = class {
         constructor(e) {
             this.info = e;
         }
@@ -1581,7 +1581,7 @@
         }
         assert(e, t, i) {
             if (!e) {
-                let n = te(i);
+                let n = ge(i);
                 throw (
                     ((n == "number" || n == "boolean") && (n = i.toString()),
                         new Error(`Cannot parse JSON ${n} for ${this.info.typeName}#${t}`))
@@ -1616,52 +1616,52 @@
                 } else a = t;
                 if (o.kind == "map") {
                     if (f === null) continue;
-                    this.assert(ae(f), o.name, f);
+                    this.assert(Xn(f), o.name, f);
                     let u = a[l];
-                    for (let [w, g] of Object.entries(f)) {
+                    for (let [d, g] of Object.entries(f)) {
                         this.assert(g !== null, o.name + " map value", null);
-                        let y;
+                        let w;
                         switch (o.V.kind) {
                             case "message":
-                                y = o.V.T().internalJsonRead(g, i);
+                                w = o.V.T().internalJsonRead(g, i);
                                 break;
                             case "enum":
                                 if (
-                                    ((y = this.enum(o.V.T(), g, o.name, i.ignoreUnknownFields)),
-                                        y === !1)
+                                    ((w = this.enum(o.V.T(), g, o.name, i.ignoreUnknownFields)),
+                                        w === !1)
                                 )
                                     continue;
                                 break;
                             case "scalar":
-                                y = this.scalar(g, o.V.T, o.V.L, o.name);
+                                w = this.scalar(g, o.V.T, o.V.L, o.name);
                                 break;
                         }
-                        this.assert(y !== void 0, o.name + " map value", g);
-                        let N = w;
-                        o.K == p.BOOL && (N = N == "true" ? !0 : N == "false" ? !1 : N),
-                            (N = this.scalar(N, o.K, P.STRING, o.name).toString()),
-                            (u[N] = y);
+                        this.assert(w !== void 0, o.name + " map value", g);
+                        let k = d;
+                        o.K == h.BOOL && (k = k == "true" ? !0 : k == "false" ? !1 : k),
+                            (k = this.scalar(k, o.K, S.STRING, o.name).toString()),
+                            (u[k] = w);
                     }
                 } else if (o.repeat) {
                     if (f === null) continue;
                     this.assert(Array.isArray(f), o.name, f);
                     let u = a[l];
-                    for (let w of f) {
-                        this.assert(w !== null, o.name, null);
+                    for (let d of f) {
+                        this.assert(d !== null, o.name, null);
                         let g;
                         switch (o.kind) {
                             case "message":
-                                g = o.T().internalJsonRead(w, i);
+                                g = o.T().internalJsonRead(d, i);
                                 break;
                             case "enum":
                                 if (
-                                    ((g = this.enum(o.T(), w, o.name, i.ignoreUnknownFields)),
+                                    ((g = this.enum(o.T(), d, o.name, i.ignoreUnknownFields)),
                                         g === !1)
                                 )
                                     continue;
                                 break;
                             case "scalar":
-                                g = this.scalar(w, o.T, o.L, o.name);
+                                g = this.scalar(d, o.T, o.L, o.name);
                                 break;
                         }
                         this.assert(g !== void 0, o.name, f), u.push(g);
@@ -1680,11 +1680,13 @@
                             a[l] = o.T().internalJsonRead(f, i, a[l]);
                             break;
                         case "enum":
+                            if (f === null) continue;
                             let u = this.enum(o.T(), f, o.name, i.ignoreUnknownFields);
                             if (u === !1) continue;
                             a[l] = u;
                             break;
                         case "scalar":
+                            if (f === null) continue;
                             a[l] = this.scalar(f, o.T, o.L, o.name);
                             break;
                     }
@@ -1693,7 +1695,7 @@
         enum(e, t, i, n) {
             if (
                 (e[0] == "google.protobuf.NullValue" &&
-                    B(
+                    N(
                         t === null || t === "NULL_VALUE",
                         `Unable to parse field ${this.info.typeName}#${i}, enum ${e[0]} only accepts null.`
                     ),
@@ -1703,7 +1705,7 @@
             switch (typeof t) {
                 case "number":
                     return (
-                        B(
+                        N(
                             Number.isInteger(t),
                             `Unable to parse field ${this.info.typeName}#${i}, enum can only be integral number, got ${t}.`
                         ),
@@ -1717,13 +1719,13 @@
                     let f = e[1][s];
                     return typeof f > "u" && n
                         ? !1
-                        : (B(
+                        : (N(
                             typeof f == "number",
                             `Unable to parse field ${this.info.typeName}#${i}, enum ${e[0]} has no value for "${t}".`
                         ),
                             f);
             }
-            B(
+            N(
                 !1,
                 `Unable to parse field ${this.info.typeName
                 }#${i}, cannot parse enum value from ${typeof t}".`
@@ -1733,8 +1735,8 @@
             let s;
             try {
                 switch (t) {
-                    case p.DOUBLE:
-                    case p.FLOAT:
+                    case h.DOUBLE:
+                    case h.FLOAT:
                         if (e === null) return 0;
                         if (e === "NaN") return Number.NaN;
                         if (e === "Infinity") return Number.POSITIVE_INFINITY;
@@ -1757,12 +1759,12 @@
                             s = "too large or small";
                             break;
                         }
-                        return t == p.FLOAT && le(f), f;
-                    case p.INT32:
-                    case p.FIXED32:
-                    case p.SFIXED32:
-                    case p.SINT32:
-                    case p.UINT32:
+                        return t == h.FLOAT && re(f), f;
+                    case h.INT32:
+                    case h.FIXED32:
+                    case h.SFIXED32:
+                    case h.SINT32:
+                    case h.UINT32:
                         if (e === null) return 0;
                         let o;
                         if (
@@ -1777,23 +1779,23 @@
                                 o === void 0)
                         )
                             break;
-                        return t == p.UINT32 ? ne(o) : Q(o), o;
-                    case p.INT64:
-                    case p.SFIXED64:
-                    case p.SINT64:
-                        if (e === null) return $(I.ZERO, i);
+                        return t == h.UINT32 ? ee(o) : Q(o), o;
+                    case h.INT64:
+                    case h.SFIXED64:
+                    case h.SINT64:
+                        if (e === null) return $(E.ZERO, i);
                         if (typeof e != "number" && typeof e != "string") break;
-                        return $(I.from(e), i);
-                    case p.FIXED64:
-                    case p.UINT64:
+                        return $(E.from(e), i);
+                    case h.FIXED64:
+                    case h.UINT64:
                         if (e === null) return $(F.ZERO, i);
                         if (typeof e != "number" && typeof e != "string") break;
                         return $(F.from(e), i);
-                    case p.BOOL:
+                    case h.BOOL:
                         if (e === null) return !1;
                         if (typeof e != "boolean") break;
                         return e;
-                    case p.STRING:
+                    case h.STRING:
                         if (e === null) return "";
                         if (typeof e != "string") {
                             s = "extra whitespace";
@@ -1806,10 +1808,10 @@
                             break;
                         }
                         return e;
-                    case p.BYTES:
+                    case h.BYTES:
                         if (e === null || e === "") return new Uint8Array(0);
                         if (typeof e != "string") break;
-                        return vi(e);
+                        return Zn(e);
                 }
             } catch (f) {
                 s = f.message;
@@ -1817,7 +1819,7 @@
             this.assert(!1, n + (s ? " - " + s : ""), e);
         }
     };
-    var Re = class {
+    var Ee = class {
         constructor(e) {
             var t;
             this.fields = (t = e.fields) !== null && t !== void 0 ? t : [];
@@ -1838,62 +1840,62 @@
                         ? Object.assign(Object.assign({}, t), { emitDefaultValues: !0 })
                         : t,
                     l = this.field(s, f[s.localName], o);
-                B(l !== void 0), (i[t.useProtoFieldName ? s.name : s.jsonName] = l);
+                N(l !== void 0), (i[t.useProtoFieldName ? s.name : s.jsonName] = l);
             }
             return i;
         }
         field(e, t, i) {
             let n;
             if (e.kind == "map") {
-                B(typeof t == "object" && t !== null);
+                N(typeof t == "object" && t !== null);
                 let s = {};
                 switch (e.V.kind) {
                     case "scalar":
                         for (let [l, a] of Object.entries(t)) {
                             let u = this.scalar(e.V.T, a, e.name, !1, !0);
-                            B(u !== void 0), (s[l.toString()] = u);
+                            N(u !== void 0), (s[l.toString()] = u);
                         }
                         break;
                     case "message":
                         let f = e.V.T();
                         for (let [l, a] of Object.entries(t)) {
                             let u = this.message(f, a, e.name, i);
-                            B(u !== void 0), (s[l.toString()] = u);
+                            N(u !== void 0), (s[l.toString()] = u);
                         }
                         break;
                     case "enum":
                         let o = e.V.T();
                         for (let [l, a] of Object.entries(t)) {
-                            B(a === void 0 || typeof a == "number");
+                            N(a === void 0 || typeof a == "number");
                             let u = this.enum(o, a, e.name, !1, !0, i.enumAsInteger);
-                            B(u !== void 0), (s[l.toString()] = u);
+                            N(u !== void 0), (s[l.toString()] = u);
                         }
                         break;
                 }
                 (i.emitDefaultValues || Object.keys(s).length > 0) && (n = s);
             } else if (e.repeat) {
-                B(Array.isArray(t));
+                N(Array.isArray(t));
                 let s = [];
                 switch (e.kind) {
                     case "scalar":
                         for (let l = 0; l < t.length; l++) {
                             let a = this.scalar(e.T, t[l], e.name, e.opt, !0);
-                            B(a !== void 0), s.push(a);
+                            N(a !== void 0), s.push(a);
                         }
                         break;
                     case "enum":
                         let f = e.T();
                         for (let l = 0; l < t.length; l++) {
-                            B(t[l] === void 0 || typeof t[l] == "number");
+                            N(t[l] === void 0 || typeof t[l] == "number");
                             let a = this.enum(f, t[l], e.name, e.opt, !0, i.enumAsInteger);
-                            B(a !== void 0), s.push(a);
+                            N(a !== void 0), s.push(a);
                         }
                         break;
                     case "message":
                         let o = e.T();
                         for (let l = 0; l < t.length; l++) {
                             let a = this.message(o, t[l], e.name, i);
-                            B(a !== void 0), s.push(a);
+                            N(a !== void 0), s.push(a);
                         }
                         break;
                 }
@@ -1922,13 +1924,13 @@
         enum(e, t, i, n, s, f) {
             if (e[0] == "google.protobuf.NullValue") return !s && !n ? void 0 : null;
             if (t === void 0) {
-                B(n);
+                N(n);
                 return;
             }
             if (!(t === 0 && !s && !n))
                 return (
-                    B(typeof t == "number"),
-                    B(Number.isInteger(t)),
+                    N(typeof t == "number"),
+                    N(Number.isInteger(t)),
                     f || !e[1].hasOwnProperty(t) ? t : e[2] ? e[2] + e[1][t] : e[1][t]
                 );
         }
@@ -1941,26 +1943,26 @@
         }
         scalar(e, t, i, n, s) {
             if (t === void 0) {
-                B(n);
+                N(n);
                 return;
             }
             let f = s || n;
             switch (e) {
-                case p.INT32:
-                case p.SFIXED32:
-                case p.SINT32:
+                case h.INT32:
+                case h.SFIXED32:
+                case h.SINT32:
                     return t === 0 ? (f ? 0 : void 0) : (Q(t), t);
-                case p.FIXED32:
-                case p.UINT32:
-                    return t === 0 ? (f ? 0 : void 0) : (ne(t), t);
-                case p.FLOAT:
-                    le(t);
-                case p.DOUBLE:
+                case h.FIXED32:
+                case h.UINT32:
+                    return t === 0 ? (f ? 0 : void 0) : (ee(t), t);
+                case h.FLOAT:
+                    re(t);
+                case h.DOUBLE:
                     return t === 0
                         ? f
                             ? 0
                             : void 0
-                        : (B(typeof t == "number"),
+                        : (N(typeof t == "number"),
                             Number.isNaN(t)
                                 ? "NaN"
                                 : t === Number.POSITIVE_INFINITY
@@ -1968,49 +1970,49 @@
                                     : t === Number.NEGATIVE_INFINITY
                                         ? "-Infinity"
                                         : t);
-                case p.STRING:
-                    return t === "" ? (f ? "" : void 0) : (B(typeof t == "string"), t);
-                case p.BOOL:
-                    return t === !1 ? (f ? !1 : void 0) : (B(typeof t == "boolean"), t);
-                case p.UINT64:
-                case p.FIXED64:
-                    B(
+                case h.STRING:
+                    return t === "" ? (f ? "" : void 0) : (N(typeof t == "string"), t);
+                case h.BOOL:
+                    return t === !1 ? (f ? !1 : void 0) : (N(typeof t == "boolean"), t);
+                case h.UINT64:
+                case h.FIXED64:
+                    N(
                         typeof t == "number" || typeof t == "string" || typeof t == "bigint"
                     );
                     let o = F.from(t);
                     return o.isZero() && !f ? void 0 : o.toString();
-                case p.INT64:
-                case p.SFIXED64:
-                case p.SINT64:
-                    B(
+                case h.INT64:
+                case h.SFIXED64:
+                case h.SINT64:
+                    N(
                         typeof t == "number" || typeof t == "string" || typeof t == "bigint"
                     );
-                    let l = I.from(t);
+                    let l = E.from(t);
                     return l.isZero() && !f ? void 0 : l.toString();
-                case p.BYTES:
+                case h.BYTES:
                     return (
-                        B(t instanceof Uint8Array), t.byteLength ? Ni(t) : f ? "" : void 0
+                        N(t instanceof Uint8Array), t.byteLength ? Yn(t) : f ? "" : void 0
                     );
             }
         }
     };
-    function we(r, e = P.STRING) {
+    function de(r, e = S.STRING) {
         switch (r) {
-            case p.BOOL:
+            case h.BOOL:
                 return !1;
-            case p.UINT64:
-            case p.FIXED64:
+            case h.UINT64:
+            case h.FIXED64:
                 return $(F.ZERO, e);
-            case p.INT64:
-            case p.SFIXED64:
-            case p.SINT64:
-                return $(I.ZERO, e);
-            case p.DOUBLE:
-            case p.FLOAT:
+            case h.INT64:
+            case h.SFIXED64:
+            case h.SINT64:
+                return $(E.ZERO, e);
+            case h.DOUBLE:
+            case h.FLOAT:
                 return 0;
-            case p.BYTES:
+            case h.BYTES:
                 return new Uint8Array(0);
-            case p.STRING:
+            case h.STRING:
                 return "";
             default:
                 return 0;
@@ -2039,41 +2041,41 @@
                         throw new Error(
                             `Unknown field ${f} (wire type ${o}) for ${this.info.typeName}`
                         );
-                    let y = e.skip(o);
-                    g !== !1 && (g === !0 ? h.onRead : g)(this.info.typeName, t, f, o, y);
+                    let w = e.skip(o);
+                    g !== !1 && (g === !0 ? p.onRead : g)(this.info.typeName, t, f, o, w);
                     continue;
                 }
                 let a = t,
                     u = l.repeat,
-                    w = l.localName;
+                    d = l.localName;
                 switch (
                 (l.oneof &&
                     ((a = a[l.oneof]),
-                        a.oneofKind !== w && (a = t[l.oneof] = { oneofKind: w })),
+                        a.oneofKind !== d && (a = t[l.oneof] = { oneofKind: d })),
                     l.kind)
                 ) {
                     case "scalar":
                     case "enum":
-                        let g = l.kind == "enum" ? p.INT32 : l.T,
-                            y = l.kind == "scalar" ? l.L : void 0;
+                        let g = l.kind == "enum" ? h.INT32 : l.T,
+                            w = l.kind == "scalar" ? l.L : void 0;
                         if (u) {
-                            let x = a[w];
-                            if (o == c.LengthDelimited && g != p.STRING && g != p.BYTES) {
+                            let T = a[d];
+                            if (o == c.LengthDelimited && g != h.STRING && g != h.BYTES) {
                                 let v = e.uint32() + e.pos;
-                                for (; e.pos < v;) x.push(this.scalar(e, g, y));
-                            } else x.push(this.scalar(e, g, y));
-                        } else a[w] = this.scalar(e, g, y);
+                                for (; e.pos < v;) T.push(this.scalar(e, g, w));
+                            } else T.push(this.scalar(e, g, w));
+                        } else a[d] = this.scalar(e, g, w);
                         break;
                     case "message":
                         if (u) {
-                            let x = a[w],
+                            let T = a[d],
                                 v = l.T().internalBinaryRead(e, e.uint32(), i);
-                            x.push(v);
-                        } else a[w] = l.T().internalBinaryRead(e, e.uint32(), i, a[w]);
+                            T.push(v);
+                        } else a[d] = l.T().internalBinaryRead(e, e.uint32(), i, a[d]);
                         break;
                     case "map":
-                        let [N, A] = this.mapEntry(l, e, i);
-                        a[w][N] = A;
+                        let [k, O] = this.mapEntry(l, e, i);
+                        a[d][k] = O;
                         break;
                 }
             }
@@ -2087,9 +2089,9 @@
                 let [l, a] = t.tag();
                 switch (l) {
                     case 1:
-                        e.K == p.BOOL
+                        e.K == h.BOOL
                             ? (f = t.bool().toString())
-                            : (f = this.scalar(t, e.K, P.STRING));
+                            : (f = this.scalar(t, e.K, S.STRING));
                         break;
                     case 2:
                         switch (e.V.kind) {
@@ -2111,13 +2113,13 @@
                 }
             }
             if (f === void 0) {
-                let l = we(e.K);
-                f = e.K == p.BOOL ? l.toString() : l;
+                let l = de(e.K);
+                f = e.K == h.BOOL ? l.toString() : l;
             }
             if (o === void 0)
                 switch (e.V.kind) {
                     case "scalar":
-                        o = we(e.V.T, e.V.L);
+                        o = de(e.V.T, e.V.L);
                         break;
                     case "enum":
                         o = 0;
@@ -2130,40 +2132,40 @@
         }
         scalar(e, t, i) {
             switch (t) {
-                case p.INT32:
+                case h.INT32:
                     return e.int32();
-                case p.STRING:
+                case h.STRING:
                     return e.string();
-                case p.BOOL:
+                case h.BOOL:
                     return e.bool();
-                case p.DOUBLE:
+                case h.DOUBLE:
                     return e.double();
-                case p.FLOAT:
+                case h.FLOAT:
                     return e.float();
-                case p.INT64:
+                case h.INT64:
                     return $(e.int64(), i);
-                case p.UINT64:
+                case h.UINT64:
                     return $(e.uint64(), i);
-                case p.FIXED64:
+                case h.FIXED64:
                     return $(e.fixed64(), i);
-                case p.FIXED32:
+                case h.FIXED32:
                     return e.fixed32();
-                case p.BYTES:
+                case h.BYTES:
                     return e.bytes();
-                case p.UINT32:
+                case h.UINT32:
                     return e.uint32();
-                case p.SFIXED32:
+                case h.SFIXED32:
                     return e.sfixed32();
-                case p.SFIXED64:
+                case h.SFIXED64:
                     return $(e.sfixed64(), i);
-                case p.SINT32:
+                case h.SINT32:
                     return e.sint32();
-                case p.SINT64:
+                case h.SINT64:
                     return $(e.sint64(), i);
             }
         }
     };
-    var Ae = class {
+    var Oe = class {
         constructor(e) {
             this.info = e;
         }
@@ -2188,42 +2190,42 @@
                 switch (s.kind) {
                     case "scalar":
                     case "enum":
-                        let u = s.kind == "enum" ? p.INT32 : s.T;
+                        let u = s.kind == "enum" ? h.INT32 : s.T;
                         if (l)
-                            if ((B(Array.isArray(f)), l == me.PACKED))
+                            if ((N(Array.isArray(f)), l == pe.PACKED))
                                 this.packed(t, u, s.no, f);
-                            else for (let w of f) this.scalar(t, u, s.no, w, !0);
+                            else for (let d of f) this.scalar(t, u, s.no, d, !0);
                         else
-                            f === void 0 ? B(s.opt) : this.scalar(t, u, s.no, f, o || s.opt);
+                            f === void 0 ? N(s.opt) : this.scalar(t, u, s.no, f, o || s.opt);
                         break;
                     case "message":
                         if (l) {
-                            B(Array.isArray(f));
-                            for (let w of f) this.message(t, i, s.T(), s.no, w);
+                            N(Array.isArray(f));
+                            for (let d of f) this.message(t, i, s.T(), s.no, d);
                         } else this.message(t, i, s.T(), s.no, f);
                         break;
                     case "map":
-                        B(typeof f == "object" && f !== null);
-                        for (let [w, g] of Object.entries(f)) this.mapEntry(t, i, s, w, g);
+                        N(typeof f == "object" && f !== null);
+                        for (let [d, g] of Object.entries(f)) this.mapEntry(t, i, s, d, g);
                         break;
                 }
             }
             let n = i.writeUnknownFields;
-            n !== !1 && (n === !0 ? h.onWrite : n)(this.info.typeName, e, t);
+            n !== !1 && (n === !0 ? p.onWrite : n)(this.info.typeName, e, t);
         }
         mapEntry(e, t, i, n, s) {
             e.tag(i.no, c.LengthDelimited), e.fork();
             let f = n;
             switch (i.K) {
-                case p.INT32:
-                case p.FIXED32:
-                case p.UINT32:
-                case p.SFIXED32:
-                case p.SINT32:
+                case h.INT32:
+                case h.FIXED32:
+                case h.UINT32:
+                case h.SFIXED32:
+                case h.SINT32:
                     f = Number.parseInt(n);
                     break;
-                case p.BOOL:
-                    B(n == "true" || n == "false"), (f = n == "true");
+                case h.BOOL:
+                    N(n == "true" || n == "false"), (f = n == "true");
                     break;
             }
             switch ((this.scalar(e, i.K, 1, f, !0), i.V.kind)) {
@@ -2231,7 +2233,7 @@
                     this.scalar(e, i.V.T, 2, s, !0);
                     break;
                 case "enum":
-                    this.scalar(e, p.INT32, 2, s, !0);
+                    this.scalar(e, h.INT32, 2, s, !0);
                     break;
                 case "message":
                     this.message(e, t, i.V.T(), 2, s);
@@ -2250,7 +2252,7 @@
         }
         packed(e, t, i, n) {
             if (!n.length) return;
-            B(t !== p.BYTES && t !== p.STRING), e.tag(i, c.LengthDelimited), e.fork();
+            N(t !== h.BYTES && t !== h.STRING), e.tag(i, c.LengthDelimited), e.fork();
             let [, s] = this.scalarInfo(t);
             for (let f = 0; f < n.length; f++) e[s](n[f]);
             e.join();
@@ -2261,59 +2263,59 @@
                 s = t === void 0,
                 f = t === 0;
             switch (e) {
-                case p.INT32:
+                case h.INT32:
                     n = "int32";
                     break;
-                case p.STRING:
+                case h.STRING:
                     (f = s || !t.length), (i = c.LengthDelimited), (n = "string");
                     break;
-                case p.BOOL:
+                case h.BOOL:
                     (f = t === !1), (n = "bool");
                     break;
-                case p.UINT32:
+                case h.UINT32:
                     n = "uint32";
                     break;
-                case p.DOUBLE:
+                case h.DOUBLE:
                     (i = c.Bit64), (n = "double");
                     break;
-                case p.FLOAT:
+                case h.FLOAT:
                     (i = c.Bit32), (n = "float");
                     break;
-                case p.INT64:
-                    (f = s || I.from(t).isZero()), (n = "int64");
+                case h.INT64:
+                    (f = s || E.from(t).isZero()), (n = "int64");
                     break;
-                case p.UINT64:
+                case h.UINT64:
                     (f = s || F.from(t).isZero()), (n = "uint64");
                     break;
-                case p.FIXED64:
+                case h.FIXED64:
                     (f = s || F.from(t).isZero()), (i = c.Bit64), (n = "fixed64");
                     break;
-                case p.BYTES:
+                case h.BYTES:
                     (f = s || !t.byteLength), (i = c.LengthDelimited), (n = "bytes");
                     break;
-                case p.FIXED32:
+                case h.FIXED32:
                     (i = c.Bit32), (n = "fixed32");
                     break;
-                case p.SFIXED32:
+                case h.SFIXED32:
                     (i = c.Bit32), (n = "sfixed32");
                     break;
-                case p.SFIXED64:
-                    (f = s || I.from(t).isZero()), (i = c.Bit64), (n = "sfixed64");
+                case h.SFIXED64:
+                    (f = s || E.from(t).isZero()), (i = c.Bit64), (n = "sfixed64");
                     break;
-                case p.SINT32:
+                case h.SINT32:
                     n = "sint32";
                     break;
-                case p.SINT64:
-                    (f = s || I.from(t).isZero()), (n = "sint64");
+                case h.SINT64:
+                    (f = s || E.from(t).isZero()), (n = "sint64");
                     break;
             }
             return [i, n, s || f];
         }
     };
-    function Vi(r) {
+    function hi(r) {
         let e = r.messagePrototype
             ? Object.create(r.messagePrototype)
-            : Object.defineProperty({}, Ie, { value: r });
+            : Object.defineProperty({}, Ue, { value: r });
         for (let t of r.fields) {
             let i = t.localName;
             if (!t.opt)
@@ -2322,7 +2324,7 @@
                 else
                     switch (t.kind) {
                         case "scalar":
-                            e[i] = we(t.T, t.L);
+                            e[i] = de(t.T, t.L);
                             break;
                         case "enum":
                             e[i] = 0;
@@ -2334,7 +2336,7 @@
         }
         return e;
     }
-    function d(r, e, t) {
+    function m(r, e, t) {
         let i,
             n = t,
             s;
@@ -2377,7 +2379,7 @@
             }
         }
     }
-    function Di(r, e, t) {
+    function mi(r, e, t) {
         if (e === t) return !0;
         if (!e || !t) return !1;
         for (let i of r.fields) {
@@ -2387,72 +2389,72 @@
             switch (i.kind) {
                 case "enum":
                 case "scalar":
-                    let o = i.kind == "enum" ? p.INT32 : i.T;
-                    if (!(i.repeat ? Wi(o, s, f) : Ci(o, s, f))) return !1;
+                    let o = i.kind == "enum" ? h.INT32 : i.T;
+                    if (!(i.repeat ? pi(o, s, f) : yi(o, s, f))) return !1;
                     break;
                 case "map":
                     if (
                         !(i.V.kind == "message"
-                            ? Pi(i.V.T(), Le(s), Le(f))
-                            : Wi(i.V.kind == "enum" ? p.INT32 : i.V.T, Le(s), Le(f)))
+                            ? di(i.V.T(), De(s), De(f))
+                            : pi(i.V.kind == "enum" ? h.INT32 : i.V.T, De(s), De(f)))
                     )
                         return !1;
                     break;
                 case "message":
                     let l = i.T();
-                    if (!(i.repeat ? Pi(l, s, f) : l.equals(s, f))) return !1;
+                    if (!(i.repeat ? di(l, s, f) : l.equals(s, f))) return !1;
                     break;
             }
         }
         return !0;
     }
-    var Le = Object.values;
-    function Ci(r, e, t) {
+    var De = Object.values;
+    function yi(r, e, t) {
         if (e === t) return !0;
-        if (r !== p.BYTES) return !1;
+        if (r !== h.BYTES) return !1;
         let i = e,
             n = t;
         if (i.length !== n.length) return !1;
         for (let s = 0; s < i.length; s++) if (i[s] != n[s]) return !1;
         return !0;
     }
-    function Wi(r, e, t) {
+    function pi(r, e, t) {
         if (e.length !== t.length) return !1;
-        for (let i = 0; i < e.length; i++) if (!Ci(r, e[i], t[i])) return !1;
+        for (let i = 0; i < e.length; i++) if (!yi(r, e[i], t[i])) return !1;
         return !0;
     }
-    function Pi(r, e, t) {
+    function di(r, e, t) {
         if (e.length !== t.length) return !1;
         for (let i = 0; i < e.length; i++) if (!r.equals(e[i], t[i])) return !1;
         return !0;
     }
-    var Sr = Object.getOwnPropertyDescriptors(Object.getPrototypeOf({})),
-        m = class {
+    var hr = Object.getOwnPropertyDescriptors(Object.getPrototypeOf({})),
+        y = class {
             constructor(e, t, i) {
                 (this.defaultCheckDepth = 16),
                     (this.typeName = e),
-                    (this.fields = t.map(Li)),
+                    (this.fields = t.map(ui)),
                     (this.options = i ?? {}),
                     (this.messagePrototype = Object.create(
                         null,
-                        Object.assign(Object.assign({}, Sr), { [Ie]: { value: this } })
+                        Object.assign(Object.assign({}, hr), { [Ue]: { value: this } })
                     )),
-                    (this.refTypeCheck = new Ee(this)),
-                    (this.refJsonReader = new Oe(this)),
-                    (this.refJsonWriter = new Re(this)),
+                    (this.refTypeCheck = new Re(this)),
+                    (this.refJsonReader = new Ie(this)),
+                    (this.refJsonWriter = new Ee(this)),
                     (this.refBinReader = new Fe(this)),
-                    (this.refBinWriter = new Ae(this));
+                    (this.refBinWriter = new Oe(this));
             }
             create(e) {
-                let t = Vi(this);
-                return e !== void 0 && d(this, t, e), t;
+                let t = hi(this);
+                return e !== void 0 && m(this, t, e), t;
             }
             clone(e) {
                 let t = this.create();
-                return d(this, t, e), t;
+                return m(this, t, e), t;
             }
             equals(e, t) {
-                return Di(this, e, t);
+                return mi(this, e, t);
             }
             is(e, t = this.defaultCheckDepth) {
                 return this.refTypeCheck.is(e, t, !1);
@@ -2461,21 +2463,21 @@
                 return this.refTypeCheck.is(e, t, !0);
             }
             mergePartial(e, t) {
-                d(this, e, t);
+                m(this, e, t);
             }
             fromBinary(e, t) {
-                let i = Ei(t);
+                let i = ii(t);
                 return this.internalBinaryRead(i.readerFactory(e), e.byteLength, i);
             }
             fromJson(e, t) {
-                return this.internalJsonRead(e, Ke(t));
+                return this.internalJsonRead(e, li(t));
             }
             fromJsonString(e, t) {
                 let i = JSON.parse(e);
                 return this.fromJson(i, t);
             }
             toJson(e, t) {
-                return this.internalJsonWrite(e, de(t));
+                return this.internalJsonWrite(e, fi(t));
             }
             toJsonString(e, t) {
                 var i;
@@ -2487,7 +2489,7 @@
                 );
             }
             toBinary(e, t) {
-                let i = Ri(t);
+                let i = si(t);
                 return this.internalBinaryWrite(e, i.writerFactory(), i).finish();
             }
             internalJsonRead(e, t, i) {
@@ -2496,7 +2498,7 @@
                     return this.refJsonReader.read(e, n, t), n;
                 }
                 throw new Error(
-                    `Unable to parse message ${this.typeName} from JSON ${te(e)}.`
+                    `Unable to parse message ${this.typeName} from JSON ${ge(e)}.`
                 );
             }
             internalJsonWrite(e, t) {
@@ -2510,15 +2512,25 @@
                 return this.refBinReader.read(e, s, i, t), s;
             }
         };
-    var Xe = class extends m {
+    var oe;
+    (function (r) {
+        (r[(r.DYN_NONE = 0)] = "DYN_NONE"),
+            (r[(r.AD = 15)] = "AD"),
+            (r[(r.LIVE_RCMD = 18)] = "LIVE_RCMD");
+    })(oe || (oe = {}));
+    var Ye = class extends y {
         constructor() {
-            super("ModeStatus", [
-                { no: 1, name: "modes", kind: "message", repeat: 1, T: () => qe },
+            super("bilibili.app.dynamic.v2.DynAllReply", [
+                { no: 1, name: "dynamic_list", kind: "message", T: () => Je },
+                { no: 2, name: "up_list", kind: "message", T: () => Ze },
+                { no: 3, name: "topic_list", kind: "scalar", T: 12 },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return (t.modes = []), e !== void 0 && d(this, t, e), t;
+            return (
+                (t.topicList = new Uint8Array(0)), e !== void 0 && m(this, t, e), t
+            );
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -2527,7 +2539,18 @@
                 let [o, l] = e.tag();
                 switch (o) {
                     case 1:
-                        s.modes.push(qe.internalBinaryRead(e, e.uint32(), i));
+                        s.dynamicList = Je.internalBinaryRead(
+                            e,
+                            e.uint32(),
+                            i,
+                            s.dynamicList
+                        );
+                        break;
+                    case 2:
+                        s.upList = Ze.internalBinaryRead(e, e.uint32(), i, s.upList);
+                        break;
+                    case 3:
+                        s.topicList = e.bytes();
                         break;
                     default:
                         let a = i.readUnknownField;
@@ -2536,39 +2559,137 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
         }
         internalBinaryWrite(e, t, i) {
-            for (let s = 0; s < e.modes.length; s++)
-                qe.internalBinaryWrite(
-                    e.modes[s],
+            e.dynamicList &&
+                Je.internalBinaryWrite(
+                    e.dynamicList,
                     t.tag(1, c.LengthDelimited).fork(),
                     i
-                ).join();
+                ).join(),
+                e.upList &&
+                Ze.internalBinaryWrite(
+                    e.upList,
+                    t.tag(2, c.LengthDelimited).fork(),
+                    i
+                ).join(),
+                e.topicList.length && t.tag(3, c.LengthDelimited).bytes(e.topicList);
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        Qe = new Xe(),
-        Ze = class extends m {
+        nt = new Ye(),
+        He = class extends y {
             constructor() {
-                super("Mode", [
-                    { no: 1, name: "id", kind: "scalar", T: 5 },
-                    { no: 2, name: "name", kind: "scalar", T: 9 },
-                    { no: 4, name: "f4", kind: "scalar", T: 5 },
-                    { no: 5, name: "f5", kind: "message", T: () => Ye },
+                super("bilibili.app.dynamic.v2.DynamicList", [
+                    { no: 1, name: "list", kind: "message", repeat: 1, T: () => Xe },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.list = []), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.list.push(Xe.internalBinaryRead(e, e.uint32(), i));
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                for (let s = 0; s < e.list.length; s++)
+                    Xe.internalBinaryWrite(
+                        e.list[s],
+                        t.tag(1, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Je = new He(),
+        Qe = class extends y {
+            constructor() {
+                super("bilibili.app.dynamic.v2.DynamicItem", [
+                    {
+                        no: 1,
+                        name: "card_type",
+                        kind: "enum",
+                        T: () => ["bilibili.app.dynamic.v2.DynamicType", oe],
+                    },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.cardType = 0), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.cardType = e.int32();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.cardType !== 0 && t.tag(1, c.Varint).int32(e.cardType);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Xe = new Qe(),
+        et = class extends y {
+            constructor() {
+                super("bilibili.app.dynamic.v2.CardVideoUpList", [
+                    { no: 2, name: "list", kind: "message", repeat: 1, T: () => se },
+                    { no: 4, name: "show_live_num", kind: "scalar", T: 5 },
+                    {
+                        no: 10,
+                        name: "list_second",
+                        kind: "message",
+                        repeat: 1,
+                        T: () => se,
+                    },
                 ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
                 return (
-                    (t.id = 0),
-                    (t.name = ""),
-                    (t.f4 = 0),
-                    e !== void 0 && d(this, t, e),
+                    (t.list = []),
+                    (t.showLiveNum = 0),
+                    (t.listSecond = []),
+                    e !== void 0 && m(this, t, e),
                     t
                 );
             }
@@ -2578,17 +2699,14 @@
                 for (; e.pos < f;) {
                     let [o, l] = e.tag();
                     switch (o) {
-                        case 1:
-                            s.id = e.int32();
-                            break;
                         case 2:
-                            s.name = e.string();
+                            s.list.push(se.internalBinaryRead(e, e.uint32(), i));
                             break;
                         case 4:
-                            s.f4 = e.int32();
+                            s.showLiveNum = e.int32();
                             break;
-                        case 5:
-                            s.f5 = Ye.internalBinaryRead(e, e.uint32(), i, s.f5);
+                        case 10:
+                            s.listSecond.push(se.internalBinaryRead(e, e.uint32(), i));
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -2597,33 +2715,39 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
-                e.id !== 0 && t.tag(1, c.Varint).int32(e.id),
-                    e.name !== "" && t.tag(2, c.LengthDelimited).string(e.name),
-                    e.f4 !== 0 && t.tag(4, c.Varint).int32(e.f4),
-                    e.f5 &&
-                    Ye.internalBinaryWrite(
-                        e.f5,
-                        t.tag(5, c.LengthDelimited).fork(),
+                for (let s = 0; s < e.list.length; s++)
+                    se.internalBinaryWrite(
+                        e.list[s],
+                        t.tag(2, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                e.showLiveNum !== 0 && t.tag(4, c.Varint).int32(e.showLiveNum);
+                for (let s = 0; s < e.listSecond.length; s++)
+                    se.internalBinaryWrite(
+                        e.listSecond[s],
+                        t.tag(10, c.LengthDelimited).fork(),
                         i
                     ).join();
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        qe = new Ze(),
-        He = class extends m {
+        Ze = new et(),
+        tt = class extends y {
             constructor() {
-                super("F5", [{ no: 1, name: "f1", kind: "scalar", T: 5 }]);
+                super("bilibili.app.dynamic.v2.UpListItem", [
+                    { no: 11, name: "separator", kind: "scalar", T: 8 },
+                ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return (t.f1 = 0), e !== void 0 && d(this, t, e), t;
+                return (t.separator = !1), e !== void 0 && m(this, t, e), t;
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -2631,8 +2755,8 @@
                 for (; e.pos < f;) {
                     let [o, l] = e.tag();
                     switch (o) {
-                        case 1:
-                            s.f1 = e.int32();
+                        case 11:
+                            s.separator = e.bool();
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -2641,21 +2765,21 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
-                e.f1 !== 0 && t.tag(1, c.Varint).int32(e.f1);
+                e.separator !== !1 && t.tag(11, c.Varint).bool(e.separator);
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Ye = new He();
-    var et = class extends m {
+        se = new tt();
+    var it = class extends y {
         constructor() {
-            super("DefaultWordsReply", [
+            super("bilibili.app.interface.v1.DefaultWordsReply", [
                 { no: 3, name: "show", kind: "scalar", T: 9 },
                 { no: 4, name: "word", kind: "scalar", T: 9 },
                 { no: 7, name: "goto", kind: "scalar", T: 9 },
@@ -2671,7 +2795,7 @@
                 (t.goto = ""),
                 (t.value = ""),
                 (t.uri = ""),
-                e !== void 0 && d(this, t, e),
+                e !== void 0 && m(this, t, e),
                 t
             );
         }
@@ -2703,7 +2827,7 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
@@ -2715,980 +2839,25 @@
                 e.value !== "" && t.tag(8, c.LengthDelimited).string(e.value),
                 e.uri !== "" && t.tag(9, c.LengthDelimited).string(e.uri);
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        tt = new et();
-    var st = class extends m {
+        rt = new it();
+    var at = class extends y {
         constructor() {
-            super("PopularReply", [
-                { no: 1, name: "items", kind: "message", repeat: 1, T: () => nt },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return (t.items = []), e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 1:
-                        s.items.push(nt.internalBinaryRead(e, e.uint32(), i));
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            for (let s = 0; s < e.items.length; s++)
-                nt.internalBinaryWrite(
-                    e.items[s],
-                    t.tag(1, c.LengthDelimited).fork(),
-                    i
-                ).join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        ft = new st(),
-        ot = class extends m {
-            constructor() {
-                super("Card", [
-                    {
-                        no: 10,
-                        name: "rcmd_one_item",
-                        kind: "message",
-                        oneof: "item",
-                        T: () => it,
-                    },
-                    {
-                        no: 12,
-                        name: "topic_list",
-                        kind: "message",
-                        oneof: "item",
-                        T: () => rt,
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.item = { oneofKind: void 0 }), e !== void 0 && d(this, t, e), t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 10:
-                            s.item = {
-                                oneofKind: "rcmdOneItem",
-                                rcmdOneItem: it.internalBinaryRead(
-                                    e,
-                                    e.uint32(),
-                                    i,
-                                    s.item.rcmdOneItem
-                                ),
-                            };
-                            break;
-                        case 12:
-                            s.item = {
-                                oneofKind: "topicList",
-                                topicList: rt.internalBinaryRead(
-                                    e,
-                                    e.uint32(),
-                                    i,
-                                    s.item.topicList
-                                ),
-                            };
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.item.oneofKind === "rcmdOneItem" &&
-                    it
-                        .internalBinaryWrite(
-                            e.item.rcmdOneItem,
-                            t.tag(10, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join(),
-                    e.item.oneofKind === "topicList" &&
-                    rt
-                        .internalBinaryWrite(
-                            e.item.topicList,
-                            t.tag(12, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        nt = new ot(),
-        at = class extends m {
-            constructor() {
-                super("RcmdOneItem", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        it = new at(),
-        lt = class extends m {
-            constructor() {
-                super("PopularTopicList", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        rt = new lt();
-    var ut = class extends m {
-        constructor() {
-            super("google.protobuf.Any", [
-                { no: 1, name: "type_url", kind: "scalar", T: 9 },
-                { no: 2, name: "value", kind: "scalar", T: 12 },
-            ]);
-        }
-        pack(e, t) {
-            return {
-                typeUrl: this.typeNameToUrl(t.typeName),
-                value: t.toBinary(e),
-            };
-        }
-        unpack(e, t, i) {
-            if (!this.contains(e, t))
-                throw new Error(
-                    "Cannot unpack google.protobuf.Any with typeUrl '" +
-                    e.typeUrl +
-                    "' as " +
-                    t.typeName +
-                    "."
-                );
-            return t.fromBinary(e.value, i);
-        }
-        contains(e, t) {
-            if (!e.typeUrl.length) return !1;
-            let i = typeof t == "string" ? t : t.typeName,
-                n = this.typeUrlToName(e.typeUrl);
-            return i === n;
-        }
-        internalJsonWrite(e, t) {
-            var i;
-            if (e.typeUrl === "") return {};
-            let n = this.typeUrlToName(e.typeUrl),
-                s = de(t),
-                f =
-                    (i = s.typeRegistry) === null || i === void 0
-                        ? void 0
-                        : i.find((a) => a.typeName === n);
-            if (!f)
-                throw new globalThis.Error(
-                    "Unable to convert google.protobuf.Any with typeUrl '" +
-                    e.typeUrl +
-                    "' to JSON. The specified type " +
-                    n +
-                    " is not available in the type registry."
-                );
-            let o = f.fromBinary(e.value, { readUnknownField: !1 }),
-                l = f.internalJsonWrite(o, s);
-            return (
-                (n.startsWith("google.protobuf.") || !ae(l)) && (l = { value: l }),
-                (l["@type"] = e.typeUrl),
-                l
-            );
-        }
-        internalJsonRead(e, t, i) {
-            var n;
-            if (!ae(e))
-                throw new globalThis.Error(
-                    "Unable to parse google.protobuf.Any from JSON " + te(e) + "."
-                );
-            if (typeof e["@type"] != "string" || e["@type"] == "")
-                return this.create();
-            let s = this.typeUrlToName(e["@type"]),
-                f =
-                    (n = t?.typeRegistry) === null || n === void 0
-                        ? void 0
-                        : n.find((l) => l.typeName == s);
-            if (!f)
-                throw new globalThis.Error(
-                    "Unable to parse google.protobuf.Any from JSON. The specified type " +
-                    s +
-                    " is not available in the type registry."
-                );
-            let o;
-            if (s.startsWith("google.protobuf.") && e.hasOwnProperty("value"))
-                o = f.fromJson(e.value, t);
-            else {
-                let l = Object.assign({}, e);
-                delete l["@type"], (o = f.fromJson(l, t));
-            }
-            return (
-                i === void 0 && (i = this.create()),
-                (i.typeUrl = e["@type"]),
-                (i.value = f.toBinary(o)),
-                i
-            );
-        }
-        typeNameToUrl(e) {
-            if (!e.length) throw new Error("invalid type name: " + e);
-            return "type.googleapis.com/" + e;
-        }
-        typeUrlToName(e) {
-            if (!e.length) throw new Error("invalid type url: " + e);
-            let t = e.lastIndexOf("/"),
-                i = t > 0 ? e.substring(t + 1) : e;
-            if (!i.length) throw new Error("invalid type url: " + e);
-            return i;
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return (
-                (t.typeUrl = ""),
-                (t.value = new Uint8Array(0)),
-                e !== void 0 && d(this, t, e),
-                t
-            );
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 1:
-                        s.typeUrl = e.string();
-                        break;
-                    case 2:
-                        s.value = e.bytes();
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.typeUrl !== "" && t.tag(1, c.LengthDelimited).string(e.typeUrl),
-                e.value.length && t.tag(2, c.LengthDelimited).bytes(e.value);
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        k = new ut();
-    var ie;
-    (function (r) {
-        (r[(r.dyn_none = 0)] = "dyn_none"),
-            (r[(r.forward = 1)] = "forward"),
-            (r[(r.av = 2)] = "av"),
-            (r[(r.pgc = 3)] = "pgc"),
-            (r[(r.courses = 4)] = "courses"),
-            (r[(r.fold = 5)] = "fold"),
-            (r[(r.word = 6)] = "word"),
-            (r[(r.draw = 7)] = "draw"),
-            (r[(r.article = 8)] = "article"),
-            (r[(r.music = 9)] = "music"),
-            (r[(r.common_square = 10)] = "common_square"),
-            (r[(r.common_vertical = 11)] = "common_vertical"),
-            (r[(r.live = 12)] = "live"),
-            (r[(r.medialist = 13)] = "medialist"),
-            (r[(r.courses_season = 14)] = "courses_season"),
-            (r[(r.ad = 15)] = "ad"),
-            (r[(r.applet = 16)] = "applet"),
-            (r[(r.subscription = 17)] = "subscription"),
-            (r[(r.live_rcmd = 18)] = "live_rcmd"),
-            (r[(r.banner = 19)] = "banner"),
-            (r[(r.ugc_season = 20)] = "ugc_season"),
-            (r[(r.subscription_new = 21)] = "subscription_new"),
-            (r[(r.story = 22)] = "story"),
-            (r[(r.topic_rcmd = 23)] = "topic_rcmd");
-    })(ie || (ie = {}));
-    var dt;
-    (function (r) {
-        (r[(r.live_none = 0)] = "live_none"),
-            (r[(r.live_live = 1)] = "live_live"),
-            (r[(r.live_rotation = 2)] = "live_rotation");
-    })(dt || (dt = {}));
-    var mt = class extends m {
-        constructor() {
-            super("DynAllReply", [
-                { no: 1, name: "dynamic_list", kind: "message", T: () => ct },
-                { no: 2, name: "up_list", kind: "message", T: () => pt },
-                { no: 3, name: "topic_list", kind: "message", T: () => k },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 1:
-                        s.dynamicList = ct.internalBinaryRead(
-                            e,
-                            e.uint32(),
-                            i,
-                            s.dynamicList
-                        );
-                        break;
-                    case 2:
-                        s.upList = pt.internalBinaryRead(e, e.uint32(), i, s.upList);
-                        break;
-                    case 3:
-                        s.topicList = k.internalBinaryRead(e, e.uint32(), i, s.topicList);
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.dynamicList &&
-                ct
-                    .internalBinaryWrite(
-                        e.dynamicList,
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join(),
-                e.upList &&
-                pt
-                    .internalBinaryWrite(
-                        e.upList,
-                        t.tag(2, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join(),
-                e.topicList &&
-                k
-                    .internalBinaryWrite(
-                        e.topicList,
-                        t.tag(3, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        kt = new mt(),
-        wt = class extends m {
-            constructor() {
-                super("DynamicList", [
-                    { no: 1, name: "list", kind: "message", repeat: 1, T: () => ht },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.list = []), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.list.push(ht.internalBinaryRead(e, e.uint32(), i));
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                for (let s = 0; s < e.list.length; s++)
-                    ht.internalBinaryWrite(
-                        e.list[s],
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        ct = new wt(),
-        yt = class extends m {
-            constructor() {
-                super("DynamicItem", [
-                    {
-                        no: 1,
-                        name: "card_type",
-                        kind: "enum",
-                        T: () => ["DynamicType", ie],
-                    },
-                    {
-                        no: 2,
-                        name: "item_type",
-                        kind: "enum",
-                        T: () => ["DynamicType", ie],
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.cardType = 0), (t.itemType = 0), e !== void 0 && d(this, t, e), t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.cardType = e.int32();
-                            break;
-                        case 2:
-                            s.itemType = e.int32();
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.cardType !== 0 && t.tag(1, c.Varint).int32(e.cardType),
-                    e.itemType !== 0 && t.tag(2, c.Varint).int32(e.itemType);
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        ht = new yt(),
-        gt = class extends m {
-            constructor() {
-                super("CardVideoUpList", [
-                    { no: 2, name: "list", kind: "message", repeat: 1, T: () => fe },
-                    { no: 4, name: "show_live_num", kind: "scalar", T: 5 },
-                    {
-                        no: 10,
-                        name: "list_second",
-                        kind: "message",
-                        repeat: 1,
-                        T: () => fe,
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.list = []),
-                    (t.showLiveNum = 0),
-                    (t.listSecond = []),
-                    e !== void 0 && d(this, t, e),
-                    t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 2:
-                            s.list.push(fe.internalBinaryRead(e, e.uint32(), i));
-                            break;
-                        case 4:
-                            s.showLiveNum = e.int32();
-                            break;
-                        case 10:
-                            s.listSecond.push(fe.internalBinaryRead(e, e.uint32(), i));
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                for (let s = 0; s < e.list.length; s++)
-                    fe.internalBinaryWrite(
-                        e.list[s],
-                        t.tag(2, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                e.showLiveNum !== 0 && t.tag(4, c.Varint).int32(e.showLiveNum);
-                for (let s = 0; s < e.listSecond.length; s++)
-                    fe.internalBinaryWrite(
-                        e.listSecond[s],
-                        t.tag(10, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        pt = new gt(),
-        bt = class extends m {
-            constructor() {
-                super("UpListItem", [
-                    { no: 3, name: "name", kind: "scalar", T: 9 },
-                    { no: 4, name: "uid", kind: "scalar", T: 3, L: 0 },
-                    { no: 5, name: "pos", kind: "scalar", T: 3, L: 0 },
-                    {
-                        no: 10,
-                        name: "live_state",
-                        kind: "enum",
-                        T: () => ["LiveState", dt],
-                    },
-                    { no: 11, name: "separator", kind: "scalar", T: 8 },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.name = ""),
-                    (t.uid = 0n),
-                    (t.pos = 0n),
-                    (t.liveState = 0),
-                    (t.separator = !1),
-                    e !== void 0 && d(this, t, e),
-                    t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 3:
-                            s.name = e.string();
-                            break;
-                        case 4:
-                            s.uid = e.int64().toBigInt();
-                            break;
-                        case 5:
-                            s.pos = e.int64().toBigInt();
-                            break;
-                        case 10:
-                            s.liveState = e.int32();
-                            break;
-                        case 11:
-                            s.separator = e.bool();
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.name !== "" && t.tag(3, c.LengthDelimited).string(e.name),
-                    e.uid !== 0n && t.tag(4, c.Varint).int64(e.uid),
-                    e.pos !== 0n && t.tag(5, c.Varint).int64(e.pos),
-                    e.liveState !== 0 && t.tag(10, c.Varint).int32(e.liveState),
-                    e.separator !== !1 && t.tag(11, c.Varint).bool(e.separator);
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        fe = new bt();
-    var Tt = class extends m {
-        constructor() {
-            super("ViewReply", [
-                { no: 4, name: "req_user", kind: "message", T: () => Nt },
-                { no: 10, name: "relates", kind: "message", repeat: 1, T: () => vt },
-                { no: 23, name: "label", kind: "message", T: () => xt },
-                { no: 30, name: "cms", kind: "message", repeat: 1, T: () => K },
-                { no: 31, name: "cm_config", kind: "message", T: () => k },
-                { no: 41, name: "cm_ipad", kind: "message", T: () => k },
+            super("bilibili.app.interface.v1.ModeStatusReply", [
                 {
-                    no: 50,
-                    name: "special_cell_new",
+                    no: 1,
+                    name: "user_models",
                     kind: "message",
                     repeat: 1,
-                    T: () => Ut,
+                    T: () => st,
                 },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return (
-                (t.relates = []),
-                (t.cms = []),
-                (t.specialCellNew = []),
-                e !== void 0 && d(this, t, e),
-                t
-            );
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 4:
-                        s.reqUser = Nt.internalBinaryRead(e, e.uint32(), i, s.reqUser);
-                        break;
-                    case 10:
-                        s.relates.push(vt.internalBinaryRead(e, e.uint32(), i));
-                        break;
-                    case 23:
-                        s.label = xt.internalBinaryRead(e, e.uint32(), i, s.label);
-                        break;
-                    case 30:
-                        s.cms.push(K.internalBinaryRead(e, e.uint32(), i));
-                        break;
-                    case 31:
-                        s.cmConfig = k.internalBinaryRead(e, e.uint32(), i, s.cmConfig);
-                        break;
-                    case 41:
-                        s.cmIpad = k.internalBinaryRead(e, e.uint32(), i, s.cmIpad);
-                        break;
-                    case 50:
-                        s.specialCellNew.push(Ut.internalBinaryRead(e, e.uint32(), i));
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.reqUser &&
-                Nt.internalBinaryWrite(
-                    e.reqUser,
-                    t.tag(4, c.LengthDelimited).fork(),
-                    i
-                ).join();
-            for (let s = 0; s < e.relates.length; s++)
-                vt.internalBinaryWrite(
-                    e.relates[s],
-                    t.tag(10, c.LengthDelimited).fork(),
-                    i
-                ).join();
-            e.label &&
-                xt
-                    .internalBinaryWrite(
-                        e.label,
-                        t.tag(23, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join();
-            for (let s = 0; s < e.cms.length; s++)
-                K.internalBinaryWrite(
-                    e.cms[s],
-                    t.tag(30, c.LengthDelimited).fork(),
-                    i
-                ).join();
-            e.cmConfig &&
-                k
-                    .internalBinaryWrite(
-                        e.cmConfig,
-                        t.tag(31, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join(),
-                e.cmIpad &&
-                k
-                    .internalBinaryWrite(
-                        e.cmIpad,
-                        t.tag(41, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join();
-            for (let s = 0; s < e.specialCellNew.length; s++)
-                Ut.internalBinaryWrite(
-                    e.specialCellNew[s],
-                    t.tag(50, c.LengthDelimited).fork(),
-                    i
-                ).join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        Lt = new Tt(),
-        It = class extends m {
-            constructor() {
-                super("CM", [
-                    { no: 1, name: "source_content", kind: "message", T: () => k },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.sourceContent = k.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.sourceContent
-                            );
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.sourceContent &&
-                    k
-                        .internalBinaryWrite(
-                            e.sourceContent,
-                            t.tag(1, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        K = new It(),
-        Et = class extends m {
-            constructor() {
-                super("Relate", [{ no: 28, name: "cm", kind: "message", T: () => K }]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 28:
-                            s.cm = K.internalBinaryRead(e, e.uint32(), i, s.cm);
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.cm &&
-                    K.internalBinaryWrite(
-                        e.cm,
-                        t.tag(28, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        vt = new Et(),
-        Ot = class extends m {
-            constructor() {
-                super("ReqUser", [
-                    { no: 9, name: "elec_plus_btn", kind: "message", T: () => Bt },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 9:
-                            s.elecPlusBtn = Bt.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.elecPlusBtn
-                            );
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.elecPlusBtn &&
-                    Bt.internalBinaryWrite(
-                        e.elecPlusBtn,
-                        t.tag(9, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Nt = new Ot(),
-        Rt = class extends m {
-            constructor() {
-                super("Button", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Bt = new Rt(),
-        Ft = class extends m {
-            constructor() {
-                super("Label", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        xt = new Ft(),
-        At = class extends m {
-            constructor() {
-                super("SpecialCell", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Ut = new At();
-    var St = class extends m {
-        constructor() {
-            super("ViewProgress", [
-                { no: 1, name: "dm", kind: "message", T: () => k },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
+            return (t.userModels = []), e !== void 0 && m(this, t, e), t;
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -3697,7 +2866,7 @@
                 let [o, l] = e.tag();
                 switch (o) {
                     case 1:
-                        s.dm = k.internalBinaryRead(e, e.uint32(), i, s.dm);
+                        s.userModels.push(st.internalBinaryRead(e, e.uint32(), i));
                         break;
                     default:
                         let a = i.readUnknownField;
@@ -3706,1081 +2875,33 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
         }
         internalBinaryWrite(e, t, i) {
-            e.dm &&
-                k
-                    .internalBinaryWrite(e.dm, t.tag(1, c.LengthDelimited).fork(), i)
-                    .join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        Vt = new St();
-    var Wt = class extends m {
-        constructor() {
-            super("TFInfoReply", [
-                { no: 1, name: "tips_id", kind: "scalar", T: 3, L: 0 },
-                { no: 2, name: "tf_toast", kind: "message", T: () => k },
-                { no: 3, name: "tf_panel_customized", kind: "message", T: () => k },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return (t.tipsId = 0n), e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 1:
-                        s.tipsId = e.int64().toBigInt();
-                        break;
-                    case 2:
-                        s.tfToast = k.internalBinaryRead(e, e.uint32(), i, s.tfToast);
-                        break;
-                    case 3:
-                        s.tfPanelCustomized = k.internalBinaryRead(
-                            e,
-                            e.uint32(),
-                            i,
-                            s.tfPanelCustomized
-                        );
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.tipsId !== 0n && t.tag(1, c.Varint).int64(e.tipsId),
-                e.tfToast &&
-                k
-                    .internalBinaryWrite(
-                        e.tfToast,
-                        t.tag(2, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join(),
-                e.tfPanelCustomized &&
-                k
-                    .internalBinaryWrite(
-                        e.tfPanelCustomized,
-                        t.tag(3, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        Pt = new Wt();
-    var _t = class extends m {
-        constructor() {
-            super("PlayViewReply", [
-                { no: 5, name: "play_arc", kind: "message", T: () => Dt },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 5:
-                        s.playArc = Dt.internalBinaryRead(e, e.uint32(), i, s.playArc);
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.playArc &&
-                Dt.internalBinaryWrite(
-                    e.playArc,
-                    t.tag(5, c.LengthDelimited).fork(),
-                    i
-                ).join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        zt = new _t(),
-        jt = class extends m {
-            constructor() {
-                super("PlayArcConf", [
-                    { no: 1, name: "background_play_conf", kind: "message", T: () => Ct },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.backgroundPlayConf = Ct.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.backgroundPlayConf
-                            );
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.backgroundPlayConf &&
-                    Ct.internalBinaryWrite(
-                        e.backgroundPlayConf,
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Dt = new jt(),
-        Mt = class extends m {
-            constructor() {
-                super("ArcConf", [
-                    { no: 1, name: "is_support", kind: "scalar", T: 8 },
-                    { no: 2, name: "disabled", kind: "scalar", T: 8 },
-                    { no: 3, name: "extra_content", kind: "message", T: () => $t },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.isSupport = !1),
-                    (t.disabled = !1),
-                    e !== void 0 && d(this, t, e),
-                    t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.isSupport = e.bool();
-                            break;
-                        case 2:
-                            s.disabled = e.bool();
-                            break;
-                        case 3:
-                            s.extraContent = $t.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.extraContent
-                            );
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.isSupport !== !1 && t.tag(1, c.Varint).bool(e.isSupport),
-                    e.disabled !== !1 && t.tag(2, c.Varint).bool(e.disabled),
-                    e.extraContent &&
-                    $t
-                        .internalBinaryWrite(
-                            e.extraContent,
-                            t.tag(3, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Ct = new Mt(),
-        Gt = class extends m {
-            constructor() {
-                super("ExtraContent", [
-                    { no: 1, name: "disabled_reason", kind: "scalar", T: 9 },
-                    { no: 2, name: "disabled_code", kind: "scalar", T: 3, L: 0 },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.disabledReason = ""),
-                    (t.disabledCode = 0n),
-                    e !== void 0 && d(this, t, e),
-                    t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.disabledReason = e.string();
-                            break;
-                        case 2:
-                            s.disabledCode = e.int64().toBigInt();
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.disabledReason !== "" &&
-                    t.tag(1, c.LengthDelimited).string(e.disabledReason),
-                    e.disabledCode !== 0n && t.tag(2, c.Varint).int64(e.disabledCode);
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        $t = new Gt();
-    var rn;
-    (function (r) {
-        (r[(r.TAB_NONE = 0)] = "TAB_NONE"),
-            (r[(r.TAB_INTRODUCTION = 1)] = "TAB_INTRODUCTION"),
-            (r[(r.TAB_REPLY = 2)] = "TAB_REPLY"),
-            (r[(r.TAB_OGV_ACTIVITY = 3)] = "TAB_OGV_ACTIVITY");
-    })(rn || (rn = {}));
-    var ee;
-    (function (r) {
-        (r[(r.UNKNOWN = 0)] = "UNKNOWN"),
-            (r[(r.OGV_INTRODUCTION = 1)] = "OGV_INTRODUCTION"),
-            (r[(r.OGV_TITLE = 2)] = "OGV_TITLE"),
-            (r[(r.UGC_HEADLINE = 3)] = "UGC_HEADLINE"),
-            (r[(r.UGC_INTRODUCTION = 4)] = "UGC_INTRODUCTION"),
-            (r[(r.KING_POSITION = 5)] = "KING_POSITION"),
-            (r[(r.MASTER_USER_LIST = 6)] = "MASTER_USER_LIST"),
-            (r[(r.STAFFS = 7)] = "STAFFS"),
-            (r[(r.HONOR = 8)] = "HONOR"),
-            (r[(r.OWNER = 9)] = "OWNER"),
-            (r[(r.PAGE = 10)] = "PAGE"),
-            (r[(r.ACTIVITY_RESERVE = 11)] = "ACTIVITY_RESERVE"),
-            (r[(r.LIVE_ORDER = 12)] = "LIVE_ORDER"),
-            (r[(r.POSITIVE = 13)] = "POSITIVE"),
-            (r[(r.SECTION = 14)] = "SECTION"),
-            (r[(r.RELATE = 15)] = "RELATE"),
-            (r[(r.PUGV = 16)] = "PUGV"),
-            (r[(r.COLLECTION_CARD = 17)] = "COLLECTION_CARD"),
-            (r[(r.ACTIVITY = 18)] = "ACTIVITY"),
-            (r[(r.CHARACTER = 19)] = "CHARACTER"),
-            (r[(r.FOLLOW_LAYER = 20)] = "FOLLOW_LAYER"),
-            (r[(r.OGV_SEASONS = 21)] = "OGV_SEASONS"),
-            (r[(r.UGC_SEASON = 22)] = "UGC_SEASON"),
-            (r[(r.OGV_LIVE_RESERVE = 23)] = "OGV_LIVE_RESERVE"),
-            (r[(r.COMBINATION_EPISODE = 24)] = "COMBINATION_EPISODE"),
-            (r[(r.SPONSOR = 25)] = "SPONSOR"),
-            (r[(r.ACTIVITY_ENTRANCE = 26)] = "ACTIVITY_ENTRANCE"),
-            (r[(r.THEATRE_HOT_TOPIC = 27)] = "THEATRE_HOT_TOPIC"),
-            (r[(r.RELATED_RECOMMEND = 28)] = "RELATED_RECOMMEND"),
-            (r[(r.PAY_BAR = 29)] = "PAY_BAR"),
-            (r[(r.BANNER = 30)] = "BANNER"),
-            (r[(r.AUDIO = 31)] = "AUDIO"),
-            (r[(r.AGG_CARD = 32)] = "AGG_CARD"),
-            (r[(r.SINGLE_EP = 33)] = "SINGLE_EP"),
-            (r[(r.LIKE_COMMENT = 34)] = "LIKE_COMMENT"),
-            (r[(r.ATTENTION_RECOMMEND = 35)] = "ATTENTION_RECOMMEND"),
-            (r[(r.COVENANTER = 36)] = "COVENANTER"),
-            (r[(r.SPECIALTAG = 37)] = "SPECIALTAG");
-    })(ee || (ee = {}));
-    var Y;
-    (function (r) {
-        (r[(r.CARD_TYPE_UNKNOWN = 0)] = "CARD_TYPE_UNKNOWN"),
-            (r[(r.AV = 1)] = "AV"),
-            (r[(r.BANGUMI = 2)] = "BANGUMI"),
-            (r[(r.RESOURCE = 3)] = "RESOURCE"),
-            (r[(r.GAME = 4)] = "GAME"),
-            (r[(r.CM_TYPE = 5)] = "CM_TYPE"),
-            (r[(r.LIVE = 6)] = "LIVE"),
-            (r[(r.AI_RECOMMEND = 7)] = "AI_RECOMMEND"),
-            (r[(r.BANGUMI_AV = 8)] = "BANGUMI_AV"),
-            (r[(r.BANGUMI_UGC = 9)] = "BANGUMI_UGC"),
-            (r[(r.SPECIAL = 10)] = "SPECIAL"),
-            (r[(r.COURSE = 11)] = "COURSE");
-    })(Y || (Y = {}));
-    var sn = class extends m {
-        constructor() {
-            super("viewunite.v1.ViewUniteReply", [
-                { no: 3, name: "req_user", kind: "message", T: () => tn },
-                { no: 5, name: "tab", kind: "message", T: () => en },
-                { no: 7, name: "cm", kind: "message", T: () => k },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 3:
-                        s.reqUser = tn.internalBinaryRead(e, e.uint32(), i, s.reqUser);
-                        break;
-                    case 5:
-                        s.tab = en.internalBinaryRead(e, e.uint32(), i, s.tab);
-                        break;
-                    case 7:
-                        s.cm = k.internalBinaryRead(e, e.uint32(), i, s.cm);
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.reqUser &&
-                tn
-                    .internalBinaryWrite(
-                        e.reqUser,
-                        t.tag(3, c.LengthDelimited).fork(),
-                        i
-                    )
-                    .join(),
-                e.tab &&
-                en
-                    .internalBinaryWrite(e.tab, t.tag(5, c.LengthDelimited).fork(), i)
-                    .join(),
-                e.cm &&
-                k
-                    .internalBinaryWrite(e.cm, t.tag(7, c.LengthDelimited).fork(), i)
-                    .join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        yn = new sn(),
-        on = class extends m {
-            constructor() {
-                super("viewunite.v1.RelateCard", [
-                    {
-                        no: 1,
-                        name: "relate_card_type",
-                        kind: "enum",
-                        T: () => ["viewunite.v1.RelateCardType", Y],
-                    },
-                    { no: 11, name: "cm_stock", kind: "message", T: () => k },
-                    { no: 12, name: "basic_info", kind: "message", T: () => Jt },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.relateCardType = 0), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.relateCardType = e.int32();
-                            break;
-                        case 11:
-                            s.cmStock = k.internalBinaryRead(e, e.uint32(), i, s.cmStock);
-                            break;
-                        case 12:
-                            s.basicInfo = Jt.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.basicInfo
-                            );
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.relateCardType !== 0 && t.tag(1, c.Varint).int32(e.relateCardType),
-                    e.cmStock &&
-                    k
-                        .internalBinaryWrite(
-                            e.cmStock,
-                            t.tag(11, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join(),
-                    e.basicInfo &&
-                    Jt.internalBinaryWrite(
-                        e.basicInfo,
-                        t.tag(12, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Kt = new on(),
-        an = class extends m {
-            constructor() {
-                super("viewunite.v1.CardBasicInfo", [
-                    { no: 6, name: "unique_id", kind: "scalar", T: 9 },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.uniqueId = ""), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 6:
-                            s.uniqueId = e.string();
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.uniqueId !== "" && t.tag(6, c.LengthDelimited).string(e.uniqueId);
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Jt = new an(),
-        ln = class extends m {
-            constructor() {
-                super("viewunite.v1.Relates", [
-                    { no: 1, name: "cards", kind: "message", repeat: 1, T: () => Kt },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.cards = []), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.cards.push(Kt.internalBinaryRead(e, e.uint32(), i));
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                for (let s = 0; s < e.cards.length; s++)
-                    Kt.internalBinaryWrite(
-                        e.cards[s],
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        qt = new ln(),
-        fn = class extends m {
-            constructor() {
-                super("viewunite.v1.Headline", [
-                    { no: 1, name: "label", kind: "message", T: () => Xt },
-                    { no: 2, name: "content", kind: "scalar", T: 9 },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.content = ""), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.label = Xt.internalBinaryRead(e, e.uint32(), i, s.label);
-                            break;
-                        case 2:
-                            s.content = e.string();
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.label &&
-                    Xt.internalBinaryWrite(
-                        e.label,
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    ).join(),
-                    e.content !== "" && t.tag(2, c.LengthDelimited).string(e.content);
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Yt = new fn(),
-        un = class extends m {
-            constructor() {
-                super("viewunite.v1.Label", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Xt = new un(),
-        cn = class extends m {
-            constructor() {
-                super("viewunite.v1.CommonModule", [
-                    {
-                        no: 1,
-                        name: "type",
-                        kind: "enum",
-                        T: () => ["viewunite.v1.ModuleType", ee],
-                    },
-                    {
-                        no: 5,
-                        name: "head_line",
-                        kind: "message",
-                        oneof: "data",
-                        T: () => Yt,
-                    },
-                    {
-                        no: 22,
-                        name: "relates",
-                        kind: "message",
-                        oneof: "data",
-                        T: () => qt,
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.type = 0),
-                    (t.data = { oneofKind: void 0 }),
-                    e !== void 0 && d(this, t, e),
-                    t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.type = e.int32();
-                            break;
-                        case 5:
-                            s.data = {
-                                oneofKind: "headLine",
-                                headLine: Yt.internalBinaryRead(
-                                    e,
-                                    e.uint32(),
-                                    i,
-                                    s.data.headLine
-                                ),
-                            };
-                            break;
-                        case 22:
-                            s.data = {
-                                oneofKind: "relates",
-                                relates: qt.internalBinaryRead(
-                                    e,
-                                    e.uint32(),
-                                    i,
-                                    s.data.relates
-                                ),
-                            };
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.type !== 0 && t.tag(1, c.Varint).int32(e.type),
-                    e.data.oneofKind === "headLine" &&
-                    Yt.internalBinaryWrite(
-                        e.data.headLine,
-                        t.tag(5, c.LengthDelimited).fork(),
-                        i
-                    ).join(),
-                    e.data.oneofKind === "relates" &&
-                    qt
-                        .internalBinaryWrite(
-                            e.data.relates,
-                            t.tag(22, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Zt = new cn(),
-        hn = class extends m {
-            constructor() {
-                super("viewunite.v1.IntroductionTab", [
-                    { no: 1, name: "title", kind: "scalar", T: 9 },
-                    { no: 2, name: "modules", kind: "message", repeat: 1, T: () => Zt },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.title = ""), (t.modules = []), e !== void 0 && d(this, t, e), t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.title = e.string();
-                            break;
-                        case 2:
-                            s.modules.push(Zt.internalBinaryRead(e, e.uint32(), i));
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.title !== "" && t.tag(1, c.LengthDelimited).string(e.title);
-                for (let s = 0; s < e.modules.length; s++)
-                    Zt.internalBinaryWrite(
-                        e.modules[s],
-                        t.tag(2, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Ht = new hn(),
-        pn = class extends m {
-            constructor() {
-                super("viewunite.v1.TabModule", [
-                    {
-                        no: 1,
-                        name: "tab_type",
-                        kind: "enum",
-                        T: () => ["viewunite.v1.TabType", rn],
-                    },
-                    {
-                        no: 2,
-                        name: "introduction",
-                        kind: "message",
-                        oneof: "tab",
-                        T: () => Ht,
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (
-                    (t.tabType = 0),
-                    (t.tab = { oneofKind: void 0 }),
-                    e !== void 0 && d(this, t, e),
-                    t
-                );
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.tabType = e.int32();
-                            break;
-                        case 2:
-                            s.tab = {
-                                oneofKind: "introduction",
-                                introduction: Ht.internalBinaryRead(
-                                    e,
-                                    e.uint32(),
-                                    i,
-                                    s.tab.introduction
-                                ),
-                            };
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.tabType !== 0 && t.tag(1, c.Varint).int32(e.tabType),
-                    e.tab.oneofKind === "introduction" &&
-                    Ht.internalBinaryWrite(
-                        e.tab.introduction,
-                        t.tag(2, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Qt = new pn(),
-        dn = class extends m {
-            constructor() {
-                super("viewunite.v1.Tab", [
-                    {
-                        no: 1,
-                        name: "tab_module",
-                        kind: "message",
-                        repeat: 1,
-                        T: () => Qt,
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.tabModule = []), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            s.tabModule.push(Qt.internalBinaryRead(e, e.uint32(), i));
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                for (let s = 0; s < e.tabModule.length; s++)
-                    Qt.internalBinaryWrite(
-                        e.tabModule[s],
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    ).join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        en = new dn(),
-        mn = class extends m {
-            constructor() {
-                super("viewunite.v1.ReqUser", [
-                    { no: 7, name: "elec_plus_btn", kind: "message", T: () => nn },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 7:
-                            s.elecPlusBtn = nn.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.elecPlusBtn
-                            );
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            internalBinaryWrite(e, t, i) {
-                e.elecPlusBtn &&
-                    nn
-                        .internalBinaryWrite(
-                            e.elecPlusBtn,
-                            t.tag(7, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        tn = new mn(),
-        wn = class extends m {
-            constructor() {
-                super("viewunite.v1.Button", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        nn = new wn();
-    var gn = class extends m {
-        constructor() {
-            super("ViewProgressReply", [
-                { no: 4, name: "dm", kind: "message", T: () => k },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 4:
-                        s.dm = k.internalBinaryRead(e, e.uint32(), i, s.dm);
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            e.dm &&
-                k
-                    .internalBinaryWrite(e.dm, t.tag(4, c.LengthDelimited).fork(), i)
-                    .join();
-            let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-        }
-    },
-        bn = new gn();
-    var vn;
-    (function (r) {
-        (r[(r.CARD_TYPE_UNKNOWN = 0)] = "CARD_TYPE_UNKNOWN"),
-            (r[(r.AV = 1)] = "AV"),
-            (r[(r.BANGUMI = 2)] = "BANGUMI"),
-            (r[(r.RESOURCE = 3)] = "RESOURCE"),
-            (r[(r.GAME = 4)] = "GAME"),
-            (r[(r.CM_TYPE = 5)] = "CM_TYPE"),
-            (r[(r.LIVE = 6)] = "LIVE"),
-            (r[(r.AI_RECOMMEND = 7)] = "AI_RECOMMEND"),
-            (r[(r.BANGUMI_AV = 8)] = "BANGUMI_AV"),
-            (r[(r.BANGUMI_UGC = 9)] = "BANGUMI_UGC"),
-            (r[(r.SPECIAL = 10)] = "SPECIAL");
-    })(vn || (vn = {}));
-    var Nn = class extends m {
-        constructor() {
-            super("RelatesFeedReply", [
-                { no: 1, name: "relates", kind: "message", repeat: 1, T: () => kn },
-            ]);
-        }
-        create(e) {
-            let t = globalThis.Object.create(this.messagePrototype);
-            return (t.relates = []), e !== void 0 && d(this, t, e), t;
-        }
-        internalBinaryRead(e, t, i, n) {
-            let s = n ?? this.create(),
-                f = e.pos + t;
-            for (; e.pos < f;) {
-                let [o, l] = e.tag();
-                switch (o) {
-                    case 1:
-                        s.relates.push(kn.internalBinaryRead(e, e.uint32(), i));
-                        break;
-                    default:
-                        let a = i.readUnknownField;
-                        if (a === "throw")
-                            throw new globalThis.Error(
-                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                            );
-                        let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                }
-            }
-            return s;
-        }
-        internalBinaryWrite(e, t, i) {
-            for (let s = 0; s < e.relates.length; s++)
-                kn.internalBinaryWrite(
-                    e.relates[s],
+            for (let s = 0; s < e.userModels.length; s++)
+                st.internalBinaryWrite(
+                    e.userModels[s],
                     t.tag(1, c.LengthDelimited).fork(),
                     i
                 ).join();
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        xn = new Nn(),
-        Bn = class extends m {
+        ut = new at(),
+        lt = class extends y {
             constructor() {
-                super("RelateCard", [
-                    {
-                        no: 1,
-                        name: "relate_card_type",
-                        kind: "enum",
-                        T: () => ["RelateCardType", vn],
-                    },
+                super("bilibili.app.interface.v1.UserModel", [
+                    { no: 2, name: "mode", kind: "scalar", T: 9 },
+                    { no: 5, name: "policy", kind: "message", T: () => ot },
                 ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return (t.relateCardType = 0), e !== void 0 && d(this, t, e), t;
+                return (t.mode = ""), e !== void 0 && m(this, t, e), t;
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -4788,8 +2909,11 @@
                 for (; e.pos < f;) {
                     let [o, l] = e.tag();
                     switch (o) {
-                        case 1:
-                            s.relateCardType = e.int32();
+                        case 2:
+                            s.mode = e.string();
+                            break;
+                        case 5:
+                            s.policy = ot.internalBinaryRead(e, e.uint32(), i, s.policy);
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -4798,28 +2922,79 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
-                e.relateCardType !== 0 && t.tag(1, c.Varint).int32(e.relateCardType);
+                e.mode !== "" && t.tag(2, c.LengthDelimited).string(e.mode),
+                    e.policy &&
+                    ot
+                        .internalBinaryWrite(
+                            e.policy,
+                            t.tag(5, c.LengthDelimited).fork(),
+                            i
+                        )
+                        .join();
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        kn = new Bn();
-    var En = class extends m {
+        st = new lt(),
+        ft = class extends y {
+            constructor() {
+                super("bilibili.app.interface.v1.Policy", [
+                    { no: 1, name: "interval", kind: "scalar", T: 3, L: 0 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.interval = 0n), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.interval = e.int64().toBigInt();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.interval !== 0n && t.tag(1, c.Varint).int64(e.interval);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        ot = new ft();
+    var ht = class extends y {
         constructor() {
-            super("PlayViewUniteReply", [
-                { no: 2, name: "play_arc_conf", kind: "message", T: () => Un },
-                { no: 9, name: "view_info", kind: "message", T: () => In },
+            super("bilibili.playershared.PlayArcConf", [
+                {
+                    no: 1,
+                    name: "arc_confs",
+                    kind: "map",
+                    K: 5,
+                    V: { kind: "message", T: () => Ae },
+                },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
+            return (t.arcConfs = {}), e !== void 0 && m(this, t, e), t;
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -4827,16 +3002,8 @@
             for (; e.pos < f;) {
                 let [o, l] = e.tag();
                 switch (o) {
-                    case 2:
-                        s.playArcConf = Un.internalBinaryRead(
-                            e,
-                            e.uint32(),
-                            i,
-                            s.playArcConf
-                        );
-                        break;
-                    case 9:
-                        s.viewInfo = In.internalBinaryRead(e, e.uint32(), i, s.viewInfo);
+                    case 1:
+                        this.binaryReadMap1(s.arcConfs, e, i);
                         break;
                     default:
                         let a = i.readUnknownField;
@@ -4845,109 +3012,54 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
         }
+        binaryReadMap1(e, t, i) {
+            let n = t.uint32(),
+                s = t.pos + n,
+                f,
+                o;
+            for (; t.pos < s;) {
+                let [l, a] = t.tag();
+                switch (l) {
+                    case 1:
+                        f = t.int32();
+                        break;
+                    case 2:
+                        o = Ae.internalBinaryRead(t, t.uint32(), i);
+                        break;
+                    default:
+                        throw new globalThis.Error(
+                            "unknown map entry field for field bilibili.playershared.PlayArcConf.arc_confs"
+                        );
+                }
+            }
+            e[f ?? 0] = o ?? Ae.create();
+        }
         internalBinaryWrite(e, t, i) {
-            e.playArcConf &&
-                Un.internalBinaryWrite(
-                    e.playArcConf,
+            for (let s of globalThis.Object.keys(e.arcConfs))
+                t
+                    .tag(1, c.LengthDelimited)
+                    .fork()
+                    .tag(1, c.Varint)
+                    .int32(parseInt(s)),
                     t.tag(2, c.LengthDelimited).fork(),
-                    i
-                ).join(),
-                e.viewInfo &&
-                In.internalBinaryWrite(
-                    e.viewInfo,
-                    t.tag(9, c.LengthDelimited).fork(),
-                    i
-                ).join();
+                    Ae.internalBinaryWrite(e.arcConfs[s], t, i),
+                    t.join().join();
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        Ln = new En(),
-        On = class extends m {
+        Le = new ht(),
+        pt = class extends y {
             constructor() {
-                super("PlayArcConf", [
-                    {
-                        no: 1,
-                        name: "arc_confs",
-                        kind: "map",
-                        K: 5,
-                        V: { kind: "message", T: () => Se },
-                    },
-                ]);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return (t.arcConfs = {}), e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                let s = n ?? this.create(),
-                    f = e.pos + t;
-                for (; e.pos < f;) {
-                    let [o, l] = e.tag();
-                    switch (o) {
-                        case 1:
-                            this.binaryReadMap1(s.arcConfs, e, i);
-                            break;
-                        default:
-                            let a = i.readUnknownField;
-                            if (a === "throw")
-                                throw new globalThis.Error(
-                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
-                                );
-                            let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
-                    }
-                }
-                return s;
-            }
-            binaryReadMap1(e, t, i) {
-                let n = t.uint32(),
-                    s = t.pos + n,
-                    f,
-                    o;
-                for (; t.pos < s;) {
-                    let [l, a] = t.tag();
-                    switch (l) {
-                        case 1:
-                            f = t.int32();
-                            break;
-                        case 2:
-                            o = Se.internalBinaryRead(t, t.uint32(), i);
-                            break;
-                        default:
-                            throw new globalThis.Error(
-                                "unknown map entry field for field PlayArcConf.arc_confs"
-                            );
-                    }
-                }
-                e[f ?? 0] = o ?? Se.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                for (let s of globalThis.Object.keys(e.arcConfs))
-                    t
-                        .tag(1, c.LengthDelimited)
-                        .fork()
-                        .tag(1, c.Varint)
-                        .int32(parseInt(s)),
-                        t.tag(2, c.LengthDelimited).fork(),
-                        Se.internalBinaryWrite(e.arcConfs[s], t, i),
-                        t.join().join();
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Un = new On(),
-        Rn = class extends m {
-            constructor() {
-                super("ArcConf", [
+                super("bilibili.playershared.ArcConf", [
                     { no: 1, name: "is_support", kind: "scalar", T: 8 },
                     { no: 2, name: "disabled", kind: "scalar", T: 8 },
-                    { no: 3, name: "extra_content", kind: "message", T: () => Tn },
+                    { no: 3, name: "extra_content", kind: "message", T: () => ct },
                     { no: 4, name: "unsupport_scene", kind: "scalar", repeat: 1, T: 5 },
                 ]);
             }
@@ -4957,7 +3069,7 @@
                     (t.isSupport = !1),
                     (t.disabled = !1),
                     (t.unsupportScene = []),
-                    e !== void 0 && d(this, t, e),
+                    e !== void 0 && m(this, t, e),
                     t
                 );
             }
@@ -4974,7 +3086,7 @@
                             s.disabled = e.bool();
                             break;
                         case 3:
-                            s.extraContent = Tn.internalBinaryRead(
+                            s.extraContent = ct.internalBinaryRead(
                                 e,
                                 e.uint32(),
                                 i,
@@ -4983,7 +3095,7 @@
                             break;
                         case 4:
                             if (l === c.LengthDelimited)
-                                for (let w = e.int32() + e.pos; e.pos < w;)
+                                for (let d = e.int32() + e.pos; e.pos < d;)
                                     s.unsupportScene.push(e.int32());
                             else s.unsupportScene.push(e.int32());
                             break;
@@ -4994,7 +3106,7 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
@@ -5004,11 +3116,13 @@
                     (e.isSupport !== !1 && t.tag(1, c.Varint).bool(e.isSupport),
                         e.disabled !== !1 && t.tag(2, c.Varint).bool(e.disabled),
                         e.extraContent &&
-                        Tn.internalBinaryWrite(
-                            e.extraContent,
-                            t.tag(3, c.LengthDelimited).fork(),
-                            i
-                        ).join(),
+                        ct
+                            .internalBinaryWrite(
+                                e.extraContent,
+                                t.tag(3, c.LengthDelimited).fork(),
+                                i
+                            )
+                            .join(),
                         e.unsupportScene.length)
                 ) {
                     t.tag(4, c.LengthDelimited).fork();
@@ -5017,13 +3131,13 @@
                     t.join();
                 }
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Se = new Rn(),
-        Fn = class extends m {
+        Ae = new pt(),
+        dt = class extends y {
             constructor() {
-                super("ExtraContent", [
+                super("bilibili.playershared.ExtraContent", [
                     { no: 1, name: "disable_reason", kind: "scalar", T: 9 },
                     { no: 2, name: "disable_code", kind: "scalar", T: 3, L: 0 },
                 ]);
@@ -5033,7 +3147,7 @@
                 return (
                     (t.disableReason = ""),
                     (t.disableCode = 0n),
-                    e !== void 0 && d(this, t, e),
+                    e !== void 0 && m(this, t, e),
                     t
                 );
             }
@@ -5056,7 +3170,7 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
@@ -5066,19 +3180,21 @@
                     t.tag(1, c.LengthDelimited).string(e.disableReason),
                     e.disableCode !== 0n && t.tag(2, c.Varint).int64(e.disableCode);
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Tn = new Fn(),
-        An = class extends m {
+        ct = new dt(),
+        mt = class extends y {
             constructor() {
-                super("ViewInfo", [
-                    { no: 2, name: "prompt_bar", kind: "message", T: () => k },
+                super("bilibili.playershared.ViewInfo", [
+                    { no: 2, name: "prompt_bar", kind: "scalar", T: 12 },
                 ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
+                return (
+                    (t.promptBar = new Uint8Array(0)), e !== void 0 && m(this, t, e), t
+                );
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -5087,7 +3203,7 @@
                     let [o, l] = e.tag();
                     switch (o) {
                         case 2:
-                            s.promptBar = k.internalBinaryRead(e, e.uint32(), i, s.promptBar);
+                            s.promptBar = e.bytes();
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -5096,34 +3212,28 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
-                e.promptBar &&
-                    k
-                        .internalBinaryWrite(
-                            e.promptBar,
-                            t.tag(2, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
+                e.promptBar.length && t.tag(2, c.LengthDelimited).bytes(e.promptBar);
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        In = new An();
-    var Vn = class extends m {
+        Ve = new mt();
+    var yt = class extends y {
         constructor() {
-            super("SearchAll", [
-                { no: 4, name: "items", kind: "message", repeat: 1, T: () => Sn },
+            super("bilibili.app.playerunite.v1.PlayViewUniteReply", [
+                { no: 2, name: "play_arc_conf", kind: "message", T: () => Le },
+                { no: 9, name: "view_info", kind: "message", T: () => Ve },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return (t.items = []), e !== void 0 && d(this, t, e), t;
+            return e !== void 0 && m(this, t, e), t;
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -5131,8 +3241,16 @@
             for (; e.pos < f;) {
                 let [o, l] = e.tag();
                 switch (o) {
-                    case 4:
-                        s.items.push(Sn.internalBinaryRead(e, e.uint32(), i));
+                    case 2:
+                        s.playArcConf = Le.internalBinaryRead(
+                            e,
+                            e.uint32(),
+                            i,
+                            s.playArcConf
+                        );
+                        break;
+                    case 9:
+                        s.viewInfo = Ve.internalBinaryRead(e, e.uint32(), i, s.viewInfo);
                         break;
                     default:
                         let a = i.readUnknownField;
@@ -5141,30 +3259,84 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
         }
         internalBinaryWrite(e, t, i) {
-            for (let s = 0; s < e.items.length; s++)
-                Sn.internalBinaryWrite(
-                    e.items[s],
-                    t.tag(4, c.LengthDelimited).fork(),
+            e.playArcConf &&
+                Le.internalBinaryWrite(
+                    e.playArcConf,
+                    t.tag(2, c.LengthDelimited).fork(),
+                    i
+                ).join(),
+                e.viewInfo &&
+                Ve.internalBinaryWrite(
+                    e.viewInfo,
+                    t.tag(9, c.LengthDelimited).fork(),
                     i
                 ).join();
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        Pn = new Vn(),
-        Wn = class extends m {
+        wt = new yt();
+    var vt = class extends y {
+        constructor() {
+            super("bilibili.app.playurl.v1.PlayViewReply", [
+                { no: 5, name: "play_arc", kind: "message", T: () => gt },
+            ]);
+        }
+        create(e) {
+            let t = globalThis.Object.create(this.messagePrototype);
+            return e !== void 0 && m(this, t, e), t;
+        }
+        internalBinaryRead(e, t, i, n) {
+            let s = n ?? this.create(),
+                f = e.pos + t;
+            for (; e.pos < f;) {
+                let [o, l] = e.tag();
+                switch (o) {
+                    case 5:
+                        s.playArc = gt.internalBinaryRead(e, e.uint32(), i, s.playArc);
+                        break;
+                    default:
+                        let a = i.readUnknownField;
+                        if (a === "throw")
+                            throw new globalThis.Error(
+                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                            );
+                        let u = e.skip(l);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                }
+            }
+            return s;
+        }
+        internalBinaryWrite(e, t, i) {
+            e.playArc &&
+                gt
+                    .internalBinaryWrite(
+                        e.playArc,
+                        t.tag(5, c.LengthDelimited).fork(),
+                        i
+                    )
+                    .join();
+            let n = i.writeUnknownFields;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+        }
+    },
+        xt = new vt(),
+        kt = class extends y {
             constructor() {
-                super("Item", [{ no: 4, name: "linktype", kind: "scalar", T: 9 }]);
+                super("bilibili.app.playurl.v1.PlayArcConf", [
+                    { no: 1, name: "background_play_conf", kind: "message", T: () => ae },
+                    { no: 3, name: "cast_conf", kind: "message", T: () => ae },
+                ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return (t.linktype = ""), e !== void 0 && d(this, t, e), t;
+                return e !== void 0 && m(this, t, e), t;
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -5172,8 +3344,16 @@
                 for (; e.pos < f;) {
                     let [o, l] = e.tag();
                     switch (o) {
-                        case 4:
-                            s.linktype = e.string();
+                        case 1:
+                            s.backgroundPlayConf = ae.internalBinaryRead(
+                                e,
+                                e.uint32(),
+                                i,
+                                s.backgroundPlayConf
+                            );
+                            break;
+                        case 3:
+                            s.castConf = ae.internalBinaryRead(e, e.uint32(), i, s.castConf);
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -5182,28 +3362,1213 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
-                e.linktype !== "" && t.tag(4, c.LengthDelimited).string(e.linktype);
+                e.backgroundPlayConf &&
+                    ae
+                        .internalBinaryWrite(
+                            e.backgroundPlayConf,
+                            t.tag(1, c.LengthDelimited).fork(),
+                            i
+                        )
+                        .join(),
+                    e.castConf &&
+                    ae
+                        .internalBinaryWrite(
+                            e.castConf,
+                            t.tag(3, c.LengthDelimited).fork(),
+                            i
+                        )
+                        .join();
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Sn = new Wn();
-    var $n = class extends m {
+        gt = new kt(),
+        Nt = class extends y {
+            constructor() {
+                super("bilibili.app.playurl.v1.ArcConf", [
+                    { no: 1, name: "is_support", kind: "scalar", T: 8 },
+                    { no: 2, name: "disabled", kind: "scalar", T: 8 },
+                    { no: 3, name: "extra_content", kind: "message", T: () => bt },
+                    {
+                        no: 4,
+                        name: "unsupport_scene",
+                        kind: "scalar",
+                        repeat: 1,
+                        T: 3,
+                        L: 0,
+                    },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.isSupport = !1),
+                    (t.disabled = !1),
+                    (t.unsupportScene = []),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.isSupport = e.bool();
+                            break;
+                        case 2:
+                            s.disabled = e.bool();
+                            break;
+                        case 3:
+                            s.extraContent = bt.internalBinaryRead(
+                                e,
+                                e.uint32(),
+                                i,
+                                s.extraContent
+                            );
+                            break;
+                        case 4:
+                            if (l === c.LengthDelimited)
+                                for (let d = e.int32() + e.pos; e.pos < d;)
+                                    s.unsupportScene.push(e.int64().toBigInt());
+                            else s.unsupportScene.push(e.int64().toBigInt());
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                if (
+                    (e.isSupport !== !1 && t.tag(1, c.Varint).bool(e.isSupport),
+                        e.disabled !== !1 && t.tag(2, c.Varint).bool(e.disabled),
+                        e.extraContent &&
+                        bt
+                            .internalBinaryWrite(
+                                e.extraContent,
+                                t.tag(3, c.LengthDelimited).fork(),
+                                i
+                            )
+                            .join(),
+                        e.unsupportScene.length)
+                ) {
+                    t.tag(4, c.LengthDelimited).fork();
+                    for (let s = 0; s < e.unsupportScene.length; s++)
+                        t.int64(e.unsupportScene[s]);
+                    t.join();
+                }
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        ae = new Nt(),
+        Tt = class extends y {
+            constructor() {
+                super("bilibili.app.playurl.v1.ExtraContent", [
+                    { no: 1, name: "disabled_reason", kind: "scalar", T: 9 },
+                    { no: 2, name: "disabled_code", kind: "scalar", T: 3, L: 0 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.disabledReason = ""),
+                    (t.disabledCode = 0n),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.disabledReason = e.string();
+                            break;
+                        case 2:
+                            s.disabledCode = e.int64().toBigInt();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.disabledReason !== "" &&
+                    t.tag(1, c.LengthDelimited).string(e.disabledReason),
+                    e.disabledCode !== 0n && t.tag(2, c.Varint).int64(e.disabledCode);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        bt = new Tt();
+    var Ut = class extends y {
         constructor() {
-            super("DmViewReply", [
-                { no: 18, name: "activity_meta", kind: "scalar", repeat: 2, T: 9 },
-                { no: 22, name: "dmView", kind: "message", T: () => Dn },
+            super("bilibili.app.show.popular.v1.PopularReply", [
+                { no: 1, name: "items", kind: "message", repeat: 1, T: () => Bt },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return (t.activityMeta = []), e !== void 0 && d(this, t, e), t;
+            return (t.items = []), e !== void 0 && m(this, t, e), t;
+        }
+        internalBinaryRead(e, t, i, n) {
+            let s = n ?? this.create(),
+                f = e.pos + t;
+            for (; e.pos < f;) {
+                let [o, l] = e.tag();
+                switch (o) {
+                    case 1:
+                        s.items.push(Bt.internalBinaryRead(e, e.uint32(), i));
+                        break;
+                    default:
+                        let a = i.readUnknownField;
+                        if (a === "throw")
+                            throw new globalThis.Error(
+                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                            );
+                        let u = e.skip(l);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                }
+            }
+            return s;
+        }
+        internalBinaryWrite(e, t, i) {
+            for (let s = 0; s < e.items.length; s++)
+                Bt.internalBinaryWrite(
+                    e.items[s],
+                    t.tag(1, c.LengthDelimited).fork(),
+                    i
+                ).join();
+            let n = i.writeUnknownFields;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+        }
+    },
+        It = new Ut(),
+        Rt = class extends y {
+            constructor() {
+                super("bilibili.app.show.popular.v1.Card", [
+                    {
+                        no: 10,
+                        name: "rcmd_one_item",
+                        kind: "scalar",
+                        oneof: "item",
+                        T: 12,
+                    },
+                    {
+                        no: 11,
+                        name: "small_cover_v5_ad",
+                        kind: "scalar",
+                        oneof: "item",
+                        T: 12,
+                    },
+                    { no: 12, name: "topic_list", kind: "scalar", oneof: "item", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.item = { oneofKind: void 0 }), e !== void 0 && m(this, t, e), t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 10:
+                            s.item = { oneofKind: "rcmdOneItem", rcmdOneItem: e.bytes() };
+                            break;
+                        case 11:
+                            s.item = {
+                                oneofKind: "smallCoverV5Ad",
+                                smallCoverV5Ad: e.bytes(),
+                            };
+                            break;
+                        case 12:
+                            s.item = { oneofKind: "topicList", topicList: e.bytes() };
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.item.oneofKind === "rcmdOneItem" &&
+                    t.tag(10, c.LengthDelimited).bytes(e.item.rcmdOneItem),
+                    e.item.oneofKind === "smallCoverV5Ad" &&
+                    t.tag(11, c.LengthDelimited).bytes(e.item.smallCoverV5Ad),
+                    e.item.oneofKind === "topicList" &&
+                    t.tag(12, c.LengthDelimited).bytes(e.item.topicList);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Bt = new Rt();
+    var Ot = class extends y {
+        constructor() {
+            super("bilibili.app.view.v1.ViewReply", [
+                { no: 4, name: "req_user", kind: "message", T: () => Et },
+                { no: 10, name: "relates", kind: "message", repeat: 1, T: () => Ft },
+                { no: 23, name: "label", kind: "scalar", T: 12 },
+                { no: 30, name: "cms", kind: "scalar", repeat: 2, T: 12 },
+                { no: 31, name: "cm_config", kind: "scalar", T: 12 },
+                { no: 41, name: "cm_ipad", kind: "scalar", T: 12 },
+                {
+                    no: 50,
+                    name: "special_cell_new",
+                    kind: "scalar",
+                    repeat: 2,
+                    T: 12,
+                },
+            ]);
+        }
+        create(e) {
+            let t = globalThis.Object.create(this.messagePrototype);
+            return (
+                (t.relates = []),
+                (t.label = new Uint8Array(0)),
+                (t.cms = []),
+                (t.cmConfig = new Uint8Array(0)),
+                (t.cmIpad = new Uint8Array(0)),
+                (t.specialCellNew = []),
+                e !== void 0 && m(this, t, e),
+                t
+            );
+        }
+        internalBinaryRead(e, t, i, n) {
+            let s = n ?? this.create(),
+                f = e.pos + t;
+            for (; e.pos < f;) {
+                let [o, l] = e.tag();
+                switch (o) {
+                    case 4:
+                        s.reqUser = Et.internalBinaryRead(e, e.uint32(), i, s.reqUser);
+                        break;
+                    case 10:
+                        s.relates.push(Ft.internalBinaryRead(e, e.uint32(), i));
+                        break;
+                    case 23:
+                        s.label = e.bytes();
+                        break;
+                    case 30:
+                        s.cms.push(e.bytes());
+                        break;
+                    case 31:
+                        s.cmConfig = e.bytes();
+                        break;
+                    case 41:
+                        s.cmIpad = e.bytes();
+                        break;
+                    case 50:
+                        s.specialCellNew.push(e.bytes());
+                        break;
+                    default:
+                        let a = i.readUnknownField;
+                        if (a === "throw")
+                            throw new globalThis.Error(
+                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                            );
+                        let u = e.skip(l);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                }
+            }
+            return s;
+        }
+        internalBinaryWrite(e, t, i) {
+            e.reqUser &&
+                Et.internalBinaryWrite(
+                    e.reqUser,
+                    t.tag(4, c.LengthDelimited).fork(),
+                    i
+                ).join();
+            for (let s = 0; s < e.relates.length; s++)
+                Ft.internalBinaryWrite(
+                    e.relates[s],
+                    t.tag(10, c.LengthDelimited).fork(),
+                    i
+                ).join();
+            e.label.length && t.tag(23, c.LengthDelimited).bytes(e.label);
+            for (let s = 0; s < e.cms.length; s++)
+                t.tag(30, c.LengthDelimited).bytes(e.cms[s]);
+            e.cmConfig.length && t.tag(31, c.LengthDelimited).bytes(e.cmConfig),
+                e.cmIpad.length && t.tag(41, c.LengthDelimited).bytes(e.cmIpad);
+            for (let s = 0; s < e.specialCellNew.length; s++)
+                t.tag(50, c.LengthDelimited).bytes(e.specialCellNew[s]);
+            let n = i.writeUnknownFields;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+        }
+    },
+        St = new Ot(),
+        Dt = class extends y {
+            constructor() {
+                super("bilibili.app.view.v1.ReqUser", [
+                    { no: 9, name: "elec_plus_btn", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.elecPlusBtn = new Uint8Array(0)), e !== void 0 && m(this, t, e), t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 9:
+                            s.elecPlusBtn = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.elecPlusBtn.length &&
+                    t.tag(9, c.LengthDelimited).bytes(e.elecPlusBtn);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Et = new Dt(),
+        At = class extends y {
+            constructor() {
+                super("bilibili.app.view.v1.Relate", [
+                    { no: 28, name: "cm", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.cm = new Uint8Array(0)), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 28:
+                            s.cm = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.cm.length && t.tag(28, c.LengthDelimited).bytes(e.cm);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Ft = new At(),
+        Lt = class extends y {
+            constructor() {
+                super("bilibili.app.view.v1.ViewProgressReply", [
+                    { no: 1, name: "video_guide", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.videoGuide = new Uint8Array(0)), e !== void 0 && m(this, t, e), t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.videoGuide = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.videoGuide.length && t.tag(1, c.LengthDelimited).bytes(e.videoGuide);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Pt = new Lt(),
+        Vt = class extends y {
+            constructor() {
+                super("bilibili.app.view.v1.TFInfoReply", [
+                    { no: 1, name: "tips_id", kind: "scalar", T: 3, L: 0 },
+                    { no: 2, name: "tf_toast", kind: "scalar", T: 12 },
+                    { no: 3, name: "tf_panel_customized", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.tipsId = 0n),
+                    (t.tfToast = new Uint8Array(0)),
+                    (t.tfPanelCustomized = new Uint8Array(0)),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.tipsId = e.int64().toBigInt();
+                            break;
+                        case 2:
+                            s.tfToast = e.bytes();
+                            break;
+                        case 3:
+                            s.tfPanelCustomized = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.tipsId !== 0n && t.tag(1, c.Varint).int64(e.tipsId),
+                    e.tfToast.length && t.tag(2, c.LengthDelimited).bytes(e.tfToast),
+                    e.tfPanelCustomized.length &&
+                    t.tag(3, c.LengthDelimited).bytes(e.tfPanelCustomized);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Ct = new Vt();
+    var qt;
+    (function (r) {
+        (r[(r.TAB_NONE = 0)] = "TAB_NONE"),
+            (r[(r.TAB_INTRODUCTION = 1)] = "TAB_INTRODUCTION");
+    })(qt || (qt = {}));
+    var J;
+    (function (r) {
+        (r[(r.UNKNOWN = 0)] = "UNKNOWN"),
+            (r[(r.UGC_HEADLINE = 3)] = "UGC_HEADLINE"),
+            (r[(r.RELATED_RECOMMEND = 28)] = "RELATED_RECOMMEND"),
+            (r[(r.PAY_BAR = 29)] = "PAY_BAR"),
+            (r[(r.SPECIALTAG = 37)] = "SPECIALTAG"),
+            (r[(r.MERCHANDISE = 55)] = "MERCHANDISE");
+    })(J || (J = {}));
+    var X;
+    (function (r) {
+        (r[(r.CARD_TYPE_UNKNOWN = 0)] = "CARD_TYPE_UNKNOWN"),
+            (r[(r.AV = 1)] = "AV"),
+            (r[(r.GAME = 4)] = "GAME"),
+            (r[(r.CM_TYPE = 5)] = "CM_TYPE"),
+            (r[(r.LIVE = 6)] = "LIVE"),
+            (r[(r.AI_RECOMMEND = 7)] = "AI_RECOMMEND"),
+            (r[(r.COURSE = 11)] = "COURSE");
+    })(X || (X = {}));
+    var Jt = class extends y {
+        constructor() {
+            super("bilibili.app.viewunite.v1.ViewReply", [
+                { no: 3, name: "req_user", kind: "message", T: () => Wt },
+                { no: 5, name: "tab", kind: "message", T: () => $t },
+                { no: 7, name: "cm", kind: "scalar", T: 12 },
+            ]);
+        }
+        create(e) {
+            let t = globalThis.Object.create(this.messagePrototype);
+            return (t.cm = new Uint8Array(0)), e !== void 0 && m(this, t, e), t;
+        }
+        internalBinaryRead(e, t, i, n) {
+            let s = n ?? this.create(),
+                f = e.pos + t;
+            for (; e.pos < f;) {
+                let [o, l] = e.tag();
+                switch (o) {
+                    case 3:
+                        s.reqUser = Wt.internalBinaryRead(e, e.uint32(), i, s.reqUser);
+                        break;
+                    case 5:
+                        s.tab = $t.internalBinaryRead(e, e.uint32(), i, s.tab);
+                        break;
+                    case 7:
+                        s.cm = e.bytes();
+                        break;
+                    default:
+                        let a = i.readUnknownField;
+                        if (a === "throw")
+                            throw new globalThis.Error(
+                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                            );
+                        let u = e.skip(l);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                }
+            }
+            return s;
+        }
+        internalBinaryWrite(e, t, i) {
+            e.reqUser &&
+                Wt.internalBinaryWrite(
+                    e.reqUser,
+                    t.tag(3, c.LengthDelimited).fork(),
+                    i
+                ).join(),
+                e.tab &&
+                $t
+                    .internalBinaryWrite(e.tab, t.tag(5, c.LengthDelimited).fork(), i)
+                    .join(),
+                e.cm.length && t.tag(7, c.LengthDelimited).bytes(e.cm);
+            let n = i.writeUnknownFields;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+        }
+    },
+        an = new Jt(),
+        Xt = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.ReqUser", [
+                    { no: 7, name: "elec_plus_btn", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.elecPlusBtn = new Uint8Array(0)), e !== void 0 && m(this, t, e), t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 7:
+                            s.elecPlusBtn = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.elecPlusBtn.length &&
+                    t.tag(7, c.LengthDelimited).bytes(e.elecPlusBtn);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Wt = new Xt(),
+        Zt = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.Tab", [
+                    {
+                        no: 1,
+                        name: "tab_module",
+                        kind: "message",
+                        repeat: 1,
+                        T: () => Mt,
+                    },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.tabModule = []), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.tabModule.push(Mt.internalBinaryRead(e, e.uint32(), i));
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                for (let s = 0; s < e.tabModule.length; s++)
+                    Mt.internalBinaryWrite(
+                        e.tabModule[s],
+                        t.tag(1, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        $t = new Zt(),
+        Yt = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.TabModule", [
+                    {
+                        no: 1,
+                        name: "tab_type",
+                        kind: "enum",
+                        T: () => ["bilibili.app.viewunite.v1.TabType", qt],
+                    },
+                    {
+                        no: 2,
+                        name: "introduction",
+                        kind: "message",
+                        oneof: "tab",
+                        T: () => jt,
+                    },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.tabType = 0),
+                    (t.tab = { oneofKind: void 0 }),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.tabType = e.int32();
+                            break;
+                        case 2:
+                            s.tab = {
+                                oneofKind: "introduction",
+                                introduction: jt.internalBinaryRead(
+                                    e,
+                                    e.uint32(),
+                                    i,
+                                    s.tab.introduction
+                                ),
+                            };
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.tabType !== 0 && t.tag(1, c.Varint).int32(e.tabType),
+                    e.tab.oneofKind === "introduction" &&
+                    jt
+                        .internalBinaryWrite(
+                            e.tab.introduction,
+                            t.tag(2, c.LengthDelimited).fork(),
+                            i
+                        )
+                        .join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Mt = new Yt(),
+        Ht = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.IntroductionTab", [
+                    { no: 2, name: "modules", kind: "message", repeat: 1, T: () => zt },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.modules = []), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 2:
+                            s.modules.push(zt.internalBinaryRead(e, e.uint32(), i));
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                for (let s = 0; s < e.modules.length; s++)
+                    zt.internalBinaryWrite(
+                        e.modules[s],
+                        t.tag(2, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        jt = new Ht(),
+        Qt = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.Module", [
+                    {
+                        no: 1,
+                        name: "type",
+                        kind: "enum",
+                        T: () => ["bilibili.app.viewunite.v1.ModuleType", J],
+                    },
+                    {
+                        no: 5,
+                        name: "head_line",
+                        kind: "message",
+                        oneof: "data",
+                        T: () => _t,
+                    },
+                    {
+                        no: 22,
+                        name: "relates",
+                        kind: "message",
+                        oneof: "data",
+                        T: () => Kt,
+                    },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.type = 0),
+                    (t.data = { oneofKind: void 0 }),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.type = e.int32();
+                            break;
+                        case 5:
+                            s.data = {
+                                oneofKind: "headLine",
+                                headLine: _t.internalBinaryRead(
+                                    e,
+                                    e.uint32(),
+                                    i,
+                                    s.data.headLine
+                                ),
+                            };
+                            break;
+                        case 22:
+                            s.data = {
+                                oneofKind: "relates",
+                                relates: Kt.internalBinaryRead(
+                                    e,
+                                    e.uint32(),
+                                    i,
+                                    s.data.relates
+                                ),
+                            };
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.type !== 0 && t.tag(1, c.Varint).int32(e.type),
+                    e.data.oneofKind === "headLine" &&
+                    _t
+                        .internalBinaryWrite(
+                            e.data.headLine,
+                            t.tag(5, c.LengthDelimited).fork(),
+                            i
+                        )
+                        .join(),
+                    e.data.oneofKind === "relates" &&
+                    Kt.internalBinaryWrite(
+                        e.data.relates,
+                        t.tag(22, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        zt = new Qt(),
+        en = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.Headline", [
+                    { no: 1, name: "label", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.label = new Uint8Array(0)), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.label = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.label.length && t.tag(1, c.LengthDelimited).bytes(e.label);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        _t = new en(),
+        tn = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.Relates", [
+                    { no: 1, name: "cards", kind: "message", repeat: 1, T: () => le },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.cards = []), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.cards.push(le.internalBinaryRead(e, e.uint32(), i));
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                for (let s = 0; s < e.cards.length; s++)
+                    le.internalBinaryWrite(
+                        e.cards[s],
+                        t.tag(1, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Kt = new tn(),
+        nn = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.RelateCard", [
+                    {
+                        no: 1,
+                        name: "relate_card_type",
+                        kind: "enum",
+                        T: () => ["bilibili.app.viewunite.v1.RelateCardType", X],
+                    },
+                    { no: 11, name: "cm_stock", kind: "scalar", T: 12 },
+                    { no: 12, name: "basic_info", kind: "message", T: () => Gt },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (
+                    (t.relateCardType = 0),
+                    (t.cmStock = new Uint8Array(0)),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.relateCardType = e.int32();
+                            break;
+                        case 11:
+                            s.cmStock = e.bytes();
+                            break;
+                        case 12:
+                            s.basicInfo = Gt.internalBinaryRead(
+                                e,
+                                e.uint32(),
+                                i,
+                                s.basicInfo
+                            );
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.relateCardType !== 0 && t.tag(1, c.Varint).int32(e.relateCardType),
+                    e.cmStock.length && t.tag(11, c.LengthDelimited).bytes(e.cmStock),
+                    e.basicInfo &&
+                    Gt.internalBinaryWrite(
+                        e.basicInfo,
+                        t.tag(12, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        le = new nn(),
+        rn = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.CardBasicInfo", [
+                    { no: 6, name: "unique_id", kind: "scalar", T: 9 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.uniqueId = ""), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 6:
+                            s.uniqueId = e.string();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.uniqueId !== "" && t.tag(6, c.LengthDelimited).string(e.uniqueId);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        Gt = new rn(),
+        sn = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.ViewProgressReply", [
+                    { no: 4, name: "dm", kind: "scalar", T: 12 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.dm = new Uint8Array(0)), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 4:
+                            s.dm = e.bytes();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.dm.length && t.tag(4, c.LengthDelimited).bytes(e.dm);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        ln = new sn(),
+        on = class extends y {
+            constructor() {
+                super("bilibili.app.viewunite.v1.RelatesFeedReply", [
+                    { no: 1, name: "relates", kind: "message", repeat: 1, T: () => le },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.relates = []), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 1:
+                            s.relates.push(le.internalBinaryRead(e, e.uint32(), i));
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                for (let s = 0; s < e.relates.length; s++)
+                    le.internalBinaryWrite(
+                        e.relates[s],
+                        t.tag(1, c.LengthDelimited).fork(),
+                        i
+                    ).join();
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        fn = new on();
+    var cn = class extends y {
+        constructor() {
+            super("bilibili.community.service.dm.v1.DmViewReply", [
+                { no: 18, name: "activity_meta", kind: "scalar", repeat: 2, T: 9 },
+                { no: 22, name: "command", kind: "message", T: () => un },
+            ]);
+        }
+        create(e) {
+            let t = globalThis.Object.create(this.messagePrototype);
+            return (t.activityMeta = []), e !== void 0 && m(this, t, e), t;
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -5215,7 +4580,7 @@
                         s.activityMeta.push(e.string());
                         break;
                     case 22:
-                        s.dmView = Dn.internalBinaryRead(e, e.uint32(), i, s.dmView);
+                        s.command = un.internalBinaryRead(e, e.uint32(), i, s.command);
                         break;
                     default:
                         let a = i.readUnknownField;
@@ -5224,7 +4589,7 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
@@ -5232,32 +4597,28 @@
         internalBinaryWrite(e, t, i) {
             for (let s = 0; s < e.activityMeta.length; s++)
                 t.tag(18, c.LengthDelimited).string(e.activityMeta[s]);
-            e.dmView &&
-                Dn.internalBinaryWrite(
-                    e.dmView,
-                    t.tag(22, c.LengthDelimited).fork(),
-                    i
-                ).join();
+            e.command &&
+                un
+                    .internalBinaryWrite(
+                        e.command,
+                        t.tag(22, c.LengthDelimited).fork(),
+                        i
+                    )
+                    .join();
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        Mn = new $n(),
-        _n = class extends m {
+        pn = new cn(),
+        hn = class extends y {
             constructor() {
-                super("DmView", [
-                    {
-                        no: 1,
-                        name: "commandDms",
-                        kind: "message",
-                        repeat: 1,
-                        T: () => Cn,
-                    },
+                super("bilibili.community.service.dm.v1.Command", [
+                    { no: 1, name: "command_dms", kind: "scalar", repeat: 2, T: 12 },
                 ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return (t.commandDms = []), e !== void 0 && d(this, t, e), t;
+                return (t.commandDms = []), e !== void 0 && m(this, t, e), t;
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -5266,7 +4627,7 @@
                     let [o, l] = e.tag();
                     switch (o) {
                         case 1:
-                            s.commandDms.push(Cn.internalBinaryRead(e, e.uint32(), i));
+                            s.commandDms.push(e.bytes());
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -5275,49 +4636,28 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
                 for (let s = 0; s < e.commandDms.length; s++)
-                    Cn.internalBinaryWrite(
-                        e.commandDms[s],
-                        t.tag(1, c.LengthDelimited).fork(),
-                        i
-                    ).join();
+                    t.tag(1, c.LengthDelimited).bytes(e.commandDms[s]);
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Dn = new _n(),
-        jn = class extends m {
-            constructor() {
-                super("CommandDm", []);
-            }
-            create(e) {
-                let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
-            }
-            internalBinaryRead(e, t, i, n) {
-                return n ?? this.create();
-            }
-            internalBinaryWrite(e, t, i) {
-                let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
-            }
-        },
-        Cn = new jn();
-    var Gn = class extends m {
+        un = new hn();
+    var dn = class extends y {
         constructor() {
-            super("MainListReply", [
-                { no: 11, name: "cm", kind: "message", T: () => K },
+            super("bilibili.main.community.reply.v1.MainListReply", [
+                { no: 11, name: "cm", kind: "scalar", T: 12 },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
+            return (t.cm = new Uint8Array(0)), e !== void 0 && m(this, t, e), t;
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -5326,7 +4666,7 @@
                 let [o, l] = e.tag();
                 switch (o) {
                     case 11:
-                        s.cm = K.internalBinaryRead(e, e.uint32(), i, s.cm);
+                        s.cm = e.bytes();
                         break;
                     default:
                         let a = i.readUnknownField;
@@ -5335,33 +4675,28 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
         }
         internalBinaryWrite(e, t, i) {
-            e.cm &&
-                K.internalBinaryWrite(
-                    e.cm,
-                    t.tag(11, c.LengthDelimited).fork(),
-                    i
-                ).join();
+            e.cm.length && t.tag(11, c.LengthDelimited).bytes(e.cm);
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        zn = new Gn();
-    var Yn = class extends m {
+        mn = new dn();
+    var bn = class extends y {
         constructor() {
             super("bilibili.pgc.gateway.player.v2.PlayViewReply", [
-                { no: 5, name: "view_info", kind: "message", T: () => Kn },
-                { no: 6, name: "play_ext_conf", kind: "message", T: () => Jn },
+                { no: 5, name: "view_info", kind: "message", T: () => yn },
+                { no: 6, name: "play_ext_conf", kind: "message", T: () => wn },
             ]);
         }
         create(e) {
             let t = globalThis.Object.create(this.messagePrototype);
-            return e !== void 0 && d(this, t, e), t;
+            return e !== void 0 && m(this, t, e), t;
         }
         internalBinaryRead(e, t, i, n) {
             let s = n ?? this.create(),
@@ -5370,10 +4705,10 @@
                 let [o, l] = e.tag();
                 switch (o) {
                     case 5:
-                        s.viewInfo = Kn.internalBinaryRead(e, e.uint32(), i, s.viewInfo);
+                        s.viewInfo = yn.internalBinaryRead(e, e.uint32(), i, s.viewInfo);
                         break;
                     case 6:
-                        s.playExtConf = Jn.internalBinaryRead(
+                        s.playExtConf = wn.internalBinaryRead(
                             e,
                             e.uint32(),
                             i,
@@ -5387,38 +4722,46 @@
                                 `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                             );
                         let u = e.skip(l);
-                        a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                 }
             }
             return s;
         }
         internalBinaryWrite(e, t, i) {
             e.viewInfo &&
-                Kn.internalBinaryWrite(
-                    e.viewInfo,
-                    t.tag(5, c.LengthDelimited).fork(),
-                    i
-                ).join(),
+                yn
+                    .internalBinaryWrite(
+                        e.viewInfo,
+                        t.tag(5, c.LengthDelimited).fork(),
+                        i
+                    )
+                    .join(),
                 e.playExtConf &&
-                Jn.internalBinaryWrite(
-                    e.playExtConf,
-                    t.tag(6, c.LengthDelimited).fork(),
-                    i
-                ).join();
+                wn
+                    .internalBinaryWrite(
+                        e.playExtConf,
+                        t.tag(6, c.LengthDelimited).fork(),
+                        i
+                    )
+                    .join();
             let n = i.writeUnknownFields;
-            return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
         }
     },
-        Qn = new Yn(),
-        Xn = class extends m {
+        Tn = new bn(),
+        vn = class extends y {
             constructor() {
                 super("bilibili.pgc.gateway.player.v2.ViewInfo", [
-                    { no: 8, name: "try_watch_prompt_bar", kind: "message", T: () => k },
+                    { no: 8, name: "try_watch_prompt_bar", kind: "scalar", T: 12 },
                 ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
+                return (
+                    (t.tryWatchPromptBar = new Uint8Array(0)),
+                    e !== void 0 && m(this, t, e),
+                    t
+                );
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -5427,12 +4770,7 @@
                     let [o, l] = e.tag();
                     switch (o) {
                         case 8:
-                            s.tryWatchPromptBar = k.internalBinaryRead(
-                                e,
-                                e.uint32(),
-                                i,
-                                s.tryWatchPromptBar
-                            );
+                            s.tryWatchPromptBar = e.bytes();
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -5441,34 +4779,28 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
-                e.tryWatchPromptBar &&
-                    k
-                        .internalBinaryWrite(
-                            e.tryWatchPromptBar,
-                            t.tag(8, c.LengthDelimited).fork(),
-                            i
-                        )
-                        .join();
+                e.tryWatchPromptBar.length &&
+                    t.tag(8, c.LengthDelimited).bytes(e.tryWatchPromptBar);
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Kn = new Xn(),
-        Zn = class extends m {
+        yn = new vn(),
+        kn = class extends y {
             constructor() {
                 super("bilibili.pgc.gateway.player.v2.PlayAbilityExtConf", [
-                    { no: 3, name: "cast_tips", kind: "message", T: () => qn },
+                    { no: 3, name: "cast_tips", kind: "message", T: () => gn },
                 ]);
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return e !== void 0 && d(this, t, e), t;
+                return e !== void 0 && m(this, t, e), t;
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -5477,7 +4809,7 @@
                     let [o, l] = e.tag();
                     switch (o) {
                         case 3:
-                            s.castTips = qn.internalBinaryRead(e, e.uint32(), i, s.castTips);
+                            s.castTips = gn.internalBinaryRead(e, e.uint32(), i, s.castTips);
                             break;
                         default:
                             let a = i.readUnknownField;
@@ -5486,14 +4818,14 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
             }
             internalBinaryWrite(e, t, i) {
                 e.castTips &&
-                    qn
+                    gn
                         .internalBinaryWrite(
                             e.castTips,
                             t.tag(3, c.LengthDelimited).fork(),
@@ -5501,11 +4833,11 @@
                         )
                         .join();
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        Jn = new Zn(),
-        Hn = class extends m {
+        wn = new kn(),
+        Nn = class extends y {
             constructor() {
                 super("bilibili.pgc.gateway.player.v2.CastTips", [
                     { no: 1, name: "code", kind: "scalar", T: 5 },
@@ -5514,7 +4846,7 @@
             }
             create(e) {
                 let t = globalThis.Object.create(this.messagePrototype);
-                return (t.code = 0), (t.message = ""), e !== void 0 && d(this, t, e), t;
+                return (t.code = 0), (t.message = ""), e !== void 0 && m(this, t, e), t;
             }
             internalBinaryRead(e, t, i, n) {
                 let s = n ?? this.create(),
@@ -5535,7 +4867,7 @@
                                     `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
                                 );
                             let u = e.skip(l);
-                            a !== !1 && (a === !0 ? h.onRead : a)(this.typeName, s, o, l, u);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
                     }
                 }
                 return s;
@@ -5544,151 +4876,237 @@
                 e.code !== 0 && t.tag(1, c.Varint).int32(e.code),
                     e.message !== "" && t.tag(2, c.LengthDelimited).string(e.message);
                 let n = i.writeUnknownFields;
-                return n !== !1 && (n == !0 ? h.onWrite : n)(this.typeName, e, t), t;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
             }
         },
-        qn = new Hn();
-    function $i(r) {
-        let e = Qe.fromBinary(r),
-            t = e.modes.find((i) => i.name === "teenagers");
-        t?.f5?.f1 && ((t.f5.f1 = 0), V(Qe, e));
+        gn = new Nn();
+    var Bn = class extends y {
+        constructor() {
+            super("bilibili.polymer.app.search.v1.SearchAllResponse", [
+                { no: 4, name: "item", kind: "message", repeat: 1, T: () => xn },
+            ]);
+        }
+        create(e) {
+            let t = globalThis.Object.create(this.messagePrototype);
+            return (t.item = []), e !== void 0 && m(this, t, e), t;
+        }
+        internalBinaryRead(e, t, i, n) {
+            let s = n ?? this.create(),
+                f = e.pos + t;
+            for (; e.pos < f;) {
+                let [o, l] = e.tag();
+                switch (o) {
+                    case 4:
+                        s.item.push(xn.internalBinaryRead(e, e.uint32(), i));
+                        break;
+                    default:
+                        let a = i.readUnknownField;
+                        if (a === "throw")
+                            throw new globalThis.Error(
+                                `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                            );
+                        let u = e.skip(l);
+                        a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                }
+            }
+            return s;
+        }
+        internalBinaryWrite(e, t, i) {
+            for (let s = 0; s < e.item.length; s++)
+                xn.internalBinaryWrite(
+                    e.item[s],
+                    t.tag(4, c.LengthDelimited).fork(),
+                    i
+                ).join();
+            let n = i.writeUnknownFields;
+            return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+        }
+    },
+        Rn = new Bn(),
+        Un = class extends y {
+            constructor() {
+                super("bilibili.polymer.app.search.v1.Item", [
+                    { no: 4, name: "linktype", kind: "scalar", T: 9 },
+                ]);
+            }
+            create(e) {
+                let t = globalThis.Object.create(this.messagePrototype);
+                return (t.linktype = ""), e !== void 0 && m(this, t, e), t;
+            }
+            internalBinaryRead(e, t, i, n) {
+                let s = n ?? this.create(),
+                    f = e.pos + t;
+                for (; e.pos < f;) {
+                    let [o, l] = e.tag();
+                    switch (o) {
+                        case 4:
+                            s.linktype = e.string();
+                            break;
+                        default:
+                            let a = i.readUnknownField;
+                            if (a === "throw")
+                                throw new globalThis.Error(
+                                    `Unknown field ${o} (wire type ${l}) for ${this.typeName}`
+                                );
+                            let u = e.skip(l);
+                            a !== !1 && (a === !0 ? p.onRead : a)(this.typeName, s, o, l, u);
+                    }
+                }
+                return s;
+            }
+            internalBinaryWrite(e, t, i) {
+                e.linktype !== "" && t.tag(4, c.LengthDelimited).string(e.linktype);
+                let n = i.writeUnknownFields;
+                return n !== !1 && (n == !0 ? p.onWrite : n)(this.typeName, e, t), t;
+            }
+        },
+        xn = new Un();
+    var P = new Uint8Array(0);
+    function wi(r, e) {
+        let t = nt.fromBinary(r);
+        if (
+            ((t.topicList = P),
+                (t.dynamicList.list = t.dynamicList.list.filter(
+                    (i) => ![oe.AD, oe.LIVE_RCMD].includes(i.cardType)
+                )),
+                e.showUpList === "false")
+        )
+            delete t.upList;
+        else if (!e.isHD && e.showUpList !== "true")
+            if (t.upList?.showLiveNum) {
+                let { list: i, listSecond: n } = t.upList;
+                n.length &&
+                    ((n.at(-1).separator = !0), i.unshift(...n), (n.length = 0));
+            } else delete t.upList;
+        L(nt, t);
     }
-    function _i(r) {
-        let e = tt.fromBinary(r);
+    function gi(r) {
+        let e = rt.fromBinary(r);
         (e.show = "\u641C\u7D22\u89C6\u9891\u3001\u756A\u5267\u6216up\u4E3B"),
             delete e.word,
             delete e.goto,
             delete e.value,
             delete e.uri,
-            V(tt, e);
+            L(rt, e);
     }
-    function ji(r) {
-        let e = ft.fromBinary(r);
-        (e.items = e.items.filter(
-            (t) => !["topicList", "rcmdOneItem"].includes(t.item.oneofKind)
-        )),
-            V(ft, e);
+    function bi(r) {
+        let e = ut.fromBinary(r),
+            t = e.userModels.find((i) => i.mode === "teenagers");
+        t?.policy?.interval && ((t.policy.interval = 0), L(ut, e));
     }
-    function Mi(r, e) {
-        let t = kt.fromBinary(r);
-        delete t.topicList,
-            e.showUpList === "false"
-                ? delete t.upList
-                : !e.isHD &&
-                e.showUpList !== "true" &&
-                (t.upList?.showLiveNum
-                    ? t.upList.listSecond.length &&
-                    ((t.upList.listSecond[t.upList.listSecond.length - 1].separator =
-                        !0),
-                        t.upList.list.unshift(...t.upList.listSecond),
-                        (t.upList.listSecond.length = 0))
-                    : delete t.upList),
-            (t.dynamicList.list = t.dynamicList.list.filter(
-                (i) => ![ie.ad, ie.live_rcmd].includes(i.cardType)
-            )),
-            V(kt, t);
-    }
-    function Gi(r) {
-        let e = Lt.fromBinary(r);
-        delete e.cmConfig,
-            delete e.cmIpad,
-            delete e.label,
-            delete e.reqUser?.elecPlusBtn,
-            (e.specialCellNew.length = 0),
-            (e.cms.length = 0),
-            (e.relates = e.relates.filter((t) => !t.cm)),
-            V(Lt, e);
-    }
-    function zi(r) {
-        let e = Vt.fromBinary(r);
-        delete e.dm, V(Vt, e);
-    }
-    function Ki(r) {
-        let e = Pt.fromBinary(r);
-        e?.tipsId && (delete e.tfToast, delete e.tfPanelCustomized, V(Pt, e));
-    }
-    function Ji(r) {
-        let e = zt.fromBinary(r),
-            t = e.playArc?.backgroundPlayConf;
-        t &&
-            (!t.isSupport || t.disabled) &&
-            ((t.isSupport = !0),
-                (t.disabled = !1),
-                (t.extraContent = null),
-                V(zt, e));
-    }
-    function qi(r) {
-        let e = yn.fromBinary(r);
-        delete e.cm,
-            delete e.reqUser?.elecPlusBtn,
-            e.tab?.tabModule.forEach((t) => {
-                if (t.tab.oneofKind !== "introduction") return;
-                t.tab.introduction.modules = t.tab.introduction.modules.filter(
-                    (s) => ![ee.SPECIALTAG, ee.PAY_BAR, 55].includes(s.type)
-                );
-                let i = t.tab.introduction.modules.find(
-                    (s) => s.type === ee.RELATED_RECOMMEND
-                );
-                i?.data.oneofKind === "relates" &&
-                    (i.data.relates.cards = i.data.relates.cards.filter(
-                        (s) =>
-                            ![Y.GAME, Y.CM_TYPE, Y.LIVE, Y.COURSE].includes(
-                                s.relateCardType
-                            ) &&
-                            !s.cmStock &&
-                            !s.basicInfo?.uniqueId
-                    ));
-                let n = t.tab.introduction.modules.find(
-                    (s) => s.type === ee.UGC_HEADLINE
-                );
-                n?.data.oneofKind === "headLine" && delete n.data.headLine.label;
-            }),
-            V(yn, e);
-    }
-    function Yi(r) {
-        let e = bn.fromBinary(r);
-        delete e.dm, V(bn, e);
-    }
-    function Xi(r) {
-        let e = xn.fromBinary(r);
-        (e.relates = e.relates.filter((t) => t.relateCardType === Y.AV)), V(xn, e);
-    }
-    function Zi(r) {
-        let e = Ln.fromBinary(r);
-        delete e.viewInfo?.promptBar,
+    function vi(r) {
+        let e = wt.fromBinary(r);
+        e.viewInfo && (e.viewInfo.promptBar = P),
             e.playArcConf?.arcConfs &&
-            Object.values(e.playArcConf.arcConfs).forEach((t, i) => {
+            Object.values(e.playArcConf.arcConfs).forEach((t) => {
                 t.isSupport &&
                     t.disabled &&
                     ((t.disabled = !1),
                         (t.extraContent = null),
                         (t.unsupportScene.length = 0));
             }),
-            V(Ln, e);
+            L(wt, e);
     }
-    function Hi(r) {
-        let e = Pn.fromBinary(r);
-        (e.items = e.items.filter((t) => !t.linktype.endsWith("_ad"))), V(Pn, e);
+    function ki(r) {
+        let e = xt.fromBinary(r),
+            { backgroundPlayConf: t, castConf: i } = e.playArc || {};
+        [t, i].forEach((n) => {
+            n &&
+                (!n.isSupport || n.disabled) &&
+                ((n.isSupport = !0),
+                    (n.disabled = !1),
+                    (n.extraContent = null),
+                    (n.unsupportScene.length = 0));
+        }),
+            L(xt, e);
     }
-    function Qi(r) {
-        let e = Mn.fromBinary(r);
-        e.dmView?.commandDms.length && (e.dmView.commandDms.length = 0),
-            (e.activityMeta.length = 0),
-            V(Mn, e);
+    function Ni(r) {
+        let e = It.fromBinary(r);
+        (e.items = e.items.filter(
+            (t) =>
+                !["rcmdOneItem", "smallCoverV5Ad", "topicList"].includes(
+                    t.item.oneofKind
+                )
+        )),
+            L(It, e);
     }
-    function er(r) {
-        let e = zn.fromBinary(r);
-        delete e.cm, V(zn, e);
+    function Ti(r) {
+        let e = Ct.fromBinary(r);
+        e.tipsId && ((e.tfToast = P), (e.tfPanelCustomized = P), L(Ct, e));
     }
-    function tr(r) {
-        let e = Qn.fromBinary(r);
-        (e.playExtConf.castTips = { code: 0, message: "" }),
-            delete e.viewInfo.tryWatchPromptBar,
-            V(Qn, e);
+    function xi(r) {
+        let e = St.fromBinary(r);
+        (e.label = P),
+            (e.cmIpad = P),
+            (e.cmConfig = P),
+            e.reqUser && (e.reqUser.elecPlusBtn = P),
+            (e.cms.length = 0),
+            (e.specialCellNew.length = 0),
+            (e.relates = e.relates.filter((t) => !t.cm.length)),
+            L(St, e);
     }
-    var Vr =
+    function Bi(r) {
+        let e = Pt.fromBinary(r);
+        (e.videoGuide = P), L(Pt, e);
+    }
+    var pr = [X.GAME, X.CM_TYPE, X.LIVE, X.AI_RECOMMEND, X.COURSE],
+        Ui = (r) =>
+            !pr.includes(r.relateCardType) &&
+            !r.cmStock.length &&
+            !r.basicInfo?.uniqueId;
+    function Ri(r) {
+        let e = fn.fromBinary(r);
+        (e.relates = e.relates.filter(Ui)), L(fn, e);
+    }
+    function Ii(r) {
+        let e = an.fromBinary(r);
+        (e.cm = P),
+            e.reqUser && (e.reqUser.elecPlusBtn = P),
+            e.tab?.tabModule.forEach((t) => {
+                if (t.tab.oneofKind !== "introduction") return;
+                t.tab.introduction.modules = t.tab.introduction.modules.filter(
+                    (s) => ![J.PAY_BAR, J.SPECIALTAG, J.MERCHANDISE].includes(s.type)
+                );
+                let i = t.tab.introduction.modules.find(
+                    (s) => s.type === J.UGC_HEADLINE
+                );
+                i?.data.oneofKind === "headLine" && (i.data.headLine.label = P);
+                let n = t.tab.introduction.modules.find(
+                    (s) => s.type === J.RELATED_RECOMMEND
+                );
+                n?.data.oneofKind === "relates" &&
+                    (n.data.relates.cards = n.data.relates.cards.filter(Ui));
+            }),
+            L(an, e);
+    }
+    function Ei(r) {
+        let e = ln.fromBinary(r);
+        (e.dm = P), L(ln, e);
+    }
+    function Fi(r) {
+        let e = pn.fromBinary(r);
+        (e.activityMeta.length = 0),
+            e.command?.commandDms.length && (e.command.commandDms.length = 0),
+            L(pn, e);
+    }
+    function Oi(r) {
+        let e = mn.fromBinary(r);
+        (e.cm = P), L(mn, e);
+    }
+    function Di(r) {
+        let e = Tn.fromBinary(r);
+        e.viewInfo && (e.viewInfo.tryWatchPromptBar = P),
+            e.playExtConf?.castTips &&
+            (e.playExtConf.castTips = { code: 0, message: "" }),
+            L(Tn, e);
+    }
+    function Ai(r) {
+        let e = Rn.fromBinary(r);
+        (e.item = e.item.filter((t) => !t.linktype.endsWith("_ad"))), L(Rn, e);
+    }
+    var dr =
         /(?<scheme>.+):\/\/(?<host>[^/]+)\/?(?<path>[^?]+)?\??(?<params>.*)?/,
-        ye = class {
+        me = class {
             constructor(e = "") {
                 if (((this.name = "URL v1.0.2"), !e)) throw new Error("Empty URL");
                 this.parse(e);
@@ -5699,7 +5117,7 @@
                     host: i,
                     path: n = "",
                     params: s,
-                } = e.match(Vr)?.groups ?? {};
+                } = e.match(dr)?.groups ?? {};
                 (this.scheme = t),
                     (this.host = i),
                     (this.path = n),
@@ -5724,49 +5142,49 @@
                 );
             }
         };
-    var ge = H.getInstance("Bilibili Helper", { debug: !1 }),
-        Wr = ge.request.url,
-        nr = ge.request.headers,
-        ti = ge.response.bodyBytes;
-    ti || ge.exit();
-    var Pr = new ye(Wr).path,
-        Dr =
+    var ye = H.getInstance("Bilibili Helper", { debug: !1 }),
+        mr = ye.request.url,
+        Li = ye.request.headers,
+        En = ye.response.bodyBytes;
+    En || ye.exit();
+    var yr = new me(mr).path,
+        wr =
             typeof $utils == "object" && typeof $utils?.ungzip == "function"
                 ? $utils.ungzip
-                : gi,
-        Cr = ti.slice(0, 5),
-        ei = ti.slice(5);
-    Cr[0] && (ei = Dr(ei));
-    var $r = nr["user-agent"] || nr["User-Agent"],
-        _r =
+                : Gn,
+        gr = En.slice(0, 5),
+        In = En.slice(5);
+    gr[0] && (In = wr(In));
+    var br = Li["user-agent"] || Li["User-Agent"],
+        vr =
             typeof $argument == "string"
                 ? JSON.parse($argument)
                 : typeof $argument == "object"
                     ? $argument
                     : null,
-        jr = { ..._r, isHD: $r?.includes("bili-hd") },
-        ir = {
-            "v1.Teenagers/ModeStatus": $i,
-            "v1.Search/DefaultWords": _i,
-            "v1.Popular/Index": ji,
-            "v2.Dynamic/DynAll": Mi,
-            "view.v1.View/View": Gi,
-            "view.v1.View/ViewProgress": zi,
-            "view.v1.View/TFInfo": Ki,
-            "playurl.v1.PlayURL/PlayView": Ji,
-            "viewunite.v1.View/View": qi,
-            "viewunite.v1.View/ViewProgress": Yi,
-            "viewunite.v1.View/RelatesFeed": Xi,
-            "playerunite.v1.Player/PlayViewUnite": Zi,
-            "v1.Search/SearchAll": Hi,
-            "v1.DM/DmView": Qi,
-            "v1.Reply/MainList": er,
-            "v2.PlayURL/PlayView": tr,
+        kr = { ...vr, isHD: br?.includes("bili-hd") },
+        Vi = {
+            "v2.Dynamic/DynAll": wi,
+            "v1.Search/DefaultWords": gi,
+            "v1.Teenagers/ModeStatus": bi,
+            "playerunite.v1.Player/PlayViewUnite": vi,
+            "playurl.v1.PlayURL/PlayView": ki,
+            "v1.Popular/Index": Ni,
+            "view.v1.View/TFInfo": Ti,
+            "view.v1.View/View": xi,
+            "view.v1.View/ViewProgress": Bi,
+            "viewunite.v1.View/RelatesFeed": Ri,
+            "viewunite.v1.View/View": Ii,
+            "viewunite.v1.View/ViewProgress": Ei,
+            "v1.DM/DmView": Fi,
+            "v1.Reply/MainList": Oi,
+            "v2.PlayURL/PlayView": Di,
+            "v1.Search/SearchAll": Ai,
         };
-    for (let r in ir)
-        if (Pr.endsWith(r)) {
-            ir[r](ei, jr);
+    for (let r in Vi)
+        if (yr.endsWith(r)) {
+            Vi[r](In, kr);
             break;
         }
-    ge.exit();
+    ye.exit();
 })();

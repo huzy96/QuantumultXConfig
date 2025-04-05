@@ -1,4 +1,4 @@
-const version = "V1.0.74";
+const version = "V1.0.75";
 
 let body = $response["body"];
 
@@ -72,8 +72,7 @@ if (body) {
       break;
     case /questions\/\d+\/feeds/["test"]($request["url"]):
       try {
-        let obj = JSON.parse(body);
-        delete obj["ad_info"], (body = JSON.stringify(obj));
+        body = body["replace"](/ad_info"/g, 'ddgksf2013"');
       } catch (e) {
         console.log("zhihu questions" + e);
       }
@@ -202,20 +201,9 @@ if (body) {
                 ) {
                   var find = ![];
                   propsToDelete["forEach"]((o) => {
-                    _0x218f5d = {
-                      TNODU: function (_0x35310a, _0x36081e) {
-                        return _0x35310a + _0x36081e;
-                      },
-                      EeFVB: "bjCMV",
-                    };
                     item["common_card"]["feed_content"]["title"]["panel_text"][
                       "includes"
-                    ](o) &&
-                      (_0x218f5d["EeFVB"] === "EDonl"
-                        ? _0x23915c["log"](
-                            _0x218f5d["TNODU"]("zhihu recommend", _0x1ae788)
-                          )
-                        : (find = !![]));
+                    ](o) && (find = !![]);
                   }),
                     !find && items["push"](item);
                 } else items["push"](item);
@@ -260,7 +248,7 @@ if (body) {
                 "https://pic1.zhimg.com/v2-e51e3252d7a2cb016a70879defd5da0b.png",
             },
             title: "我的盐选会员",
-            expires_day: "2039/12/24",
+            expires_day: "2039-12-24",
             sub_title: null,
             button_text: "你好，知乎！",
             jump_url: "zhihu://vip/purchase",
